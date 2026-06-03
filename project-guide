@@ -1,0 +1,366 @@
+# MASTER PROMPT FOR CLAUDE AI
+
+Create a complete lightweight Laravel 13 website project for a small freelance digital agency.
+
+## Project Type
+
+Freelance Agency Website
+
+## Tech Stack
+
+* Laravel 13
+* PHP 8.3+
+* MySQL
+* Blade Template Engine
+* Tailwind CSS
+* Alpine.js (only if needed)
+* No Vue or React
+* SEO optimized
+* Mobile responsive
+* Very lightweight and fast loading
+
+## Project Goal
+
+Build a modern, simple, affordable-service focused agency website.
+
+Main goal:
+We provide:
+
+* Low-cost website development
+* Web app development
+* SEO services
+* Maintenance services
+
+Target audience:
+
+* Small business owners
+* Local shops
+* Startup founders
+* Budget-friendly customers
+
+The website should feel:
+
+* Trustworthy
+* Developer-style
+* Modern
+* Minimal
+* Professional
+* Fast
+* Clean UI
+* Easy to navigate
+
+## Theme Style Reference
+
+Use this website only for inspiration of color feeling and modern UI style:
+https://portfolio.keshasricollections.in/
+
+DO NOT copy design directly.
+
+Need:
+
+* Light theme
+* Dark theme toggle
+* System theme detection
+* Smooth transitions
+* Modern developer portfolio style
+
+## Important Design Rules
+
+* Minimal design
+* Very clean spacing
+* Rounded corners
+* Soft shadows
+* Lightweight animations only
+* Avoid heavy JavaScript
+* Fully responsive
+* Fast loading
+* Optimized images
+* SEO friendly structure
+* Accessible UI
+
+## Required Pages
+
+### 1. Home Page
+
+Sections:
+
+* Hero section
+* Services overview
+* Why choose us
+* Pricing highlights
+* Portfolio preview
+* Testimonials
+* CTA section
+* Footer
+
+Hero content should focus on:
+"Affordable Website & App Development"
+
+Include:
+
+* CTA buttons
+* Modern gradient background
+* Animated developer-style elements
+
+### 2. About Us
+
+Sections:
+
+* Company introduction
+* Mission
+* Vision
+* Team intro
+* Why affordable pricing
+* Experience highlights
+
+### 3. Services Page
+
+Include service cards for:
+
+* Website Development
+* Web Application Development
+* SEO Optimization
+* Website Maintenance
+* Landing Page Creation
+* Business Website Setup
+
+Each service should support:
+
+* Image
+* Description
+* Pricing text
+* CTA button
+
+### 4. Portfolio Page
+
+Portfolio listing with:
+
+* Project image
+* Title
+* Category
+* Description
+* Technology used
+* Project URL button
+
+Add filtering:
+
+* Website
+* App
+* SEO
+
+### 5. Blog Page
+
+Blog listing page with:
+
+* Featured image
+* Title
+* Slug
+* Short description
+* Published date
+* Read more button
+
+Single blog page:
+
+* SEO friendly
+* Rich typography
+* Social share buttons
+* Related posts
+
+### 6. Contact Us Page
+
+Include:
+
+* Contact form
+* Email
+* Phone
+* WhatsApp button
+* Google Map iframe
+* Social media links
+
+Form fields:
+
+* Name
+* Email
+* Phone
+* Service
+* Message
+
+Store inquiries in database.
+
+## Admin Dashboard Requirements
+
+Create a simple custom admin panel.
+
+Do NOT use heavy admin templates.
+
+Use:
+
+* Laravel authentication
+* Middleware protection
+* Clean sidebar UI
+
+Admin should manage:
+
+### Blog Management
+
+* Add blog
+* Edit blog
+* Delete blog
+* Upload featured image
+* SEO fields
+
+### Portfolio Management
+
+* Add portfolio
+* Edit portfolio
+* Delete portfolio
+* Upload project image
+
+### Services Management
+
+* Add services
+* Update services
+* Delete services
+
+### Dynamic Content Management
+
+Admin should update:
+
+* Home page texts
+* About page contents
+* Contact details
+* Hero section
+* Footer content
+* Social media links
+* SEO meta tags
+
+### Media Management
+
+* Image upload
+* Image preview
+* Auto resize/compress images
+
+## Database Requirements
+
+Create proper MySQL migrations for:
+
+* users
+* blogs
+* portfolios
+* services
+* contact_messages
+* settings
+* testimonials
+
+Use:
+
+* foreign keys
+* timestamps
+* slugs
+* soft deletes where necessary
+
+## SEO Requirements
+
+Implement:
+
+* Dynamic meta title
+* Meta description
+* Open Graph tags
+* Sitemap
+* robots.txt
+* Canonical URLs
+* Schema markup
+* Clean URLs
+* Fast performance
+
+## Performance Requirements
+
+* Lazy loading images
+* Optimized assets
+* Minimal dependencies
+* Use Laravel caching where suitable
+* Clean database queries
+* Pagination
+* No unnecessary packages
+
+## UI Components Needed
+
+* Navbar
+* Mobile menu
+* Dark mode toggle
+* Footer
+* Service cards
+* Portfolio cards
+* Blog cards
+* Testimonials slider
+* CTA sections
+* Contact form
+
+## Authentication
+
+Create:
+
+* Admin login
+* Forgot password
+* Protected dashboard routes
+
+No public registration.
+
+## Folder Structure
+
+Use clean scalable architecture:
+
+* Controllers
+* Services
+* Repositories (optional)
+* Blade components
+* Layouts
+* Helpers
+
+## Coding Standards
+
+* Clean code
+* Reusable components
+* Proper comments
+* Follow Laravel best practices
+* Use route names
+* Use form validation
+* Use request classes
+* Use Eloquent relationships properly
+
+## Extra Features
+
+* Toast notifications
+* Loading indicators
+* Form validation messages
+* Empty state UI
+* Responsive tables
+* Search functionality for blogs and portfolio
+
+## Deliverables
+
+Generate:
+
+1. Full Laravel project structure
+2. Migrations
+3. Models
+4. Controllers
+5. Routes
+6. Blade views
+7. Admin dashboard
+8. Tailwind setup
+9. Dark/light theme implementation
+10. Seeder data
+11. Example dummy content
+12. README installation guide
+
+## Final Important Notes
+
+* Keep project very lightweight
+* Avoid unnecessary complexity
+* Make it beginner friendly
+* Hosting should work on cheap shared hosting
+* Optimize for performance
+* Make UI feel premium even with simple design
+* Ensure excellent mobile responsiveness
+* Use reusable Blade components whenever possible
