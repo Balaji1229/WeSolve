@@ -84,6 +84,8 @@
             }
         });
     </script>
+    @include('components.whatsapp-float')
+
     @stack('scripts')
 </body>
 </html>

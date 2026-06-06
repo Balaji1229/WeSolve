@@ -149,8 +149,8 @@ $teamMembers = [
         </div>
 
         <div class="mt-12 lg:mt-16 text-center" data-aos="fade-up">
-            <a href="{{ route('contact') }}" class="btn-gradient inline-flex items-center justify-center">
-                Work With Us
+            <a href="{{ route('developers') }}" class="btn-gradient inline-flex items-center justify-center">
+                Meet Our Developers
             </a>
         </div>
     </div>

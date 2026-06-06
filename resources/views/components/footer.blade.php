@@ -32,6 +32,7 @@
                     <li><a href="{{ route('blog') }}" class="text-sm text-muted hover:text-primary transition">Blog</a></li>
                     <li><a href="{{ route('contact') }}" class="text-sm text-muted hover:text-primary transition">Contact</a></li>
                     <li><a href="{{ route('sitemap') }}" class="text-sm text-muted hover:text-primary transition">Sitemap</a></li>
+                    <li><a href="{{ route('terms') }}" class="text-sm text-muted hover:text-primary transition">Terms &amp; Conditions</a></li>
                 </ul>
             </nav>
 
