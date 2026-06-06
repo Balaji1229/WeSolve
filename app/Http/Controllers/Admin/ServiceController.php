@@ -30,6 +30,9 @@ class ServiceController extends Controller
             'pricing_text' => 'nullable|string|max:255',
             'cta_button_text' => 'nullable|string|max:255',
             'cta_link' => 'nullable|string|max:255',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ]);
@@ -62,6 +65,9 @@ class ServiceController extends Controller
             'pricing_text' => 'nullable|string|max:255',
             'cta_button_text' => 'nullable|string|max:255',
             'cta_link' => 'nullable|string|max:255',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ]);

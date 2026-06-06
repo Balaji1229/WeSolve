@@ -42,6 +42,9 @@ class PortfolioController extends Controller
             'project_url' => 'nullable|url|max:255',
             'client_name' => 'nullable|string|max:255',
             'completion_date' => 'nullable|date',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ]);
@@ -76,6 +79,9 @@ class PortfolioController extends Controller
             'project_url' => 'nullable|url|max:255',
             'client_name' => 'nullable|string|max:255',
             'completion_date' => 'nullable|date',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'meta_keywords' => 'nullable|string',
             'sort_order' => 'integer',
             'is_active' => 'boolean',
         ]);

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('title', 'Our Developers - Expert Team | Freelancers4U')
-@section('meta_description', 'Meet the expert developers at Freelancers4U. Skilled PHP, Laravel, Flutter, Node.js, and Digital Marketing professionals ready to build your next project.')
-@section('meta_keywords', 'developers, PHP developers, Laravel developers, Flutter developers, Node.js developers, SEO specialists, Freelancers4U team')
 
 @section('content')
 @php

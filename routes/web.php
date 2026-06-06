@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
+use App\Http\Controllers\Admin\PageSeoController as AdminPageSeoController;
 use App\Http\Controllers\Admin\SettingController as AdminSettingController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\BlogController;
@@ -71,6 +72,9 @@ Route::middleware(['auth'])
         Route::get('/contacts/{contact}', [AdminContactController::class, 'show'])->name('contacts.show');
         Route::delete('/contacts/{contact}', [AdminContactController::class, 'destroy'])->name('contacts.destroy');
         Route::post('/contacts/{contact}/read', [AdminContactController::class, 'markAsRead'])->name('contacts.read');
+
+        // SEO
+        Route::resource('seo', AdminPageSeoController::class)->only(['index', 'edit', 'update']);
 
         // Settings
         Route::get('/settings', [AdminSettingController::class, 'index'])->name('settings.index');

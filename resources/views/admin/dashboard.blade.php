@@ -8,8 +8,8 @@
     <div class="glass-card p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-white/40">Services</p>
-                <p class="text-2xl font-bold text-white mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['services'] }}</p>
+                <p class="text-sm text-muted">Services</p>
+                <p class="text-2xl font-bold text-primary mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['services'] }}</p>
             </div>
             <div class="h-10 w-10 rounded-xl bg-indigo-500/10 flex items-center justify-center">
                 <svg class="h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,8 +21,8 @@
     <div class="glass-card p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-white/40">Portfolios</p>
-                <p class="text-2xl font-bold text-white mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['portfolios'] }}</p>
+                <p class="text-sm text-muted">Portfolios</p>
+                <p class="text-2xl font-bold text-primary mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['portfolios'] }}</p>
             </div>
             <div class="h-10 w-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
                 <svg class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -34,8 +34,8 @@
     <div class="glass-card p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-white/40">Blogs</p>
-                <p class="text-2xl font-bold text-white mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['blogs'] }}</p>
+                <p class="text-sm text-muted">Blogs</p>
+                <p class="text-2xl font-bold text-primary mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['blogs'] }}</p>
             </div>
             <div class="h-10 w-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
                 <svg class="h-5 w-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -47,8 +47,8 @@
     <div class="glass-card p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-white/40">Testimonials</p>
-                <p class="text-2xl font-bold text-white mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['testimonials'] }}</p>
+                <p class="text-sm text-muted">Testimonials</p>
+                <p class="text-2xl font-bold text-primary mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['testimonials'] }}</p>
             </div>
             <div class="h-10 w-10 rounded-xl bg-yellow-500/10 flex items-center justify-center">
                 <svg class="h-5 w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -60,8 +60,8 @@
     <div class="glass-card p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-white/40">Messages</p>
-                <p class="text-2xl font-bold text-white mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['messages'] }}</p>
+                <p class="text-sm text-muted">Messages</p>
+                <p class="text-2xl font-bold text-primary mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['messages'] }}</p>
             </div>
             <div class="h-10 w-10 rounded-xl bg-green-500/10 flex items-center justify-center">
                 <svg class="h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,8 +73,8 @@
     <div class="glass-card p-6">
         <div class="flex items-center justify-between">
             <div>
-                <p class="text-sm text-white/40">Unread</p>
-                <p class="text-2xl font-bold text-white mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['unread_messages'] }}</p>
+                <p class="text-sm text-muted">Unread</p>
+                <p class="text-2xl font-bold text-primary mt-1" style="font-family: 'Space Grotesk', sans-serif;">{{ $stats['unread_messages'] }}</p>
             </div>
             <div class="h-10 w-10 rounded-xl bg-red-500/10 flex items-center justify-center">
                 <svg class="h-5 w-5 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,39 +87,39 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div class="glass-card overflow-hidden">
-        <div class="px-6 py-4 border-b border-white/[0.06]">
-            <h3 class="text-lg font-semibold text-white" style="font-family: 'Space Grotesk', sans-serif;">Recent Messages</h3>
+        <div class="px-6 py-4 border-b border-theme">
+            <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Recent Messages</h3>
         </div>
         <div class="divide-y divide-white/[0.06]">
             @forelse($recentMessages as $message)
             <div class="px-6 py-4 flex items-center justify-between">
                 <div>
-                    <p class="font-medium text-white text-sm">{{ $message->name }}</p>
-                    <p class="text-sm text-white/40">{{ Str::limit($message->message, 50) }}</p>
+                    <p class="font-medium text-primary text-sm">{{ $message->name }}</p>
+                    <p class="text-sm text-muted">{{ Str::limit($message->message, 50) }}</p>
                 </div>
-                <span class="text-xs text-white/30">{{ $message->created_at->diffForHumans() }}</span>
+                <span class="text-xs text-muted">{{ $message->created_at->diffForHumans() }}</span>
             </div>
             @empty
-            <div class="px-6 py-8 text-center text-white/40">No messages yet</div>
+            <div class="px-6 py-8 text-center text-muted">No messages yet</div>
             @endforelse
         </div>
     </div>
 
     <div class="glass-card overflow-hidden">
-        <div class="px-6 py-4 border-b border-white/[0.06]">
-            <h3 class="text-lg font-semibold text-white" style="font-family: 'Space Grotesk', sans-serif;">Recent Blogs</h3>
+        <div class="px-6 py-4 border-b border-theme">
+            <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Recent Blogs</h3>
         </div>
         <div class="divide-y divide-white/[0.06]">
             @forelse($recentBlogs as $blog)
             <div class="px-6 py-4 flex items-center justify-between">
                 <div>
-                    <p class="font-medium text-white text-sm">{{ $blog->title }}</p>
-                    <p class="text-xs text-white/40">{{ $blog->is_published ? 'Published' : 'Draft' }}</p>
+                    <p class="font-medium text-primary text-sm">{{ $blog->title }}</p>
+                    <p class="text-xs text-muted">{{ $blog->is_published ? 'Published' : 'Draft' }}</p>
                 </div>
-                <span class="text-xs text-white/30">{{ $blog->created_at->diffForHumans() }}</span>
+                <span class="text-xs text-muted">{{ $blog->created_at->diffForHumans() }}</span>
             </div>
             @empty
-            <div class="px-6 py-8 text-center text-white/40">No blogs yet</div>
+            <div class="px-6 py-8 text-center text-muted">No blogs yet</div>
             @endforelse
         </div>
     </div>

@@ -19,6 +19,9 @@ class Service extends Model
         'pricing_text',
         'cta_button_text',
         'cta_link',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
         'sort_order',
         'is_active',
     ];

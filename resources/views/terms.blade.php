@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('title', 'Terms & Conditions - Freelancers4U')
-@section('meta_description', 'Read the Terms and Conditions of Freelancers4U. Learn about our payment terms, project agreements, revisions, confidentiality, and cancellation policies.')
-@section('meta_keywords', 'terms and conditions, freelance terms, payment policy, project agreement, Freelancers4U')
 
 @section('content')
 @php

@@ -13,9 +13,18 @@
     <link rel="shortcut icon" type="image/svg+xml" href="{{ asset('images/freelancers4u.svg') }}">
     <link rel="apple-touch-icon" href="{{ asset('images/freelancers4u.svg') }}">
 
-    <title>@yield('title', \App\Models\Setting::get('site_title', 'Freelancers4U - Affordable Website & App Development'))</title>
-    <meta name="description" content="@yield('meta_description', \App\Models\Setting::get('site_description', 'Professional website development, web apps, SEO and maintenance services at affordable prices.'))">
-    <meta name="keywords" content="@yield('meta_keywords', \App\Models\Setting::get('site_keywords', 'website development, web app development, SEO, maintenance, affordable'))">
+    @php
+        $routeName = Route::currentRouteName() ?? 'home';
+        $pageSeo = \App\Models\PageSeo::where('page', $routeName)->first();
+        $metaTitle = $pageSeo?->meta_title ?? \App\Models\Setting::get('site_title', 'Freelancers4U - Affordable Website & App Development');
+        $metaDescription = $pageSeo?->meta_description ?? \App\Models\Setting::get('site_description', 'Professional website development, web apps, SEO and maintenance services at affordable prices.');
+        $metaKeywords = $pageSeo?->meta_keywords ?? \App\Models\Setting::get('site_keywords', 'website development, web app development, SEO, maintenance, affordable');
+        $ogImage = $pageSeo?->og_image ? asset('storage/' . $pageSeo->og_image) : asset('images/freelancers4u.svg');
+    @endphp
+
+    <title>@yield('title', $metaTitle)</title>
+    <meta name="description" content="@yield('meta_description', $metaDescription)">
+    <meta name="keywords" content="@yield('meta_keywords', $metaKeywords)">
 
     {{-- Canonical URL --}}
     <link rel="canonical" href="{{ url()->current() }}">
@@ -23,21 +32,36 @@
     @hasSection('meta_extra')
         @yield('meta_extra')
     @else
-        {{-- Default Open Graph --}}
+        {{-- Open Graph --}}
         <meta property="og:site_name" content="Freelancers4U">
-        <meta property="og:title" content="@yield('title', \App\Models\Setting::get('site_title', 'Freelancers4U'))">
-        <meta property="og:description" content="@yield('meta_description', \App\Models\Setting::get('site_description', 'Professional website development, web apps, SEO and maintenance services at affordable prices.'))">
+        <meta property="og:title" content="@yield('title', $metaTitle)">
+        <meta property="og:description" content="@yield('meta_description', $metaDescription)">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:image" content="{{ asset('images/freelancers4u.svg') }}">
+        <meta property="og:image" content="{{ $ogImage }}">
         <meta property="og:locale" content="en_US">
 
-        {{-- Default Twitter Card --}}
+        {{-- Twitter Card --}}
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="@yield('title', \App\Models\Setting::get('site_title', 'Freelancers4U'))">
-        <meta name="twitter:description" content="@yield('meta_description', \App\Models\Setting::get('site_description', 'Professional website development, web apps, SEO and maintenance services at affordable prices.'))">
-        <meta name="twitter:image" content="{{ asset('images/freelancers4u.svg') }}">
+        <meta name="twitter:title" content="@yield('title', $metaTitle)">
+        <meta name="twitter:description" content="@yield('meta_description', $metaDescription)">
+        <meta name="twitter:image" content="{{ $ogImage }}">
     @endif
+
+    {{-- WebPage Schema --}}
+    @php
+        $webPageSchema = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebPage',
+            'name' => $metaTitle,
+            'description' => $metaDescription,
+            'url' => url()->current(),
+            'image' => $ogImage,
+        ];
+    @endphp
+    <script type="application/ld+json">
+    {!! json_encode($webPageSchema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) !!}
+    </script>
 
     {{-- Resource Hints --}}
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">

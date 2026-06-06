@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- Favicon --}}
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/freelancers4u.svg') }}">
+    <link rel="shortcut icon" type="image/svg+xml" href="{{ asset('images/freelancers4u.svg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/freelancers4u.svg') }}">
+
     <title>@yield('title', 'Admin Dashboard') | Freelancers4U</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,14 +20,14 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-[#0a0a0a] text-white">
+<body class="dark">
     <div class="flex h-screen overflow-hidden">
         @include('components.admin-sidebar')
 
         <div class="flex-1 flex flex-col overflow-hidden">
             @include('components.admin-header')
 
-            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-[#0a0a0a] p-6" id="admin-main-content">
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-body p-6" id="admin-main-content">
                 @if(session('success'))
                     <div class="mb-4 rounded-xl bg-green-500/10 border border-green-500/20 px-4 py-3 text-green-400 text-sm" role="alert">
                         {{ session('success') }}

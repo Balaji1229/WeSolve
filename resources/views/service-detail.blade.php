@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', $service->title . ' - Freelancers4U')
+@section('title', $service->meta_title ?? $service->title . ' - Freelancers4U')
+@section('meta_description', $service->meta_description ?? Str::limit($service->description, 160))
+@section('meta_keywords', $service->meta_keywords ?? '')
 
 @section('content')
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
