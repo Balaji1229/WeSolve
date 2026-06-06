@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/developers', function () {
+    return view('developers');
+})->name('developers');
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
 Route::get('/services/{slug}', [ServiceController::class, 'show'])->name('service.show');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
