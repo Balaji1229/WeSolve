@@ -20,6 +20,7 @@
                 <ul class="space-y-3">
                     <li><a href="{{ route('home') }}" class="text-sm text-muted hover:text-primary transition">Home</a></li>
                     <li><a href="{{ route('about') }}" class="text-sm text-muted hover:text-primary transition">About Us</a></li>
+                    <li><a href="{{ route('developers') }}" class="text-sm text-muted hover:text-primary transition">Developers</a></li>
                     <li><a href="{{ route('services') }}" class="text-sm text-muted hover:text-primary transition">Services</a></li>
                     <li><a href="{{ route('portfolio') }}" class="text-sm text-muted hover:text-primary transition">Portfolio</a></li>
                 </ul>

@@ -90,69 +90,70 @@
 <div class="section-divider"></div>
 
 {{-- Meet Our Team --}}
-<section class="py-16 lg:py-24 bg-body relative">
+@php
+$teamMembers = [
+    ['name' => 'Selva',      'role' => 'Full Stack Developer',   'exp' => '6+ Years Experience', 'image' => 'images/developers/selva.jpg'],
+    ['name' => 'Nanthini',   'role' => 'Full Stack Developer',   'exp' => '5+ Years Experience', 'image' => 'images/developers/nanthini.jpg'],
+    ['name' => 'Balaji',     'role' => 'Full Stack Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/balaji.png'],
+    ['name' => 'Kanishka',   'role' => 'Mobile App Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/kanishka.jpg'],
+    ['name' => 'Sanjay',     'role' => 'SEO Specialist',         'exp' => '4+ Years Experience', 'image' => 'images/developers/sanjay.png'],
+    ['name' => 'Prasanth',   'role' => 'Full Stack Developer',   'exp' => '3+ Years Experience', 'image' => 'images/developers/prasanth.jpg'],
+    ['name' => 'Arthy',      'role' => 'Backend Developer',      'exp' => '3+ Years Experience', 'image' => 'images/developers/arthy.jpg'],
+];
+@endphp
+
+<section id="team" class="py-16 lg:py-24 bg-body relative" aria-labelledby="team-heading">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] top-20 -right-40 animate-pulse-glow" style="animation-delay: 1s;"></div>
 
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12" data-aos="fade-up">
+        <div class="text-center mb-12 lg:mb-16" data-aos="fade-up">
             <span class="tag mb-4">Our Team</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">Meet the Experts</h2>
-            <p class="mt-4 text-muted max-w-2xl mx-auto">Talented developers and SEO specialists dedicated to delivering exceptional results.</p>
+            <h2 id="team-heading" class="text-3xl lg:text-4xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">
+                Meet the Experts
+            </h2>
+            <p class="mt-4 text-muted max-w-2xl mx-auto">
+                Talented developers and engineers dedicated to delivering exceptional digital products.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {{-- Selva --}}
-            <div class="glass-card-hover p-6 text-center" data-aos="fade-up" data-aos-delay="0">
-                <img src="https://placehold.co/200x200/262626/d4d4d4?text=Photo" alt="Selva" class="h-32 w-32 mx-auto rounded-full object-cover grayscale mb-4" loading="lazy">
-                <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Selva</h3>
-                <p class="text-sm text-indigo-400 mb-1">Full Stack Developer</p>
-                <p class="text-xs text-muted">6+ Years Experience</p>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            @foreach($teamMembers as $index => $member)
+                <article
+                    class="group relative flex flex-col overflow-hidden rounded-2xl glass-card-hover border border-white/10 shadow-sm hover:shadow-2xl transition-all duration-300"
+                    data-aos="fade-up"
+                    data-aos-delay="{{ ($index % 3) * 100 }}"
+                >
+                    <figure class="relative aspect-[4/5] overflow-hidden bg-body m-0">
+                        <img
+                            src="{{ asset($member['image']) }}"
+                            alt="{{ $member['name'] }} - {{ $member['role'] }} at Freelancers4U"
+                            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                            decoding="async"
+                            width="1080"
+                            height="1350"
+                        >
+                    </figure>
 
-            {{-- Balaji --}}
-            <div class="glass-card-hover p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://placehold.co/200x200/262626/d4d4d4?text=Photo" alt="Balaji" class="h-32 w-32 mx-auto rounded-full object-cover grayscale mb-4" loading="lazy">
-                <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Balaji</h3>
-                <p class="text-sm text-indigo-400 mb-1">Full Stack Developer</p>
-                <p class="text-xs text-muted">4+ Years Experience</p>
-            </div>
-
-            {{-- Prasanth --}}
-            <div class="glass-card-hover p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://placehold.co/200x200/262626/d4d4d4?text=Photo" alt="Prasanth" class="h-32 w-32 mx-auto rounded-full object-cover grayscale mb-4" loading="lazy">
-                <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Prasanth</h3>
-                <p class="text-sm text-indigo-400 mb-1">Full Stack Developer</p>
-                <p class="text-xs text-muted">3+ Years Experience</p>
-            </div>
-
-            {{-- Sanjay --}}
-            <div class="glass-card-hover p-6 text-center" data-aos="fade-up" data-aos-delay="0">
-                <img src="https://placehold.co/200x200/262626/d4d4d4?text=Photo" alt="Sanjay" class="h-32 w-32 mx-auto rounded-full object-cover grayscale mb-4" loading="lazy">
-                <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Sanjay</h3>
-                <p class="text-sm text-indigo-400 mb-1">SEO Specialist</p>
-                <p class="text-xs text-muted">5+ Years Experience</p>
-            </div>
-
-            {{-- Kanishka --}}
-            <div class="glass-card-hover p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://placehold.co/200x200/262626/d4d4d4?text=Photo" alt="Kanishka" class="h-32 w-32 mx-auto rounded-full object-cover grayscale mb-4" loading="lazy">
-                <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Kanishka</h3>
-                <p class="text-sm text-indigo-400 mb-1">Mobile App Developer</p>
-                <p class="text-xs text-muted">4+ Years Experience</p>
-            </div>
-
-            {{-- Rthy --}}
-            <div class="glass-card-hover p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://placehold.co/200x200/262626/d4d4d4?text=Photo" alt="Rthy" class="h-32 w-32 mx-auto rounded-full object-cover grayscale mb-4" loading="lazy">
-                <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">Rthy</h3>
-                <p class="text-sm text-indigo-400 mb-1">Backend Developer</p>
-                <p class="text-xs text-muted">3+ Years Experience</p>
-            </div>
+                    <div class="flex flex-1 flex-col justify-between p-5 lg:p-6">
+                        <header>
+                            <h3 class="text-lg font-semibold text-primary" style="font-family: 'Space Grotesk', sans-serif;">
+                                {{ $member['name'] }}
+                            </h3>
+                            <p class="text-sm font-medium text-indigo-400">{{ $member['role'] }}</p>
+                        </header>
+                        <p class="mt-3 text-xs text-muted">{{ $member['exp'] }}</p>
+                    </div>
+                </article>
+            @endforeach
         </div>
 
-        <div class="mt-12 text-center">
-            <a href="{{ route('contact') }}" class="btn-gradient">Work With Us</a>
+        <div class="mt-12 lg:mt-16 text-center" data-aos="fade-up">
+            <a href="{{ route('contact') }}" class="btn-gradient inline-flex items-center justify-center">
+                Work With Us
+            </a>
         </div>
     </div>
+
 </section>
 @endsection
