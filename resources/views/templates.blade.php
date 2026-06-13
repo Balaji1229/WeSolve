@@ -51,19 +51,18 @@
 
         {{-- Templates Grid --}}
         <div id="templates-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-aos="fade-up">
-            @foreach($templates as $index => $template)
+            @foreach($templates as $template)
                 <article
                     class="template-card group cursor-pointer rounded-2xl glass-card-hover overflow-hidden border border-theme transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-                    data-category="{{ $template['category'] }}"
-                    data-index="{{ $index }}"
+                    data-category="{{ $template->category }}"
                     tabindex="0"
                     role="button"
-                    aria-label="Preview {{ $template['category'] }} template"
+                    aria-label="Preview {{ $template->title }}"
                 >
                     <figure class="relative aspect-[4/3] overflow-hidden bg-body m-0">
                         <img
-                            src="{{ $template['src'] }}"
-                            alt="{{ $template['alt'] }}"
+                            src="{{ $template->imageUrl() }}"
+                            alt="{{ $template->title }}"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                             loading="lazy"
                             decoding="async"
@@ -77,8 +76,9 @@
 
                     <div class="p-4">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#305CDE]/10 text-[#305CDE] border border-[#305CDE]/20">
-                            {{ $template['category'] }}
+                            {{ $template->category }}
                         </span>
+                        <h3 class="mt-2 text-sm font-semibold text-primary truncate">{{ $template->title }}</h3>
                     </div>
                 </article>
             @endforeach

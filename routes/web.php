@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PortfolioController as AdminPortfolioController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\PageSeoController as AdminPageSeoController;
 use App\Http\Controllers\Admin\SettingController as AdminSettingController;
+use App\Http\Controllers\Admin\TemplateController as AdminTemplateController;
 use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -15,7 +16,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SitemapController;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 // Frontend Routes
@@ -39,47 +39,9 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap')
 
 // Templates showcase
 Route::get('/templates', function () {
-    $themesDir = public_path('images/themes');
-    $files = File::files($themesDir);
+    $templates = \App\Models\Template::active()->ordered()->get();
 
-    $categoryMap = [
-        'clothings' => 'Clothing',
-        'tailor' => 'Fashion',
-        'ecommerce' => 'E-Commerce',
-        'food' => 'Food & Restaurant',
-        'travel' => 'Travel & Tourism',
-        'mechanic' => 'Mechanic',
-        'realestate' => 'Real Estate',
-        'medical' => 'Healthcare',
-        'beauty' => 'Beauty & Salon',
-        'portfolio' => 'Portfolio',
-        'gym' => 'Others',
-    ];
-
-    $templates = [];
-    foreach ($files as $file) {
-        $filename = $file->getFilename();
-        if (preg_match('/^wesolve-([a-z]+)-\d+\./', $filename, $matches)) {
-            $slug = $matches[1];
-            $category = $categoryMap[$slug] ?? 'Others';
-        } else {
-            $category = 'Others';
-        }
-        $templates[] = [
-            'src' => asset('images/themes/' . $filename),
-            'category' => $category,
-            'alt' => 'Website template for ' . $category,
-        ];
-    }
-
-    // Sort templates by category for consistent display
-    usort($templates, fn ($a, $b) => $a['category'] <=> $b['category']);
-
-    $categories = [
-        'All', 'Clothing', 'Fashion', 'E-Commerce', 'Food & Restaurant',
-        'Hotel', 'Travel & Tourism', 'Mechanic', 'Real Estate', 'Healthcare',
-        'Education', 'Beauty & Salon', 'Corporate', 'Portfolio', 'Others'
-    ];
+    $categories = \App\Models\Template::CATEGORIES;
 
     return view('templates', compact('templates', 'categories'));
 })->name('templates');
@@ -114,6 +76,9 @@ Route::middleware(['auth'])
 
         // Testimonials
         Route::resource('testimonials', AdminTestimonialController::class);
+
+        // Templates
+        Route::resource('templates', AdminTemplateController::class);
 
         // Contacts
         Route::get('/contacts', [AdminContactController::class, 'index'])->name('contacts.index');

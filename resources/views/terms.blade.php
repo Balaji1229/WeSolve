@@ -43,12 +43,13 @@ $contactEmail = \App\Models\Setting::get('contact_email', 'info@wesolvetechnolog
                 <li><a href="#timelines" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">5. Timelines & Delays</a></li>
                 <li><a href="#revisions" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">6. Revisions & Changes</a></li>
                 <li><a href="#ownership" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">7. Ownership & Intellectual Property</a></li>
-                <li><a href="#confidentiality" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">8. Confidentiality</a></li>
-                <li><a href="#liability" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">9. Limitation of Liability</a></li>
-                <li><a href="#cancellation" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">10. Cancellation Policy</a></li>
-                <li><a href="#privacy" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">11. Privacy</a></li>
-                <li><a href="#changes" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">12. Changes to These Terms</a></li>
-                <li><a href="#contact" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">13. Contact Us</a></li>
+                <li><a href="#template-copyright" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">8. Template Showcase & Copyright Notice</a></li>
+                <li><a href="#confidentiality" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">9. Confidentiality</a></li>
+                <li><a href="#liability" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">10. Limitation of Liability</a></li>
+                <li><a href="#cancellation" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">11. Cancellation Policy</a></li>
+                <li><a href="#privacy" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">12. Privacy</a></li>
+                <li><a href="#changes" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">13. Changes to These Terms</a></li>
+                <li><a href="#contact" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">14. Contact Us</a></li>
             </ul>
         </div>
 
@@ -117,15 +118,28 @@ $contactEmail = \App\Models\Setting::get('contact_email', 'info@wesolvetechnolog
                 </div>
             </article>
 
+            <article id="template-copyright" class="scroll-mt-24">
+                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">8. Template Showcase & Copyright Notice</h2>
+                <div class="text-muted leading-relaxed space-y-4">
+                    <p>The template previews, screenshots, and design references displayed on this website are provided solely for demonstration, inspiration, and client reference purposes.</p>
+                    <p>All copyrights, trademarks, design rights, images, layouts, and other intellectual property rights associated with these template references remain the property of their respective owners and creators.</p>
+                    <p>We do not claim ownership of any third-party template designs, screenshots, or related materials displayed within this showcase. The purpose of this gallery is to help clients explore various design styles and website concepts before selecting a suitable solution for their business.</p>
+                    <p><strong class="text-primary">Template License Not Included.</strong> Any third-party template selected by a client will be purchased separately from the original author or rights holder before being used in a commercial project, subject to the applicable licensing terms and conditions.</p>
+                    <p>The displayed previews are intended only as visual references and do not constitute ownership, redistribution, resale, or transfer of any intellectual property rights.</p>
+                    <p>If you are the owner of any content displayed on this website and believe your intellectual property rights have been infringed, please contact us with the relevant details. We will review the matter promptly and take appropriate action, including modification or removal of the content where necessary.</p>
+                    <p>All rights reserved by their respective owners.</p>
+                </div>
+            </article>
+
             <article id="confidentiality" class="scroll-mt-24">
-                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">8. Confidentiality</h2>
+                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">9. Confidentiality</h2>
                 <div class="text-muted leading-relaxed space-y-4">
                     <p>We treat all project-related information shared by clients as confidential. We will not share your business details, project requirements, or sensitive data with any third party, except where required by law.</p>
                 </div>
             </article>
 
             <article id="liability" class="scroll-mt-24">
-                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">9. Limitation of Liability</h2>
+                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">10. Limitation of Liability</h2>
                 <div class="text-muted leading-relaxed space-y-4">
                     <p>We are a small, unregistered team of freelancers. While we do our best to deliver quality work, we cannot be held legally liable for any business losses, missed opportunities, or damages arising from the use of our services.</p>
                     <p>Our total liability in any dispute shall not exceed the amount paid by the client for the specific project in question.</p>
@@ -133,7 +147,7 @@ $contactEmail = \App\Models\Setting::get('contact_email', 'info@wesolvetechnolog
             </article>
 
             <article id="cancellation" class="scroll-mt-24">
-                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">10. Cancellation Policy</h2>
+                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">11. Cancellation Policy</h2>
                 <div class="text-muted leading-relaxed space-y-4">
                     <p>If the client wishes to cancel a project after work has commenced, the advance payment will not be refunded. Any completed work up to the point of cancellation may be charged at a pro-rated rate.</p>
                     <p>We reserve the right to cancel a project if the client violates these terms, provides misleading information, or requests content that is illegal, unethical, or harmful. In such cases, any payments made will be forfeited.</p>
@@ -141,7 +155,7 @@ $contactEmail = \App\Models\Setting::get('contact_email', 'info@wesolvetechnolog
             </article>
 
             <article id="privacy" class="scroll-mt-24">
-                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">11. Privacy</h2>
+                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">12. Privacy</h2>
                 <div class="text-muted leading-relaxed space-y-4">
                     <p>We collect only the information necessary to provide our services (such as your name, email, and project requirements). We do not sell or share your personal data with any third parties for marketing purposes.</p>
                     <p>By contacting us or submitting a project request, you consent to us storing and using your information for project-related communication.</p>
@@ -149,14 +163,14 @@ $contactEmail = \App\Models\Setting::get('contact_email', 'info@wesolvetechnolog
             </article>
 
             <article id="changes" class="scroll-mt-24">
-                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">12. Changes to These Terms</h2>
+                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">13. Changes to These Terms</h2>
                 <div class="text-muted leading-relaxed space-y-4">
                     <p>We may update these Terms and Conditions at any time. Changes will be posted on this page with a revised date. Continued use of our services after any changes means you accept the updated terms.</p>
                 </div>
             </article>
 
             <article id="contact" class="scroll-mt-24">
-                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">13. Contact Us</h2>
+                <h2 class="text-2xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">14. Contact Us</h2>
                 <div class="text-muted leading-relaxed space-y-4">
                     <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
                     <ul class="space-y-2">
