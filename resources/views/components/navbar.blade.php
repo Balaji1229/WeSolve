@@ -7,7 +7,7 @@
 
             <div class="hidden md:flex items-center gap-1">
                 <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('home') ? 'aria-current=page' : '' }}>Home</a>
-                <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About</a>
+                <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About Us</a>
 
                 <!-- Services with Dropdown -->
                 <div class="relative">
@@ -68,7 +68,7 @@
     <div id="mobile-menu" class="hidden md:hidden border-t border-theme bg-body/95 backdrop-blur-xl" role="dialog" aria-label="Mobile menu" aria-modal="true">
         <div class="px-4 py-3 space-y-1">
             <a href="{{ route('home') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('home') ? 'aria-current=page' : '' }}>Home</a>
-            <a href="{{ route('about') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About</a>
+            <a href="{{ route('about') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About Us</a>
             <a href="{{ route('services') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('services*') ? 'aria-current=page' : '' }}>Services</a>
             <a href="{{ route('portfolio') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('portfolio*') ? 'aria-current=page' : '' }}>Portfolio</a>
             <a href="{{ route('blog') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('blog*') ? 'aria-current=page' : '' }}>Blog</a>
