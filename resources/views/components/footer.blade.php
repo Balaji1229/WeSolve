@@ -18,6 +18,7 @@
                     <li><a href="{{ route('developers') }}" class="text-sm text-muted hover:text-primary transition">Developers</a></li>
                     <li><a href="{{ route('services') }}" class="text-sm text-muted hover:text-primary transition">Services</a></li>
                     <li><a href="{{ route('portfolio') }}" class="text-sm text-muted hover:text-primary transition">Portfolio</a></li>
+                    <li><a href="{{ route('templates') }}" class="text-sm text-muted hover:text-primary transition">Templates</a></li>
                 </ul>
             </nav>
 

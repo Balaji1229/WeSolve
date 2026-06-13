@@ -285,6 +285,17 @@ body.light .code-block {
     border-color: rgba(0, 0, 0, 0.15);
 }
 
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Gradient button */
 .btn-gradient {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);

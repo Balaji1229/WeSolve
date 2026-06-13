@@ -34,7 +34,7 @@
                 </div>
 
                 <a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio*') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('portfolio*') ? 'aria-current=page' : '' }}>Portfolio</a>
-                <a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog*') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('blog*') ? 'aria-current=page' : '' }}>Blog</a>
+                <a href="{{ route('templates') }}" class="nav-link {{ request()->routeIs('templates') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('templates') ? 'aria-current=page' : '' }}>Templates</a>
                 <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('contact') ? 'aria-current=page' : '' }}>Contact</a>
             </div>
 
@@ -71,7 +71,7 @@
             <a href="{{ route('about') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About Us</a>
             <a href="{{ route('services') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('services*') ? 'aria-current=page' : '' }}>Services</a>
             <a href="{{ route('portfolio') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('portfolio*') ? 'aria-current=page' : '' }}>Portfolio</a>
-            <a href="{{ route('blog') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('blog*') ? 'aria-current=page' : '' }}>Blog</a>
+            <a href="{{ route('templates') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('templates') ? 'aria-current=page' : '' }}>Templates</a>
             <a href="{{ route('contact') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('contact') ? 'aria-current=page' : '' }}>Contact</a>
         </div>
     </div>
