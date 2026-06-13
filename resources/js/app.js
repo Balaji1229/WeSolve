@@ -29,7 +29,9 @@ function initThemeToggle() {
     }
 
     function toggleTheme() {
-        const isDark = document.documentElement.classList.toggle('dark');
+        const isDark = !document.documentElement.classList.contains('dark');
+        document.documentElement.classList.toggle('dark', isDark);
+        document.documentElement.classList.toggle('light', !isDark);
         document.body.classList.toggle('dark', isDark);
         document.body.classList.toggle('light', !isDark);
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -41,6 +43,7 @@ function initThemeToggle() {
     if (savedTheme) {
         const isDark = savedTheme === 'dark';
         document.documentElement.classList.toggle('dark', isDark);
+        document.documentElement.classList.toggle('light', !isDark);
         document.body.classList.toggle('dark', isDark);
         document.body.classList.toggle('light', !isDark);
         updateIcons(isDark);
