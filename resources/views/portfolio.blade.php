@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Developer Portfolio - Freelancers4U')
+@section('title', 'Developer Portfolio - WeSolve Technologies')
 
 @section('content')
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
@@ -75,7 +75,7 @@
                     </div>
 
                     {{-- <div class="flex items-center gap-3 mb-6">
-                        <div class="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">RA</div>
+                        <div class="h-8 w-8 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white text-xs font-bold">RA</div>
                         <div>
                             <div class="text-primary text-sm font-medium">Ravi Anand</div>
                             <div class="text-muted-light text-xs">CEO, BookAcross Travels</div>
@@ -135,7 +135,7 @@
                     </div>
 
                     {{-- <div class="flex items-center gap-3 mb-6">
-                        <div class="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">SK</div>
+                        <div class="h-8 w-8 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white text-xs font-bold">SK</div>
                         <div>
                             <div class="text-primary text-sm font-medium">Suresh Kumar</div>
                             <div class="text-muted-light text-xs">Founder, Crackers Shop India</div>
@@ -195,7 +195,7 @@
                     </div>
 
                     {{-- <div class="flex items-center gap-3 mb-6">
-                        <div class="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">KP</div>
+                        <div class="h-8 w-8 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white text-xs font-bold">KP</div>
                         <div>
                             <div class="text-primary text-sm font-medium">Kesha Priya</div>
                             <div class="text-muted-light text-xs">Director, Kesha Sri Collections</div>

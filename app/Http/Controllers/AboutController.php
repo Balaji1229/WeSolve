@@ -10,7 +10,7 @@ class AboutController extends Controller
     public function index()
     {
         $aboutContent = [
-            'title' => Setting::get('about_title', 'About Freelancers4U'),
+            'title' => Setting::get('about_title', 'About WeSolve Technologies'),
             'description' => Setting::get('about_description', 'We are a team of passionate developers...'),
             'mission' => Setting::get('about_mission', 'To provide affordable digital solutions...'),
             'vision' => Setting::get('about_vision', 'To become the most trusted partner...'),

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Our Developers - Expert Team | Freelancers4U')
+@section('title', 'Our Developers - Expert Team | WeSolve Technologies')
 
 @section('content')
 @php
@@ -126,7 +126,7 @@ $developers = [
             Meet Our <span class="gradient-text">Developers</span>
         </h1>
         <p class="mt-6 text-lg text-muted max-w-3xl mx-auto">
-            Discover the skilled professionals behind Freelancers4U — Laravel, Flutter, Node.js, and digital marketing experts dedicated to building exceptional digital experiences.
+            Discover the skilled professionals behind WeSolve Technologies — Laravel, Flutter, Node.js, and digital marketing experts dedicated to building exceptional digital experiences.
         </p>
     </div>
 </section>
@@ -155,7 +155,7 @@ $developers = [
                         <figure class="relative aspect-[3/4] w-56 md:w-64 lg:w-72 overflow-hidden rounded-2xl border border-white/10 shadow-lg group">
                             <img
                                 src="{{ asset($dev['image']) }}"
-                                alt="{{ $dev['name'] }} — {{ $dev['role'] }} at Freelancers4U"
+                                alt="{{ $dev['name'] }} — {{ $dev['role'] }} at WeSolve Technologies"
                                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                                 loading="lazy"
                                 decoding="async"
@@ -173,7 +173,7 @@ $developers = [
                             <h2 id="{{ $sectionId }}-heading" class="text-2xl lg:text-3xl font-bold text-primary" style="font-family: 'Space Grotesk', sans-serif;" itemprop="name">
                                 {{ $dev['name'] }}
                             </h2>
-                            <p class="mt-2 text-lg font-medium text-indigo-400" itemprop="jobTitle">
+                            <p class="mt-2 text-lg font-medium text-[#305CDE]" itemprop="jobTitle">
                                 {{ $dev['role'] }}
                             </p>
                         </header>
@@ -185,7 +185,7 @@ $developers = [
                         <ul class="mt-6 space-y-3">
                             @foreach($dev['highlights'] as $highlight)
                                 <li class="flex items-start text-sm text-muted">
-                                    <svg class="h-5 w-5 text-indigo-400 mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <svg class="h-5 w-5 text-[#305CDE] mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                                     </svg>
                                     <span>{{ $highlight }}</span>
@@ -198,7 +198,7 @@ $developers = [
                             <h3 class="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Skills</h3>
                             <div class="flex flex-wrap gap-2">
                                 @foreach($dev['skills'] as $skill)
-                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-[#305CDE]/10 text-[#305CDE] border border-[#305CDE]/20">
                                         {{ $skill }}
                                     </span>
                                 @endforeach
@@ -209,7 +209,7 @@ $developers = [
                         <div class="mt-8">
                             <a
                                 href="mailto:{{ $dev['email'] }}"
-                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-300 text-sm font-medium hover:bg-indigo-500/20 hover:border-indigo-400/50 hover:text-indigo-200 transition-colors shadow-sm"
+                                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#305CDE]/30 bg-[#305CDE]/10 text-[#305CDE] text-sm font-medium hover:bg-[#305CDE]/20 hover:border-[#305CDE]/50 hover:text-[#00B6DA] transition-colors shadow-sm"
                                 itemprop="email"
                             >
                                 <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -243,7 +243,7 @@ $schemaPeople = array_map(function($dev) {
         'email' => $dev['email'],
         'worksFor' => [
             '@type' => 'Organization',
-            'name' => 'Freelancers4U',
+            'name' => 'WeSolve Technologies',
             'url' => url('/'),
         ],
         'knowsAbout' => $dev['skills'],

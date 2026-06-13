@@ -1,13 +1,8 @@
 <nav class="fixed top-0 z-50 w-full border-b border-theme backdrop-blur-xl bg-body/80" aria-label="Main navigation">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-2 text-xl font-bold" style="font-family: 'Space Grotesk', sans-serif;" aria-label="Freelancers4U Home">
-                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600" aria-hidden="true">
-                    <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                    </svg>
-                </div>
-                <span class="gradient-text">Freelancers4U</span>
+        <div class="flex h-32 items-center justify-between">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 text-xl font-bold" style="font-family: 'Space Grotesk', sans-serif;" aria-label="WeSolve Technologies Home">
+                @include('components.logo', ['height' => 100])
             </a>
 
             <div class="hidden md:flex items-center gap-1">
@@ -32,7 +27,7 @@
                         </a>
                         @endforeach
                         <div class="border-t border-theme my-1"></div>
-                        <a href="{{ route('services') }}" class="dropdown-item font-medium text-indigo-400" role="menuitem">
+                        <a href="{{ route('services') }}" class="dropdown-item font-medium text-[#305CDE]" role="menuitem">
                             View All Services →
                         </a>
                     </div>
@@ -54,7 +49,7 @@
                     </svg>
                 </button>
 
-                <a href="{{ route('contact') }}" class="hidden lg:inline-flex btn-gradient text-sm py-2.5 px-6">Get Started</a>
+                <a href="{{ route('contact') }}" class="hidden md:inline-flex btn-gradient text-sm py-2.5 px-6">Get Started</a>
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden rounded-lg p-2 transition min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -82,4 +77,4 @@
     </div>
 </nav>
 
-<div class="h-16"></div>
+<div class="h-32"></div>

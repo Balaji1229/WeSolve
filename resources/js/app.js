@@ -36,7 +36,7 @@ function initThemeToggle() {
         updateIcons(isDark);
     }
 
-    // Initialize theme from localStorage or system preference
+    // Initialize theme from localStorage or default to light
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         const isDark = savedTheme === 'dark';
@@ -45,7 +45,12 @@ function initThemeToggle() {
         document.body.classList.toggle('light', !isDark);
         updateIcons(isDark);
     } else {
-        updateIcons(document.documentElement.classList.contains('dark'));
+        // Default to light theme
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
+        updateIcons(false);
     }
 
     if (toggleBtn) {

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Our Services - Freelancers4U')
+@section('title', 'Our Services - WeSolve Technologies')
 
 @section('content')
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
@@ -25,7 +25,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse($services as $index => $service)
             <div class="glass-card-hover p-8 flex flex-col" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-indigo-500/20 mb-6">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 mb-6">
                     <span class="text-xl font-bold gradient-text">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
                 </div>
                 <h2 class="text-xl font-semibold text-primary mb-3" style="font-family: 'Space Grotesk', sans-serif;">{{ $service->title }}</h2>

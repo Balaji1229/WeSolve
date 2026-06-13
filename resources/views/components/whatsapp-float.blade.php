@@ -1,5 +1,5 @@
 @php
-$defaultMessage = urlencode('Hello Freelancers4U, I am interested in your services. Can we discuss more?');
+$defaultMessage = urlencode('Hello WeSolve Technologies, I am interested in your services. Can we discuss more?');
 @endphp
 
 <style>

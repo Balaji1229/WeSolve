@@ -25,7 +25,7 @@
                     </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="{{ route('admin.seo.edit', $pageSeo) }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 dark:hover:text-indigo-300">Edit</a>
+                    <a href="{{ route('admin.seo.edit', $pageSeo) }}" class="text-[#305CDE] dark:text-[#305CDE] hover:text-[#305CDE] dark:hover:text-[#305CDE]">Edit</a>
                 </td>
             </tr>
             @empty

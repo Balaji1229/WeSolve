@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $portfolio->meta_title ?? $portfolio->title . ' - Portfolio | Freelancers4U')
+@section('title', $portfolio->meta_title ?? $portfolio->title . ' - Portfolio | WeSolve Technologies')
 @section('meta_description', $portfolio->meta_description ?? Str::limit($portfolio->description, 160))
 @section('meta_keywords', $portfolio->meta_keywords ?? '')
 

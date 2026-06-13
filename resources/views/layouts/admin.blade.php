@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Favicon --}}
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/freelancers4u.svg') }}">
-    <link rel="shortcut icon" type="image/svg+xml" href="{{ asset('images/freelancers4u.svg') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/freelancers4u.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
 
-    <title>@yield('title', 'Admin Dashboard') | Freelancers4U</title>
+    <title>@yield('title', 'Admin Dashboard') | WeSolve Technologies</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +19,9 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('components.dynamic-styles')
 </head>
-<body class="dark">
+<body class="light">
     <div class="flex h-screen overflow-hidden">
         @include('components.admin-sidebar')
 

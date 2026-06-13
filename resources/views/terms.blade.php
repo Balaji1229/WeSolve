@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Terms & Conditions - Freelancers4U')
+@section('title', 'Terms & Conditions - WeSolve Technologies')
 
 @section('content')
 @php
-$siteName = 'Freelancers4U';
+$siteName = 'WeSolve Technologies';
 $siteUrl = url('/');
-$contactEmail = \App\Models\Setting::get('contact_email', 'info@freelancers4u.com');
+$contactEmail = \App\Models\Setting::get('contact_email', 'info@wesolvetechnologies.com');
 @endphp
 
 {{-- Hero --}}
@@ -36,19 +36,19 @@ $contactEmail = \App\Models\Setting::get('contact_email', 'info@freelancers4u.co
         <div class="glass-card-hover p-6 lg:p-8 rounded-2xl border border-white/10 shadow-sm mb-12">
             <h2 class="text-lg font-semibold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">Table of Contents</h2>
             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <li><a href="#introduction" class="text-sm text-indigo-400 hover:text-indigo-300 transition">1. Introduction</a></li>
-                <li><a href="#services" class="text-sm text-indigo-400 hover:text-indigo-300 transition">2. Services We Offer</a></li>
-                <li><a href="#agreement" class="text-sm text-indigo-400 hover:text-indigo-300 transition">3. Project Agreement & Scope</a></li>
-                <li><a href="#payment" class="text-sm text-indigo-400 hover:text-indigo-300 transition">4. Payment Terms</a></li>
-                <li><a href="#timelines" class="text-sm text-indigo-400 hover:text-indigo-300 transition">5. Timelines & Delays</a></li>
-                <li><a href="#revisions" class="text-sm text-indigo-400 hover:text-indigo-300 transition">6. Revisions & Changes</a></li>
-                <li><a href="#ownership" class="text-sm text-indigo-400 hover:text-indigo-300 transition">7. Ownership & Intellectual Property</a></li>
-                <li><a href="#confidentiality" class="text-sm text-indigo-400 hover:text-indigo-300 transition">8. Confidentiality</a></li>
-                <li><a href="#liability" class="text-sm text-indigo-400 hover:text-indigo-300 transition">9. Limitation of Liability</a></li>
-                <li><a href="#cancellation" class="text-sm text-indigo-400 hover:text-indigo-300 transition">10. Cancellation Policy</a></li>
-                <li><a href="#privacy" class="text-sm text-indigo-400 hover:text-indigo-300 transition">11. Privacy</a></li>
-                <li><a href="#changes" class="text-sm text-indigo-400 hover:text-indigo-300 transition">12. Changes to These Terms</a></li>
-                <li><a href="#contact" class="text-sm text-indigo-400 hover:text-indigo-300 transition">13. Contact Us</a></li>
+                <li><a href="#introduction" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">1. Introduction</a></li>
+                <li><a href="#services" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">2. Services We Offer</a></li>
+                <li><a href="#agreement" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">3. Project Agreement & Scope</a></li>
+                <li><a href="#payment" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">4. Payment Terms</a></li>
+                <li><a href="#timelines" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">5. Timelines & Delays</a></li>
+                <li><a href="#revisions" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">6. Revisions & Changes</a></li>
+                <li><a href="#ownership" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">7. Ownership & Intellectual Property</a></li>
+                <li><a href="#confidentiality" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">8. Confidentiality</a></li>
+                <li><a href="#liability" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">9. Limitation of Liability</a></li>
+                <li><a href="#cancellation" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">10. Cancellation Policy</a></li>
+                <li><a href="#privacy" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">11. Privacy</a></li>
+                <li><a href="#changes" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">12. Changes to These Terms</a></li>
+                <li><a href="#contact" class="text-sm text-[#305CDE] hover:text-[#305CDE] transition">13. Contact Us</a></li>
             </ul>
         </div>
 
@@ -160,8 +160,8 @@ $contactEmail = \App\Models\Setting::get('contact_email', 'info@freelancers4u.co
                 <div class="text-muted leading-relaxed space-y-4">
                     <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
                     <ul class="space-y-2">
-                        <li><strong class="text-primary">Website:</strong> <a href="{{ $siteUrl }}" class="text-indigo-400 hover:text-indigo-300 transition">{{ $siteUrl }}</a></li>
-                        <li><strong class="text-primary">Email:</strong> <a href="mailto:{{ $contactEmail }}" class="text-indigo-400 hover:text-indigo-300 transition">{{ $contactEmail }}</a></li>
+                        <li><strong class="text-primary">Website:</strong> <a href="{{ $siteUrl }}" class="text-[#305CDE] hover:text-[#305CDE] transition">{{ $siteUrl }}</a></li>
+                        <li><strong class="text-primary">Email:</strong> <a href="mailto:{{ $contactEmail }}" class="text-[#305CDE] hover:text-[#305CDE] transition">{{ $contactEmail }}</a></li>
                     </ul>
                 </div>
             </article>

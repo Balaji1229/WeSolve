@@ -6,7 +6,7 @@
 @section('content')
 <div class="flex justify-between items-center mb-6">
     <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Manage Services</h2>
-    <a href="{{ route('admin.services.create') }}" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500 transition">Add Service</a>
+    <a href="{{ route('admin.services.create') }}" class="rounded-lg bg-[#305CDE] px-4 py-2 text-sm font-medium text-white hover:bg-[#305CDE] transition">Add Service</a>
 </div>
 
 <div class="rounded-xl bg-white dark:bg-gray-800 shadow-sm overflow-hidden">
@@ -30,7 +30,7 @@
                     </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="{{ route('admin.services.edit', $service) }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 mr-3">Edit</a>
+                    <a href="{{ route('admin.services.edit', $service) }}" class="text-[#305CDE] dark:text-[#305CDE] hover:text-[#254bb5] mr-3">Edit</a>
                     <form action="{{ route('admin.services.destroy', $service) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure?')">
                         @csrf
                         @method('DELETE')

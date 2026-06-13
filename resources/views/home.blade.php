@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Freelancers4U - Affordable Website & App Development')
+@section('title', 'WeSolve Technologies - Affordable Website & App Development')
 
 @section('content')
 {{-- Hero Section --}}
@@ -14,7 +14,7 @@
             {{-- Tag --}}
             <div class="inline-flex mb-6">
                 <span class="tag">
-                    <svg class="w-3 h-3 mr-2 text-indigo-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-3 h-3 mr-2 text-[#305CDE]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                     Trusted Digital Agency
                 </span>
             </div>
@@ -73,12 +73,12 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($services as $index => $service)
             <div class="glass-card-hover p-8" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-indigo-500/20 mb-6">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 mb-6">
                     <span class="text-xl font-bold gradient-text">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
                 </div>
                 <h3 class="text-lg font-semibold text-primary mb-3" style="font-family: 'Space Grotesk', sans-serif;">{{ $service->title }}</h3>
                 <p class="text-sm text-muted leading-relaxed mb-4">{{ Str::limit($service->description, 120) }}</p>
-                <a href="{{ route('service.show', $service->slug) }}" class="text-sm text-muted hover:text-indigo-400 transition inline-flex items-center gap-1">
+                <a href="{{ route('service.show', $service->slug) }}" class="text-sm text-muted hover:text-[#305CDE] transition inline-flex items-center gap-1">
                     Learn More <span>→</span>
                 </a>
             </div>
@@ -400,12 +400,12 @@
                 <span class="tag mb-4">Why Us</span>
                 <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">We Are a Team of Digital Experts</h2>
                 <p class="text-muted leading-relaxed mb-8">
-                    Freelancers4U is a full-service digital agency dedicated to transforming businesses through innovative web solutions, strategic marketing, and compelling brand experiences.
+                    WeSolve Technologies is a full-service digital agency dedicated to transforming businesses through innovative web solutions, strategic marketing, and compelling brand experiences.
                 </p>
 
                 <div class="space-y-4">
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mt-0.5">
+                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
@@ -413,7 +413,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mt-0.5">
+                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
@@ -421,7 +421,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mt-0.5">
+                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
@@ -429,7 +429,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center mt-0.5">
+                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
@@ -453,11 +453,11 @@
                         </div>
                     </div>
                     <div class="font-mono text-xs sm:text-sm overflow-x-auto">
-                        <div class="text-purple-400">class <span class="text-yellow-400">Freelancers4U</span> <span class="text-primary">extends</span> <span class="text-yellow-400">DigitalAgency</span></div>
+                        <div class="text-[#00B6DA]">class <span class="text-yellow-400">WeSolve Technologies</span> <span class="text-primary">extends</span> <span class="text-yellow-400">DigitalAgency</span></div>
                         <div class="text-primary ml-4">{</div>
-                        <div class="text-secondary ml-8">private <span class="text-purple-400">$mission</span> = <span class="text-green-400">"Transform ideas digital"</span>;</div>
-                        <div class="text-secondary ml-8">private <span class="text-purple-400">$team</span> = [<span class="text-green-400">"Experts"</span>, <span class="text-green-400">"Creatives"</span>];</div>
-                        <div class="text-secondary ml-8">private <span class="text-purple-400">$satisfaction</span> = <span class="text-orange-400">99</span>;</div>
+                        <div class="text-secondary ml-8">private <span class="text-[#00B6DA]">$mission</span> = <span class="text-green-400">"Transform ideas digital"</span>;</div>
+                        <div class="text-secondary ml-8">private <span class="text-[#00B6DA]">$team</span> = [<span class="text-green-400">"Experts"</span>, <span class="text-green-400">"Creatives"</span>];</div>
+                        <div class="text-secondary ml-8">private <span class="text-[#00B6DA]">$satisfaction</span> = <span class="text-orange-400">99</span>;</div>
                         <div class="text-primary ml-4">}</div>
                         <div class="text-muted mt-4">// Let's build something amazing together</div>
                     </div>
@@ -494,12 +494,12 @@
                                 <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             </div>
-                            <svg class="h-8 w-8 text-indigo-400/40 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="h-8 w-8 text-[#305CDE]/40 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
-                            <p class="text-secondary italic leading-relaxed mb-8 text-base md:text-lg">"Freelancers4U transformed our travel business completely. The BookAcross platform they built handles thousands of daily bookings flawlessly. Their attention to detail and commitment to quality is unmatched."</p>
+                            <p class="text-secondary italic leading-relaxed mb-8 text-base md:text-lg">"WeSolve Technologies transformed our travel business completely. The BookAcross platform they built handles thousands of daily bookings flawlessly. Their attention to detail and commitment to quality is unmatched."</p>
                             <div class="flex items-center justify-center gap-3">
-                                <div class="h-12 w-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-semibold">RA</div>
+                                <div class="h-12 w-12 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white font-semibold">RA</div>
                                 <div class="text-left">
                                     <div class="text-primary text-sm font-medium">Ravi Anand</div>
                                     <div class="text-muted text-xs">CEO, BookAcross Travels</div>
@@ -518,12 +518,12 @@
                                 <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             </div>
-                            <svg class="h-8 w-8 text-indigo-400/40 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="h-8 w-8 text-[#305CDE]/40 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
                             <p class="text-secondary italic leading-relaxed mb-8 text-base md:text-lg">"The Crackers Shop app exceeded all expectations. Monthly subscription model works perfectly, and our customers love the seamless ordering experience. Revenue increased by 200% within the first quarter."</p>
                             <div class="flex items-center justify-center gap-3">
-                                <div class="h-12 w-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-semibold">SK</div>
+                                <div class="h-12 w-12 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white font-semibold">SK</div>
                                 <div class="text-left">
                                     <div class="text-primary text-sm font-medium">Suresh Kumar</div>
                                     <div class="text-muted text-xs">Founder, Crackers Shop India</div>
@@ -542,12 +542,12 @@
                                 <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                                 <svg class="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                             </div>
-                            <svg class="h-8 w-8 text-indigo-400/40 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="h-8 w-8 text-[#305CDE]/40 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                             </svg>
                             <p class="text-secondary italic leading-relaxed mb-8 text-base md:text-lg">"Kesha Sri Collections EdTech platform is a game-changer. Students love the interactive courses and progress tracking. The admin panel makes content management incredibly easy. Highly recommended!"</p>
                             <div class="flex items-center justify-center gap-3">
-                                <div class="h-12 w-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-semibold">KP</div>
+                                <div class="h-12 w-12 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white font-semibold">KP</div>
                                 <div class="text-left">
                                     <div class="text-primary text-sm font-medium">Kesha Priya</div>
                                     <div class="text-muted text-xs">Director, Kesha Sri Collections</div>
@@ -585,7 +585,7 @@
 {{-- Mobile App CTA Section --}}
 <section class="py-16 lg:py-24 bg-body relative overflow-hidden">
     {{-- Background glow --}}
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-indigo-600/10 via-purple-600/10 to-pink-600/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-br from-[#305CDE]/10 via-[#00B6DA]/10 to-[#305CDE]/10 blur-3xl pointer-events-none"></div>
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] top-0 -right-40 animate-pulse-glow"></div>
     <div class="bg-orb bg-orb-blue w-[400px] h-[400px] bottom-0 -left-20 animate-pulse-glow" style="animation-delay: 2s;"></div>
 
@@ -596,7 +596,7 @@
                 {{-- Floating elements around phone --}}
                 <div class="absolute -top-4 -left-4 lg:left-8 glass-card p-3 rounded-xl z-10 animate-float" style="animation-delay: 0s;">
                     <div class="flex items-center gap-2">
-                        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center">
                             <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                         </div>
                         <div>
@@ -631,7 +631,7 @@
                 </div>
 
                 {{-- Phone Frame --}}
-                <div class="relative w-[280px] h-[560px] rounded-[40px] border-4 border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-3 shadow-2xl shadow-indigo-500/10 backdrop-blur-sm">
+                <div class="relative w-[280px] h-[560px] rounded-[40px] border-4 border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-3 shadow-2xl shadow-[#305CDE]/10 backdrop-blur-sm">
                     <div class="w-full h-full rounded-[32px] bg-gradient-to-b from-[#1a1a2e] to-[#0a0a0a] overflow-hidden relative">
                         {{-- Notch --}}
                         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl z-20"></div>
@@ -641,10 +641,10 @@
                             {{-- App Header --}}
                             <div class="flex items-center justify-between mb-6">
                                 <div class="flex items-center gap-2">
-                                    <div class="h-8 w-8 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                                    <div class="h-8 w-8 rounded-xl bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center">
                                         <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                                     </div>
-                                    <span class="text-white text-sm font-semibold">Freelancers4U</span>
+                                    <span class="text-white text-sm font-semibold">WeSolve Technologies</span>
                                 </div>
                                 <div class="h-8 w-8 rounded-full bg-white/10 flex items-center justify-center">
                                     <svg class="h-4 w-4 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
@@ -652,7 +652,7 @@
                             </div>
 
                             {{-- Welcome Card --}}
-                            <div class="rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-indigo-500/20 p-4 mb-4">
+                            <div class="rounded-2xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 p-4 mb-4">
                                 <div class="text-white/50 text-[10px] mb-1">Welcome back</div>
                                 <div class="text-white text-sm font-semibold mb-2">Build Your Dream App</div>
                                 <div class="text-white/50 text-[10px]">iOS · Android · Flutter</div>
@@ -661,8 +661,8 @@
                             {{-- Service Cards --}}
                             <div class="space-y-3 flex-1">
                                 <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
-                                    <div class="h-8 w-8 rounded-lg bg-indigo-500/20 flex items-center justify-center flex-shrink-0">
-                                        <svg class="h-4 w-4 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                                    <div class="h-8 w-8 rounded-lg bg-[#305CDE]/20 flex items-center justify-center flex-shrink-0">
+                                        <svg class="h-4 w-4 text-[#305CDE]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                                     </div>
                                     <div>
                                         <div class="text-white text-xs font-medium">Mobile App Dev</div>
@@ -670,8 +670,8 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
-                                    <div class="h-8 w-8 rounded-lg bg-purple-500/20 flex items-center justify-center flex-shrink-0">
-                                        <svg class="h-4 w-4 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                                    <div class="h-8 w-8 rounded-lg bg-[#00B6DA]/20 flex items-center justify-center flex-shrink-0">
+                                        <svg class="h-4 w-4 text-[#00B6DA]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                                     </div>
                                     <div>
                                         <div class="text-white text-xs font-medium">UI/UX Design</div>
@@ -679,8 +679,8 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5">
-                                    <div class="h-8 w-8 rounded-lg bg-pink-500/20 flex items-center justify-center flex-shrink-0">
-                                        <svg class="h-4 w-4 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                    <div class="h-8 w-8 rounded-lg bg-[#00B6DA]/20 flex items-center justify-center flex-shrink-0">
+                                        <svg class="h-4 w-4 text-[#00B6DA]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                                     </div>
                                     <div>
                                         <div class="text-white text-xs font-medium">API Integration</div>
@@ -691,7 +691,7 @@
 
                             {{-- Bottom CTA --}}
                             <div class="mt-auto pt-3">
-                                <div class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-xs font-semibold text-center">
+                                <div class="w-full py-3 rounded-xl bg-gradient-to-r from-[#305CDE] to-[#00B6DA] text-white text-xs font-semibold text-center">
                                     Get Free Quote
                                 </div>
                             </div>
@@ -762,9 +762,9 @@
                 @endif
                 <div class="p-6">
                     <time class="text-xs text-muted-light">{{ $blog->published_at?->format('M d, Y') }}</time>
-                    <h3 class="mt-2 text-lg font-semibold text-primary group-hover:text-indigo-400 transition" style="font-family: 'Space Grotesk', sans-serif;">{{ $blog->title }}</h3>
+                    <h3 class="mt-2 text-lg font-semibold text-primary group-hover:text-[#305CDE] transition" style="font-family: 'Space Grotesk', sans-serif;">{{ $blog->title }}</h3>
                     <p class="mt-2 text-sm text-muted">{{ $blog->excerpt }}</p>
-                    <a href="{{ route('blog.show', $blog->slug) }}" class="mt-4 inline-flex items-center text-sm text-muted hover:text-indigo-400 transition gap-1">
+                    <a href="{{ route('blog.show', $blog->slug) }}" class="mt-4 inline-flex items-center text-sm text-muted hover:text-[#305CDE] transition gap-1">
                         Read more <span>→</span>
                     </a>
                 </div>

@@ -12,7 +12,7 @@
             </button>
 
             <span class="text-sm text-muted">{{ auth()->user()->name }}</span>
-            <div class="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-semibold">
+            <div class="h-8 w-8 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white text-xs font-semibold">
                 {{ strtoupper(substr(auth()->user()->name, 0, 2)) }}
             </div>
         </div>

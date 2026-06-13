@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Blog - Freelancers4U')
+@section('title', 'Blog - WeSolve Technologies')
 
 @section('content')
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
@@ -22,7 +22,7 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="max-w-md mx-auto mb-12" data-aos="fade-up">
             <form action="{{ route('blog') }}" method="GET" class="flex gap-2">
-                <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search articles..." class="flex-1 rounded-full bg-card border border-theme-light px-5 py-3 text-sm text-primary placeholder-white/30 focus:outline-none focus:border-indigo-500/50 transition">
+                <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search articles..." class="flex-1 rounded-full bg-card border border-theme-light px-5 py-3 text-sm text-primary placeholder-white/30 focus:outline-none focus:border-[#305CDE]/50 transition">
                 <button type="submit" class="btn-gradient text-sm py-3 px-6">Search</button>
             </form>
         </div>
@@ -37,9 +37,9 @@
                 @endif
                 <div class="p-6">
                     <time class="text-xs text-muted-light">{{ $blog->published_at?->format('M d, Y') }}</time>
-                    <h2 class="mt-2 text-lg font-semibold text-primary group-hover:text-indigo-400 transition" style="font-family: 'Space Grotesk', sans-serif;">{{ $blog->title }}</h2>
+                    <h2 class="mt-2 text-lg font-semibold text-primary group-hover:text-[#305CDE] transition" style="font-family: 'Space Grotesk', sans-serif;">{{ $blog->title }}</h2>
                     <p class="mt-2 text-sm text-muted">{{ $blog->excerpt }}</p>
-                    <a href="{{ route('blog.show', $blog->slug) }}" class="mt-4 inline-flex items-center text-sm text-muted hover:text-indigo-400 transition gap-1">
+                    <a href="{{ route('blog.show', $blog->slug) }}" class="mt-4 inline-flex items-center text-sm text-muted hover:text-[#305CDE] transition gap-1">
                         Read more <span>→</span>
                     </a>
                 </div>

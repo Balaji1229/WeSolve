@@ -6,10 +6,10 @@
 @section('content')
 <div class="flex justify-between items-center mb-6">
     <form action="{{ route('admin.portfolios.index') }}" method="GET" class="flex gap-2">
-        <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search portfolios..." class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search portfolios..." class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
         <button type="submit" class="rounded-lg bg-gray-200 dark:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition">Search</button>
     </form>
-    <a href="{{ route('admin.portfolios.create') }}" class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500 transition">Add Portfolio</a>
+    <a href="{{ route('admin.portfolios.create') }}" class="rounded-lg bg-[#305CDE] px-4 py-2 text-sm font-medium text-white hover:bg-[#305CDE] transition">Add Portfolio</a>
 </div>
 
 <div class="rounded-xl bg-white dark:bg-gray-800 shadow-sm overflow-hidden">
@@ -33,7 +33,7 @@
                     </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="{{ route('admin.portfolios.edit', $portfolio) }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 mr-3">Edit</a>
+                    <a href="{{ route('admin.portfolios.edit', $portfolio) }}" class="text-[#305CDE] dark:text-[#305CDE] hover:text-[#254bb5] mr-3">Edit</a>
                     <form action="{{ route('admin.portfolios.destroy', $portfolio) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure?')">
                         @csrf
                         @method('DELETE')

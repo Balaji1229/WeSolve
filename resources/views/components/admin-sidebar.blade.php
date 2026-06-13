@@ -1,12 +1,7 @@
 <aside class="hidden md:flex w-64 flex-col bg-body border-r border-theme">
-    <div class="flex h-16 items-center px-6 border-b border-theme">
-        <a href="{{ route('home') }}" class="flex items-center gap-2 text-lg font-bold" style="font-family: 'Space Grotesk', sans-serif;">
-            <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
-                <svg class="h-3.5 w-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                </svg>
-            </div>
-            <span class="gradient-text">Freelancers4U</span>
+    <div class="flex h-32 items-center px-6 border-b border-theme">
+        <a href="{{ route('home') }}" class="flex items-center gap-2 text-lg font-bold" style="font-family: 'Space Grotesk', sans-serif;" aria-label="WeSolve Technologies Home">
+            @include('components.logo', ['height' => 100])
         </a>
     </div>
 

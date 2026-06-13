@@ -11,9 +11,9 @@ class SeoHelper
         $data = [
             '@context' => 'https://schema.org',
             '@type' => 'Organization',
-            'name' => 'Freelancers4U',
+            'name' => 'WeSolve Technologies',
             'url' => url('/'),
-            'logo' => url('/logo.svg'),
+            'logo' => asset('images/logo/weslovetechnologies.png'),
             'description' => 'Affordable website development, web app development, SEO and maintenance services for small businesses.',
             'contactPoint' => [
                 [
@@ -24,9 +24,9 @@ class SeoHelper
                 ],
             ],
             'sameAs' => [
-                'https://facebook.com/freelancers4u',
-                'https://twitter.com/freelancers4u',
-                'https://linkedin.com/company/freelancers4u',
+                'https://facebook.com/wesolvetechnologies',
+                'https://twitter.com/wesolvetechnologies',
+                'https://linkedin.com/company/wesolvetechnologies',
             ],
         ];
 
@@ -38,7 +38,7 @@ class SeoHelper
         $data = [
             '@context' => 'https://schema.org',
             '@type' => 'WebSite',
-            'name' => 'Freelancers4U',
+            'name' => 'WeSolve Technologies',
             'url' => url('/'),
             'potentialAction' => [
                 [
@@ -67,15 +67,15 @@ class SeoHelper
             'dateModified' => $blog->updated_at?->toIso8601String(),
             'author' => [
                 '@type' => 'Organization',
-                'name' => $blog->user?->name ?? 'Freelancers4U',
+                'name' => $blog->user?->name ?? 'WeSolve Technologies',
                 'url' => url('/'),
             ],
             'publisher' => [
                 '@type' => 'Organization',
-                'name' => 'Freelancers4U',
+                'name' => 'WeSolve Technologies',
                 'logo' => [
                     '@type' => 'ImageObject',
-                    'url' => url('/logo.png'),
+                    'url' => asset('images/logo/weslovetechnologies.png'),
                 ],
             ],
             'mainEntityOfPage' => [

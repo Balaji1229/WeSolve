@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +9,17 @@
     <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
 
     {{-- Favicon --}}
-    <link rel="icon" type="image/svg+xml" href="{{ asset('images/freelancers4u.svg') }}">
-    <link rel="shortcut icon" type="image/svg+xml" href="{{ asset('images/freelancers4u.svg') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/freelancers4u.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
 
     @php
         $routeName = Route::currentRouteName() ?? 'home';
         $pageSeo = \App\Models\PageSeo::where('page', $routeName)->first();
-        $metaTitle = $pageSeo?->meta_title ?? \App\Models\Setting::get('site_title', 'Freelancers4U - Affordable Website & App Development');
+        $metaTitle = $pageSeo?->meta_title ?? \App\Models\Setting::get('site_title', 'WeSolve Technologies - Affordable Website & App Development');
         $metaDescription = $pageSeo?->meta_description ?? \App\Models\Setting::get('site_description', 'Professional website development, web apps, SEO and maintenance services at affordable prices.');
         $metaKeywords = $pageSeo?->meta_keywords ?? \App\Models\Setting::get('site_keywords', 'website development, web app development, SEO, maintenance, affordable');
-        $ogImage = $pageSeo?->og_image ? asset('storage/' . $pageSeo->og_image) : asset('images/freelancers4u.svg');
+        $ogImage = $pageSeo?->og_image ? asset('storage/' . $pageSeo->og_image) : asset('images/logo/weslovetechnologies.png');
     @endphp
 
     <title>@yield('title', $metaTitle)</title>
@@ -33,7 +33,7 @@
         @yield('meta_extra')
     @else
         {{-- Open Graph --}}
-        <meta property="og:site_name" content="Freelancers4U">
+        <meta property="og:site_name" content="WeSolve Technologies">
         <meta property="og:title" content="@yield('title', $metaTitle)">
         <meta property="og:description" content="@yield('meta_description', $metaDescription)">
         <meta property="og:type" content="website">
@@ -80,10 +80,11 @@
 
     {{-- Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('components.dynamic-styles')
 </head>
-<body class="dark">
+<body class="light">
     {{-- Skip to content link for accessibility --}}
-    <a href="#main-content" id="skip-to-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-indigo-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium">
+    <a href="#main-content" id="skip-to-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-[#305CDE] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-medium">
         Skip to main content
     </a>
 

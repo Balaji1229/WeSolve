@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $service->meta_title ?? $service->title . ' - Freelancers4U')
+@section('title', $service->meta_title ?? $service->title . ' - WeSolve Technologies')
 @section('meta_description', $service->meta_description ?? Str::limit($service->description, 160))
 @section('meta_keywords', $service->meta_keywords ?? '')
 
@@ -52,7 +52,7 @@
                 </h2>
                 <div class="space-y-4">
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center">
                             <svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center">
                             <svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center">
                             <svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center">
                             <svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>

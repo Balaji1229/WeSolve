@@ -8,7 +8,7 @@
     <div class="rounded-xl bg-white dark:bg-gray-800 shadow-sm p-8">
         <div class="flex items-center justify-between mb-6">
             <div class="flex items-center gap-4">
-                <div class="h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-semibold">
+                <div class="h-12 w-12 rounded-full bg-[#305CDE]/10 dark:bg-[#305CDE]/20 flex items-center justify-center text-[#305CDE] dark:text-[#305CDE] font-semibold">
                     {{ strtoupper(substr($contact->name, 0, 2)) }}
                 </div>
                 <div>
@@ -48,7 +48,7 @@
             @if(!$contact->is_read)
             <form action="{{ route('admin.contacts.read', $contact) }}" method="POST">
                 @csrf
-                <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-500 transition">Mark as Read</button>
+                <button type="submit" class="rounded-lg bg-[#305CDE] px-6 py-2 text-sm font-medium text-white hover:bg-[#305CDE] transition">Mark as Read</button>
             </form>
             @endif
             <form action="{{ route('admin.contacts.destroy', $contact) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure?')">
