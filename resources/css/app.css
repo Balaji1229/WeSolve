@@ -38,6 +38,12 @@
     }
 }
 
+@media (max-width: 1023px) {
+    #get-start {
+        display: none;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -967,4 +973,6 @@ p {
     .testimonial-nav-btn.next {
         right: 4px;
     }
+    
 }
+

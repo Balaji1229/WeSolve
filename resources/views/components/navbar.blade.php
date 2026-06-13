@@ -49,7 +49,7 @@
                     </svg>
                 </button>
 
-                <a href="{{ route('contact') }}" class="hidden lg:inline-flex btn-gradient text-sm py-2.5 px-6">Get Started</a>
+                <a href="{{ route('contact') }}" id="get-start" class="hidden lg:inline-flex btn-gradient text-sm py-2.5 px-6">Get Started</a>
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden rounded-lg p-2 transition min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
