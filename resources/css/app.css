@@ -20,6 +20,24 @@
     --color-secondary-rgb: 0, 182, 218;
 }
 
+.logo-responsive {
+    height: 48px;
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .logo-responsive {
+        height: 64px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .logo-responsive {
+        height: var(--logo-desktop-height, 100px);
+        max-height: 120px;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;

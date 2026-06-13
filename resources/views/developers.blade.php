@@ -99,6 +99,22 @@ $developers = [
         ],
     ],
     [
+        'name'      => 'Ramkumar',
+        'role'      => 'App Developer',
+        'exp'       => '2+ Years Experience',
+        'image'     => 'images/developers/ram.png',
+        'email'     => 'ramkumarchandrasekar12@gmail.com',
+        'skills'    => [],
+        'summary'   => 'I am a dedicated Flutter developer who is passionate about creating impactful mobile experiences that delight users and drive business success. I am excited about the opportunity to contribute my expertise to innovative projects and collaborate with like-minded professionals in the field.',
+        'highlights'=> [
+            'Designs intuitive and user-friendly mobile interfaces with a strong focus on UI/UX principles',
+            'Integrates RESTful APIs seamlessly to connect apps with powerful backend services',
+            'Implements Firebase services including authentication, cloud messaging, and real-time databases',
+            'Performs thorough testing and debugging to ensure stable, production-ready applications',
+            'Optimizes app performance for faster load times, smoother animations, and better resource usage',
+        ],
+    ],
+    [
         'name'      => 'Sanjay',
         'role'      => 'Digital Marketing Analyst',
         'exp'       => '1+ Years Experience',
@@ -138,6 +154,10 @@ $developers = [
     @media (min-width: 768px) {
         .dev-img-col { width: 45%; flex-shrink: 0; }
     }
+
+    .developers-img{
+        width:100% !important;
+    }
 </style>
 
 {{-- Developer Sections --}}
@@ -152,7 +172,7 @@ $developers = [
                 <article class="flex flex-col md:flex-row gap-8 lg:gap-10 items-start glass-card-hover rounded-3xl border border-white/10 shadow-xl shadow-black/20 p-6 lg:p-8" itemscope itemtype="https://schema.org/Person">
                     {{-- Image Column --}}
                     <div class="dev-img-col self-start" data-aos="fade-right">
-                        <figure class="relative aspect-[3/4] w-56 md:w-64 lg:w-72 overflow-hidden rounded-2xl border border-white/10 shadow-lg group">
+                        <figure class="developers-img relative aspect-[3/4] w-56 md:w-64 lg:w-72 overflow-hidden rounded-2xl border border-white/10 shadow-lg group">
                             <img
                                 src="{{ asset($dev['image']) }}"
                                 alt="{{ $dev['name'] }} — {{ $dev['role'] }} at WeSolve Technologies"
@@ -194,6 +214,7 @@ $developers = [
                         </ul>
 
                         {{-- Skills --}}
+                        @if(!empty($dev['skills']))
                         <div class="mt-6">
                             <h3 class="text-sm font-semibold text-primary uppercase tracking-wider mb-3">Skills</h3>
                             <div class="flex flex-wrap gap-2">
@@ -204,6 +225,7 @@ $developers = [
                                 @endforeach
                             </div>
                         </div>
+                        @endif
 
                         {{-- Email --}}
                         <div class="mt-8">

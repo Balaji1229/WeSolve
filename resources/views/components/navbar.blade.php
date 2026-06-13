@@ -1,6 +1,6 @@
 <nav class="fixed top-0 z-50 w-full border-b border-theme backdrop-blur-xl bg-body/80" aria-label="Main navigation">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-32 items-center justify-between">
+        <div class="flex h-20 md:h-24 lg:h-32 items-center justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-2 text-xl font-bold" style="font-family: 'Space Grotesk', sans-serif;" aria-label="WeSolve Technologies Home">
                 @include('components.logo', ['height' => 100])
             </a>
@@ -77,4 +77,4 @@
     </div>
 </nav>
 
-<div class="h-32"></div>
+<div class="h-20 md:h-24 lg:h-32"></div>
