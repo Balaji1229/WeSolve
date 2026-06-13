@@ -96,10 +96,10 @@ $teamMembers = [
     ['name' => 'Nanthini',   'role' => 'Full Stack Developer',   'exp' => '5+ Years Experience', 'image' => 'images/developers/nanthini.jpg'],
     ['name' => 'Balaji',     'role' => 'Full Stack Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/balaji.png'],
     ['name' => 'Kanishka',   'role' => 'Mobile App Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/kanishka.jpg'],
-    ['name' => 'Ramkumar',   'role' => 'App Developer',          'exp' => '2+ Years Experience', 'image' => 'images/developers/ram.png'],
     ['name' => 'Sanjay',     'role' => 'SEO Specialist',         'exp' => '1+ Years Experience', 'image' => 'images/developers/sanjay.png'],
     ['name' => 'Prasanth',   'role' => 'Full Stack Developer',   'exp' => '3+ Years Experience', 'image' => 'images/developers/prasanth.jpg'],
     ['name' => 'Arthy',      'role' => 'Backend Developer',      'exp' => '3+ Years Experience', 'image' => 'images/developers/arthy.jpg'],
+    ['name' => 'Ramkumar',   'role' => 'App Developer',          'exp' => '2+ Years Experience', 'image' => 'images/developers/ram.png'],
 ];
 @endphp
 
