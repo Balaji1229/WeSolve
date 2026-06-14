@@ -81,7 +81,7 @@
 <section class="py-16 lg:py-24 bg-body relative">
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
-            <h3 class="text-2xl lg:text-3xl font-bold text-primary mb-6" style="font-family: 'Space Grotesk', sans-serif;">Why Affordable Pricing?</h3>
+            <h3 class="text-2xl lg:text-3xl font-bold text-primary mb-6" style="font-family: 'Space Grotesk', sans-serif;">Why Work With Us?</h3>
             <p class="text-muted leading-relaxed">{{ $aboutContent['why_affordable'] }}</p>
         </div>
     </div>

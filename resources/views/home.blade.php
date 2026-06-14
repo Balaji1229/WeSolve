@@ -71,14 +71,27 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach($services as $index => $service)
+            @php
+                $homeServices = [
+                    ['title' => 'Website Development', 'route' => 'service.website-development', 'desc' => 'Custom, responsive websites designed to represent your brand and turn visitors into customers.'],
+                    ['title' => 'Web Application Development', 'route' => 'service.web-application-development', 'desc' => 'Scalable web apps with powerful backends, dashboards, and workflows tailored to your operations.'],
+                    ['title' => 'Mobile App Development', 'route' => 'service.mobile-app-development', 'desc' => 'Native and cross-platform mobile apps that keep your business in your customers\' pockets.'],
+                    ['title' => 'Digital Marketing', 'route' => 'service.digital-marketing', 'desc' => 'SEO, content, and paid strategies that increase visibility and bring qualified traffic to your business.'],
+                    ['title' => 'AI & Automation Solutions', 'route' => 'service.ai-automation-solutions', 'desc' => 'Smart chatbots, automation workflows, and AI tools that save time and improve customer experiences.'],
+                    ['title' => 'UI/UX Design', 'route' => 'service.ui-ux-design', 'desc' => 'Intuitive interfaces and user experiences that make your product easy and enjoyable to use.'],
+                    ['title' => 'Cloud Solutions', 'route' => 'service.cloud-solutions', 'desc' => 'Reliable cloud hosting, deployment, and infrastructure that grow with your business.'],
+                    ['title' => 'Maintenance & Support', 'route' => 'service.maintenance-support', 'desc' => 'Ongoing updates, security, and support to keep your website or app running smoothly.'],
+                ];
+            @endphp
+
+            @foreach($homeServices as $index => $service)
             <div class="glass-card-hover p-8" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
                 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 mb-6">
                     <span class="text-xl font-bold gradient-text">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
                 </div>
-                <h3 class="text-lg font-semibold text-primary mb-3" style="font-family: 'Space Grotesk', sans-serif;">{{ $service->title }}</h3>
-                <p class="text-sm text-muted leading-relaxed mb-4">{{ Str::limit($service->description, 120) }}</p>
-                <a href="{{ route('service.show', $service->slug) }}" class="text-sm text-muted hover:text-[#305CDE] transition inline-flex items-center gap-1">
+                <h3 class="text-lg font-semibold text-primary mb-3" style="font-family: 'Space Grotesk', sans-serif;">{{ $service['title'] }}</h3>
+                <p class="text-sm text-muted leading-relaxed mb-4">{{ $service['desc'] }}</p>
+                <a href="{{ route($service['route']) }}" class="text-sm text-muted hover:text-[#305CDE] transition inline-flex items-center gap-1">
                     Learn More <span>→</span>
                 </a>
             </div>
@@ -232,164 +245,6 @@
 
 <div class="section-divider"></div>
 
-{{-- Pricing Section --}}
-<section class="py-16 lg:py-24 bg-body relative">
-    <div class="bg-orb bg-orb-purple w-[500px] h-[500px] top-20 -left-40 animate-pulse-glow" style="animation-delay: 1s;"></div>
-
-    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12" data-aos="fade-up">
-            <span class="tag mb-4">Pricing</span>
-            <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">Web Development Pricing</h2>
-            <p class="mt-4 text-muted max-w-2xl mx-auto">Transparent pricing for quality web development. No hidden fees, no surprises.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
-            {{-- Plan 1: Landing Page --}}
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="0">
-                <h3 class="text-xl font-semibold text-primary mb-2" style="font-family: 'Space Grotesk', sans-serif;">Landing Page</h3>
-                <p class="text-sm text-muted mb-6">A single-page website to get your business online fast.</p>
-
-                <div class="flex items-baseline gap-2 mb-8">
-                    <span class="pricing-price" style="font-family: 'Space Grotesk', sans-serif;">&#8377;4,999</span>
-                    <span class="text-sm text-muted">/project</span>
-                </div>
-
-                <div class="space-y-4 mb-8">
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Up to 5 Pages</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Basic SEO Setup</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Mobile Responsive</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Contact Form / WhatsApp Integration</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Fast Loading (PageSpeed 90+)</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>3 Month Support</span>
-                    </div>
-                </div>
-
-                <a href="{{ route('contact') }}" class="pricing-btn pricing-btn-outline">Get Started</a>
-            </div>
-
-            {{-- Plan 2: Standard Website --}}
-            <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="100">
-                <div class="pricing-badge">Most Popular</div>
-                <h3 class="text-xl font-semibold text-primary mb-2 mt-2" style="font-family: 'Space Grotesk', sans-serif;">Standard Website</h3>
-                <p class="text-sm text-muted mb-6">A professional multi-page website for growing businesses.</p>
-
-                <div class="flex items-baseline gap-2 mb-8">
-                    <span class="pricing-price" style="font-family: 'Space Grotesk', sans-serif;">&#8377;9,999</span>
-                    <span class="text-sm text-muted">/project</span>
-                </div>
-
-                <div class="space-y-4 mb-8">
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>10 to 12 Pages</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Custom UI/UX Design</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Admin Panel / CMS Integration</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Advanced SEO Optimization</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Best Mobile Responsive</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Analytics & Tracking Setup</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Social Media Integration</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>6 Months Support</span>
-                    </div>
-                </div>
-
-                <a href="{{ route('contact') }}" class="pricing-btn pricing-btn-gradient">Get Started</a>
-            </div>
-
-            {{-- Plan 3: Business Website --}}
-            <div class="pricing-card" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-xl font-semibold text-primary mb-2" style="font-family: 'Space Grotesk', sans-serif;">Business Website</h3>
-                <p class="text-sm text-muted mb-6">A complete multi-page website for serious businesses.</p>
-
-                <div class="flex items-baseline gap-2 mb-8">
-                    <span class="pricing-price" style="font-family: 'Space Grotesk', sans-serif;">&#8377;14,999</span>
-                    <span class="text-sm text-muted">/project</span>
-                </div>
-
-                <div class="space-y-4 mb-8">
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>18+ Pages</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Premium UI/UX Design</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Custom Admin Panel / CMS</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Advanced SEO Optimization</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Advanced Mobile Responsive</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Analytics & Tracking Setup</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Social Media Integration</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Unlimited Revisions</span>
-                    </div>
-                    <div class="pricing-check">
-                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>3 Months Support</span>
-                    </div>
-                </div>
-
-                <a href="{{ route('contact') }}" class="pricing-btn pricing-btn-outline">Get Started</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="section-divider"></div>
-
 {{-- Why Choose Us --}}
 <section class="py-16 lg:py-24 bg-body relative">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] top-0 right-0 animate-pulse-glow"></div>
@@ -425,7 +280,7 @@
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
-                            <h4 class="text-primary font-medium">Affordable Pricing for All Business Sizes</h4>
+                            <h4 class="text-primary font-medium">Solutions Tailored to Your Goals</h4>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">

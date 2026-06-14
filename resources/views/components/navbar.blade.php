@@ -18,14 +18,14 @@
                         </svg>
                     </a>
                     <div id="services-dropdown-menu" class="hidden absolute top-full left-0 mt-1 w-64 dropdown-menu py-2 px-2 z-50" role="menu" aria-label="Services submenu">
-                        @php
-                            $navServices = \App\Models\Service::active()->ordered()->limit(6)->get();
-                        @endphp
-                        @foreach($navServices as $navService)
-                        <a href="{{ route('service.show', $navService->slug) }}" class="dropdown-item" role="menuitem">
-                            <div class="font-medium">{{ $navService->title }}</div>
-                        </a>
-                        @endforeach
+                        <a href="{{ route('service.website-development') }}" class="dropdown-item" role="menuitem">Website Development</a>
+                        <a href="{{ route('service.web-application-development') }}" class="dropdown-item" role="menuitem">Web Application Development</a>
+                        <a href="{{ route('service.mobile-app-development') }}" class="dropdown-item" role="menuitem">Mobile App Development</a>
+                        <a href="{{ route('service.digital-marketing') }}" class="dropdown-item" role="menuitem">Digital Marketing</a>
+                        <a href="{{ route('service.ai-automation-solutions') }}" class="dropdown-item" role="menuitem">AI &amp; Automation Solutions</a>
+                        <a href="{{ route('service.ui-ux-design') }}" class="dropdown-item" role="menuitem">UI/UX Design</a>
+                        <a href="{{ route('service.cloud-solutions') }}" class="dropdown-item" role="menuitem">Cloud Solutions</a>
+                        <a href="{{ route('service.maintenance-support') }}" class="dropdown-item" role="menuitem">Maintenance &amp; Support</a>
                         <div class="border-t border-theme my-1"></div>
                         <a href="{{ route('services') }}" class="dropdown-item font-medium text-[#305CDE]" role="menuitem">
                             View All Services →
