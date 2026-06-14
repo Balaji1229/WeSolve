@@ -39,6 +39,8 @@ class Template extends Model
         'Others',
     ];
 
+    public const IMAGE_DIRECTORY = 'images/themes';
+
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
@@ -51,6 +53,19 @@ class Template extends Model
 
     public function imageUrl(): string
     {
-        return $this->image ? asset('storage/' . $this->image) : asset('images/logo/weslovetechnologies.png');
+        if (empty($this->image)) {
+            return asset('images/logo/weslovetechnologies.png');
+        }
+
+        if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {
+            return $this->image;
+        }
+
+        return asset(ltrim($this->image, '/'));
+    }
+
+    public function imageDiskPath(): string
+    {
+        return public_path($this->image);
     }
 }

@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 
 return new class extends Migration
 {
@@ -30,14 +29,12 @@ return new class extends Migration
         }
 
         $files = File::files($themesDir);
-        $disk = Storage::disk('public');
-        $targetDir = 'templates';
 
         foreach ($files as $file) {
             $filename = $file->getFilename();
-            $extension = $file->getExtension();
+            $extension = strtolower($file->getExtension());
 
-            if (!in_array(strtolower($extension), ['webp', 'jpg', 'jpeg', 'png'])) {
+            if (!in_array($extension, ['webp', 'jpg', 'jpeg', 'png'])) {
                 continue;
             }
 
@@ -46,15 +43,13 @@ return new class extends Migration
                 $category = $this->categoryMap[$matches[1]] ?? 'Others';
             }
 
-            $storedName = $file->getBasename('.' . $extension) . '-' . uniqid() . '.' . $extension;
-            $storedPath = $targetDir . '/' . $storedName;
-
-            $disk->put($storedPath, File::get($file->getPathname()));
+            // Store the public-relative path so asset() resolves it directly.
+            $imagePath = 'images/themes/' . $filename;
 
             DB::table('templates')->insert([
                 'title' => $category . ' Template',
                 'category' => $category,
-                'image' => $storedPath,
+                'image' => $imagePath,
                 'sort_order' => 0,
                 'is_active' => true,
                 'created_at' => now(),
@@ -65,19 +60,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        $disk = Storage::disk('public');
-
-        $records = DB::table('templates')->select('image')->get();
-        foreach ($records as $record) {
-            if ($record->image && $disk->exists($record->image)) {
-                $disk->delete($record->image);
-            }
-        }
-
-        if ($disk->exists('templates')) {
-            $disk->deleteDirectory('templates');
-        }
-
         DB::table('templates')->delete();
     }
 };

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Template;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class TemplateController extends Controller
 {
@@ -50,8 +50,7 @@ class TemplateController extends Controller
         $validated['is_active'] = $request->boolean('is_active', true);
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('templates', 'public');
-            $validated['image'] = $path;
+            $validated['image'] = $this->uploadImage($request->file('image'));
         }
 
         Template::create($validated);
@@ -79,11 +78,8 @@ class TemplateController extends Controller
         $validated['is_active'] = $request->boolean('is_active', true);
 
         if ($request->hasFile('image')) {
-            if ($template->image) {
-                Storage::disk('public')->delete($template->image);
-            }
-            $path = $request->file('image')->store('templates', 'public');
-            $validated['image'] = $path;
+            $this->deleteImage($template);
+            $validated['image'] = $this->uploadImage($request->file('image'));
         }
 
         $template->update($validated);
@@ -94,12 +90,48 @@ class TemplateController extends Controller
 
     public function destroy(Template $template)
     {
-        if ($template->image) {
-            Storage::disk('public')->delete($template->image);
-        }
+        $this->deleteImage($template);
         $template->delete();
 
         return redirect()->route('admin.templates.index')
             ->with('success', 'Template deleted successfully.');
+    }
+
+    private function uploadImage(\Illuminate\Http\UploadedFile $file): string
+    {
+        $extension = strtolower($file->getClientOriginalExtension());
+        $baseName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $filename = $this->safeFilename($baseName) . '-' . uniqid() . '.' . $extension;
+
+        $directory = public_path(Template::IMAGE_DIRECTORY);
+
+        if (!File::isDirectory($directory)) {
+            File::makeDirectory($directory, 0755, true);
+        }
+
+        $file->move($directory, $filename);
+
+        return Template::IMAGE_DIRECTORY . '/' . $filename;
+    }
+
+    private function deleteImage(Template $template): void
+    {
+        if (empty($template->image)) {
+            return;
+        }
+
+        $path = $template->imageDiskPath();
+
+        if (File::exists($path)) {
+            File::delete($path);
+        }
+    }
+
+    private function safeFilename(string $name): string
+    {
+        $name = preg_replace('/[^a-zA-Z0-9_-]/', '-', $name);
+        $name = preg_replace('/-+/', '-', $name);
+
+        return trim($name, '-') ?: 'template';
     }
 }
