@@ -390,8 +390,21 @@ function initChatbotWidget() {
 
     function linkify(text) {
         const urlRegex = /(https?:\/\/[^\s<]+)/g;
-        return text.replace(urlRegex, (url) => {
-            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#00B6DA]">${url}</a>`;
+        return text.replace(urlRegex, (rawUrl) => {
+            let url = rawUrl;
+            const trailing = new Set(['.', ',', ';', '!', '?', ')', ']', '>', '"', "'", '`']);
+            let stripped = '';
+
+            while (url.length > 0 && trailing.has(url[url.length - 1])) {
+                stripped = url[url.length - 1] + stripped;
+                url = url.slice(0, -1);
+            }
+
+            if (url.length === 0) {
+                return rawUrl;
+            }
+
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#00B6DA]">${url}</a>${stripped}`;
         });
     }
 
