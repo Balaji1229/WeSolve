@@ -7,6 +7,7 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
@@ -110,6 +111,7 @@
         });
     </script>
     @include('components.whatsapp-float')
+    @include('components.ai-chatbot-float')
 
     @stack('scripts')
 </body>

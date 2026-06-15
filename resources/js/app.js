@@ -341,6 +341,171 @@ function initTestimonialSlider() {
     startAutoPlay();
 }
 
+// AI Chatbot Widget
+function initChatbotWidget() {
+    const widget = document.getElementById('ai-chatbot-widget');
+    const toggleBtn = document.getElementById('chatbot-toggle');
+    const closeBtn = document.getElementById('chatbot-close');
+    const panel = document.getElementById('chatbot-panel');
+    const openIcon = document.getElementById('chatbot-icon-open');
+    const closeIcon = document.getElementById('chatbot-icon-close');
+    const messagesContainer = document.getElementById('chatbot-messages');
+    const form = document.getElementById('chatbot-form');
+    const input = document.getElementById('chatbot-input');
+    const typingIndicator = document.getElementById('chatbot-typing');
+
+    if (!widget || !toggleBtn || !panel) return;
+
+    const config = window.chatbotConfig || { endpoint: '/chatbot/message', csrfToken: '' };
+
+    function updateIcons(isOpen) {
+        if (openIcon && closeIcon) {
+            openIcon.classList.toggle('hidden', isOpen);
+            closeIcon.classList.toggle('hidden', !isOpen);
+        }
+    }
+
+    function openPanel() {
+        panel.classList.remove('hidden');
+        panel.classList.add('flex');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        toggleBtn.setAttribute('aria-label', 'Close chat assistant');
+        updateIcons(true);
+        input.focus();
+    }
+
+    function closePanel() {
+        panel.classList.add('hidden');
+        panel.classList.remove('flex');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-label', 'Open chat assistant');
+        updateIcons(false);
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function linkify(text) {
+        const urlRegex = /(https?:\/\/[^\s<]+)/g;
+        return text.replace(urlRegex, (url) => {
+            return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#00B6DA]">${url}</a>`;
+        });
+    }
+
+    function appendMessage(role, text, isFallback = false) {
+        const wrapper = document.createElement('div');
+        wrapper.className = `chatbot-message ${role} flex gap-3 mb-3`;
+
+        const isAssistant = role === 'assistant';
+        const avatar = document.createElement('div');
+        avatar.className = `flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full ${isAssistant ? 'bg-gradient-to-r from-[#305CDE] to-[#00B6DA]' : 'bg-gray-200 dark:bg-gray-700'}`;
+        avatar.innerHTML = isAssistant
+            ? '<svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 012 2v2h-4V4a2 2 0 012-2zm-6 6h12a2 2 0 012 2v6a2 2 0 01-2 2h-2v2a2 2 0 01-2 2H10a2 2 0 01-2-2v-2H6a2 2 0 01-2-2V10a2 2 0 012-2zm3 8a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"/></svg>'
+            : '<svg class="h-4 w-4 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>';
+
+        const bubble = document.createElement('div');
+        bubble.className = `max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm whitespace-pre-wrap ${isAssistant ? 'rounded-tl-none bg-card text-muted' : 'rounded-tr-none bg-gradient-to-r from-[#305CDE] to-[#00B6DA] text-white'}`;
+        bubble.innerHTML = isAssistant ? linkify(escapeHtml(text)) : escapeHtml(text);
+
+        if (isAssistant && isFallback) {
+            const label = document.createElement('div');
+            label.className = 'mb-1 text-xs font-medium text-[#305CDE]';
+            label.textContent = 'AI assistant is offline. Showing matching website content:';
+            bubble.prepend(label);
+        }
+
+        if (isAssistant) {
+            wrapper.appendChild(avatar);
+            wrapper.appendChild(bubble);
+        } else {
+            wrapper.appendChild(bubble);
+            wrapper.appendChild(avatar);
+        }
+
+        messagesContainer.appendChild(wrapper);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function setTyping(show) {
+        typingIndicator.classList.toggle('hidden', !show);
+        if (show) {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+    }
+
+    async function sendMessage(text) {
+        appendMessage('user', text);
+        setTyping(true);
+        input.value = '';
+        input.disabled = true;
+
+        try {
+            const response = await fetch(config.endpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': config.csrfToken,
+                },
+                body: JSON.stringify({ message: text }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            appendMessage('assistant', data.reply || 'Sorry, I did not understand that.', data.fallback === true);
+        } catch (error) {
+            console.error('Chatbot error:', error);
+            appendMessage('assistant', 'Sorry, something went wrong. Please try again later.');
+        } finally {
+            setTyping(false);
+            input.disabled = false;
+            input.focus();
+        }
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+            closePanel();
+        } else {
+            openPanel();
+        }
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closePanel);
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const text = input.value.trim();
+        if (!text) return;
+        sendMessage(text);
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
+            closePanel();
+            toggleBtn.focus();
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (
+            toggleBtn.getAttribute('aria-expanded') === 'true' &&
+            !widget.contains(e.target)
+        ) {
+            closePanel();
+        }
+    });
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
@@ -349,4 +514,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSkipLink();
     initProjectCarousel();
     initTestimonialSlider();
+    initChatbotWidget();
 });

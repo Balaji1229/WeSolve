@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'gemini' => [
+        'key' => env('GEMINI_API_KEY'),
+        'model' => env('GEMINI_MODEL', 'gemini-flash-latest'),
+        'max_tokens' => (int) env('GEMINI_MAX_TOKENS', 1024),
+        'temperature' => (float) env('GEMINI_TEMPERATURE', 0.2),
+    ],
+
 ];
