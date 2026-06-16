@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us - Freelancers4U')
+@section('title', 'Contact Us - WeSolve Technologies')
 
 @section('content')
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
@@ -15,8 +15,6 @@
         </p>
     </div>
 </section>
-
-<div class="section-divider"></div>
 
 <section class="py-24 lg:py-32 bg-body relative">
     <div class="bg-orb bg-orb-blue w-[400px] h-[400px] bottom-0 -left-20 animate-pulse-glow" style="animation-delay: 2s;"></div>
@@ -91,8 +89,8 @@
                     <h2 class="text-2xl font-bold text-primary mb-6" style="font-family: 'Space Grotesk', sans-serif;">Contact Information</h2>
                     <div class="space-y-5">
                         <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-indigo-500/20 flex items-center justify-center">
-                                <svg class="h-5 w-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 flex items-center justify-center">
+                                <svg class="h-5 w-5 text-[#305CDE]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
@@ -102,8 +100,8 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-indigo-500/20 flex items-center justify-center">
-                                <svg class="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 flex items-center justify-center">
+                                <svg class="h-5 w-5 text-[#00B6DA]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                             </div>
@@ -114,8 +112,8 @@
                         </div>
                         @if($contactInfo['address'])
                         <div class="flex items-start gap-4">
-                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-600/20 border border-indigo-500/20 flex items-center justify-center">
-                                <svg class="h-5 w-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 flex items-center justify-center">
+                                <svg class="h-5 w-5 text-[#00B6DA]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                 </svg>
@@ -129,7 +127,7 @@
                     </div>
                 </div>
 
-                <div class="rounded-2xl p-8 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border border-indigo-500/20 text-center">
+                <div class="rounded-2xl p-8 bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 text-center">
                     <h3 class="text-xl font-bold text-primary mb-2" style="font-family: 'Space Grotesk', sans-serif;">Chat on WhatsApp</h3>
                     <p class="text-secondary text-sm mb-6">Get instant responses</p>
                     <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $contactInfo['whatsapp']) }}" target="_blank" class="btn-gradient">
@@ -140,6 +138,40 @@
                             Message Us
                         </span>
                     </a>
+                </div>
+
+                {{-- Supported Languages --}}
+                <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="150">
+                    <h2 class="text-2xl font-bold text-primary mb-6" style="font-family: 'Space Grotesk', sans-serif;">Supported Languages</h2>
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 flex items-center justify-center">
+                                <svg class="h-5 w-5 text-[#305CDE]" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-primary font-medium text-sm">English</h3>
+                                <p class="text-secondary text-sm">Global · Business Communication</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br from-orange-500/20 to-[#00B6DA]/20 border border-orange-500/20 flex items-center justify-center">
+                                <svg class="h-5 w-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-primary font-medium text-sm" lang="ta">தமிழ்</h3>
+                                <p class="text-secondary text-sm">Native Tamil Support</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="mt-6 pt-5 border-t border-theme-light">
+                        <p class="text-sm text-muted leading-relaxed">
+                            We communicate comfortably in <strong class="text-secondary">English</strong> and <strong class="text-secondary" lang="ta">தமிழ்</strong> to provide better support for our customers.
+                        </p>
+                    </div> --}}
                 </div>
             </div>
         </div>

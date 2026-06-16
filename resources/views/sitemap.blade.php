@@ -37,14 +37,54 @@
         <priority>0.7</priority>
     </url>
 
-    @foreach($services as $service)
     <url>
-        <loc>{{ route('service.show', $service->slug) }}</loc>
-        <lastmod>{{ $service->updated_at->toDateString() }}</lastmod>
+        <loc>{{ route('service.website-development') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
-    @endforeach
+    <url>
+        <loc>{{ route('service.web-application-development') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>{{ route('service.mobile-app-development') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>{{ route('service.digital-marketing') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>{{ route('service.ai-automation-solutions') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>{{ route('service.ui-ux-design') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>{{ route('service.cloud-solutions') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>{{ route('service.maintenance-support') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
 
     @foreach($portfolios as $portfolio)
     <url>

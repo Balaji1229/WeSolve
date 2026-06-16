@@ -1,18 +1,13 @@
 <nav class="fixed top-0 z-50 w-full border-b border-theme backdrop-blur-xl bg-body/80" aria-label="Main navigation">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-2 text-xl font-bold" style="font-family: 'Space Grotesk', sans-serif;" aria-label="Freelancers4U Home">
-                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600" aria-hidden="true">
-                    <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                    </svg>
-                </div>
-                <span class="gradient-text">Freelancers4U</span>
+        <div class="flex h-20 md:h-24 lg:h-32 items-center justify-between">
+            <a href="{{ route('home') }}" class="flex items-center gap-2 text-xl font-bold" style="font-family: 'Space Grotesk', sans-serif;" aria-label="WeSolve Technologies Home">
+                @include('components.logo', ['height' => 100])
             </a>
 
             <div class="hidden md:flex items-center gap-1">
                 <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('home') ? 'aria-current=page' : '' }}>Home</a>
-                <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About</a>
+                <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About Us</a>
 
                 <!-- Services with Dropdown -->
                 <div class="relative">
@@ -23,23 +18,23 @@
                         </svg>
                     </a>
                     <div id="services-dropdown-menu" class="hidden absolute top-full left-0 mt-1 w-64 dropdown-menu py-2 px-2 z-50" role="menu" aria-label="Services submenu">
-                        @php
-                            $navServices = \App\Models\Service::active()->ordered()->limit(6)->get();
-                        @endphp
-                        @foreach($navServices as $navService)
-                        <a href="{{ route('service.show', $navService->slug) }}" class="dropdown-item" role="menuitem">
-                            <div class="font-medium">{{ $navService->title }}</div>
-                        </a>
-                        @endforeach
+                        <a href="{{ route('service.website-development') }}" class="dropdown-item" role="menuitem">Website Development</a>
+                        <a href="{{ route('service.web-application-development') }}" class="dropdown-item" role="menuitem">Web Application Development</a>
+                        <a href="{{ route('service.mobile-app-development') }}" class="dropdown-item" role="menuitem">Mobile App Development</a>
+                        <a href="{{ route('service.digital-marketing') }}" class="dropdown-item" role="menuitem">Digital Marketing</a>
+                        <a href="{{ route('service.ai-automation-solutions') }}" class="dropdown-item" role="menuitem">AI &amp; Automation Solutions</a>
+                        <a href="{{ route('service.ui-ux-design') }}" class="dropdown-item" role="menuitem">UI/UX Design</a>
+                        <a href="{{ route('service.cloud-solutions') }}" class="dropdown-item" role="menuitem">Cloud Solutions</a>
+                        <a href="{{ route('service.maintenance-support') }}" class="dropdown-item" role="menuitem">Maintenance &amp; Support</a>
                         <div class="border-t border-theme my-1"></div>
-                        <a href="{{ route('services') }}" class="dropdown-item font-medium text-indigo-400" role="menuitem">
+                        <a href="{{ route('services') }}" class="dropdown-item font-medium text-[#305CDE]" role="menuitem">
                             View All Services →
                         </a>
                     </div>
                 </div>
 
                 <a href="{{ route('portfolio') }}" class="nav-link {{ request()->routeIs('portfolio*') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('portfolio*') ? 'aria-current=page' : '' }}>Portfolio</a>
-                <a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog*') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('blog*') ? 'aria-current=page' : '' }}>Blog</a>
+                <a href="{{ route('templates') }}" class="nav-link {{ request()->routeIs('templates') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('templates') ? 'aria-current=page' : '' }}>Templates</a>
                 <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }} px-4 py-2 text-sm font-medium transition-colors rounded-lg" {{ request()->routeIs('contact') ? 'aria-current=page' : '' }}>Contact</a>
             </div>
 
@@ -54,7 +49,7 @@
                     </svg>
                 </button>
 
-                <a href="{{ route('contact') }}" class="hidden md:inline-flex btn-gradient text-sm py-2.5 px-6">Get Started</a>
+                <a href="{{ route('contact') }}" id="get-start" class="hidden lg:inline-flex btn-gradient text-sm py-2.5 px-6">Get Started</a>
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-button" class="md:hidden rounded-lg p-2 transition min-h-[44px] min-w-[44px] flex items-center justify-center" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -73,13 +68,13 @@
     <div id="mobile-menu" class="hidden md:hidden border-t border-theme bg-body/95 backdrop-blur-xl" role="dialog" aria-label="Mobile menu" aria-modal="true">
         <div class="px-4 py-3 space-y-1">
             <a href="{{ route('home') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('home') ? 'aria-current=page' : '' }}>Home</a>
-            <a href="{{ route('about') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About</a>
+            <a href="{{ route('about') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About Us</a>
             <a href="{{ route('services') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('services*') ? 'aria-current=page' : '' }}>Services</a>
             <a href="{{ route('portfolio') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('portfolio*') ? 'aria-current=page' : '' }}>Portfolio</a>
-            <a href="{{ route('blog') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('blog*') ? 'aria-current=page' : '' }}>Blog</a>
+            <a href="{{ route('templates') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('templates') ? 'aria-current=page' : '' }}>Templates</a>
             <a href="{{ route('contact') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('contact') ? 'aria-current=page' : '' }}>Contact</a>
         </div>
     </div>
 </nav>
 
-<div class="h-16"></div>
+<div class="h-20 md:h-24 lg:h-32"></div>

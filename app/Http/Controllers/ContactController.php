@@ -11,7 +11,7 @@ class ContactController extends Controller
     public function index()
     {
         $contactInfo = [
-            'email' => Setting::get('contact_email', 'info@freelancers4u.com'),
+            'email' => Setting::get('contact_email', 'info@wesolvetechnologies.com'),
             'phone' => Setting::get('contact_phone', '+1 234 567 890'),
             'whatsapp' => Setting::get('contact_whatsapp', '+1 234 567 890'),
             'address' => Setting::get('contact_address', '123 Street, City, Country'),

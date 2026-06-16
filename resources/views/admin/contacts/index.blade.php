@@ -6,7 +6,7 @@
 @section('content')
 <div class="flex justify-between items-center mb-6">
     <form action="{{ route('admin.contacts.index') }}" method="GET" class="flex gap-2">
-        <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search messages..." class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Search messages..." class="rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
         <button type="submit" class="rounded-lg bg-gray-200 dark:bg-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition">Search</button>
     </form>
 </div>
@@ -25,7 +25,7 @@
         </thead>
         <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
             @forelse($messages as $message)
-            <tr class="{{ !$message->is_read ? 'bg-indigo-50 dark:bg-indigo-900/20' : '' }}">
+            <tr class="{{ !$message->is_read ? 'bg-[#305CDE]/5 dark:bg-[#305CDE]/20/20' : '' }}">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ $message->name }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">{{ $message->email }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">{{ $message->service ?? 'N/A' }}</td>
@@ -36,7 +36,7 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-400">{{ $message->created_at->diffForHumans() }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="{{ route('admin.contacts.show', $message) }}" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-900 mr-3">View</a>
+                    <a href="{{ route('admin.contacts.show', $message) }}" class="text-[#305CDE] dark:text-[#305CDE] hover:text-[#254bb5] mr-3">View</a>
                     <form action="{{ route('admin.contacts.destroy', $message) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure?')">
                         @csrf
                         @method('DELETE')

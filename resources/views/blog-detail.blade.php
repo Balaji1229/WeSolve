@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', $blog->meta_title ?? $blog->title . ' - Freelancers4U Blog')
+@section('title', $blog->meta_title ?? $blog->title . ' - WeSolve Technologies Blog')
 @section('meta_description', $blog->meta_description ?? $blog->excerpt)
 @section('meta_keywords', $blog->meta_keywords ?? '')
 
 @section('meta_extra')
-<meta property="og:site_name" content="Freelancers4U">
+<meta property="og:site_name" content="WeSolve Technologies">
 <meta property="og:title" content="{{ $blog->title }}">
 <meta property="og:description" content="{{ $blog->excerpt }}">
 <meta property="og:type" content="article">
@@ -15,7 +15,7 @@
 @endif
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="{{ $blog->published_at }}">
-<meta property="article:author" content="{{ $blog->user?->name ?? 'Freelancers4U' }}">
+<meta property="article:author" content="{{ $blog->user?->name ?? 'WeSolve Technologies' }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $blog->title }}">
 <meta name="twitter:description" content="{{ $blog->excerpt }}">
@@ -38,7 +38,7 @@
         </h1>
         @if($blog->user)
         <div class="mt-6 flex items-center justify-center gap-3">
-            <div class="h-10 w-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm" aria-hidden="true">
+            <div class="h-10 w-10 rounded-full bg-gradient-to-br from-[#305CDE] to-[#00B6DA] flex items-center justify-center text-white font-semibold text-sm" aria-hidden="true">
                 {{ strtoupper(substr($blog->user->name, 0, 2)) }}
             </div>
             <div class="text-left">
@@ -89,8 +89,8 @@
                     </div>
                     @endif
                     <div class="p-4">
-                        <h3 class="font-semibold text-primary text-sm group-hover:text-indigo-400 transition" style="font-family: 'Space Grotesk', sans-serif;">{{ $related->title }}</h3>
-                        <a href="{{ route('blog.show', $related->slug) }}" class="mt-2 inline-flex items-center text-xs text-muted hover:text-indigo-400 transition">Read more →</a>
+                        <h3 class="font-semibold text-primary text-sm group-hover:text-[#305CDE] transition" style="font-family: 'Space Grotesk', sans-serif;">{{ $related->title }}</h3>
+                        <a href="{{ route('blog.show', $related->slug) }}" class="mt-2 inline-flex items-center text-xs text-muted hover:text-[#305CDE] transition">Read more →</a>
                     </div>
                 </article>
                 @endforeach

@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\ContactMessage;
 use App\Models\Portfolio;
-use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
@@ -15,7 +14,6 @@ class DashboardController extends Controller
     public function index()
     {
         $stats = [
-            'services' => Service::count(),
             'portfolios' => Portfolio::count(),
             'blogs' => Blog::count(),
             'testimonials' => Testimonial::count(),

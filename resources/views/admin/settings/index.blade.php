@@ -16,14 +16,29 @@
                 <div>
                     <label for="setting_{{ $setting->key }}" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ $setting->label }}</label>
                     @if($setting->type == 'textarea')
-                    <textarea name="settings[{{ $setting->key }}]" id="setting_{{ $setting->key }}" rows="3" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">{{ old('settings.' . $setting->key, $setting->value) }}</textarea>
+                    <textarea name="settings[{{ $setting->key }}]" id="setting_{{ $setting->key }}" rows="3" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">{{ old('settings.' . $setting->key, $setting->value) }}</textarea>
                     @elseif($setting->type == 'boolean')
-                    <select name="settings[{{ $setting->key }}]" id="setting_{{ $setting->key }}" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <select name="settings[{{ $setting->key }}]" id="setting_{{ $setting->key }}" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
                         <option value="1" {{ old('settings.' . $setting->key, $setting->value) == '1' ? 'selected' : '' }}>Yes</option>
                         <option value="0" {{ old('settings.' . $setting->key, $setting->value) == '0' ? 'selected' : '' }}>No</option>
                     </select>
+                    @elseif($setting->type == 'color')
+                    <div class="mt-1 flex items-center gap-3">
+                        <input type="color" id="setting_{{ $setting->key }}_picker" value="{{ old('settings.' . $setting->key, $setting->value) }}" class="h-10 w-20 rounded-lg border border-gray-300 dark:border-gray-600 cursor-pointer">
+                        <input type="text" name="settings[{{ $setting->key }}]" id="setting_{{ $setting->key }}" value="{{ old('settings.' . $setting->key, $setting->value) }}" class="block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
+                    </div>
+                    <script>
+                        (function() {
+                            const picker = document.getElementById('setting_{{ $setting->key }}_picker');
+                            const input = document.getElementById('setting_{{ $setting->key }}');
+                            if (picker && input) {
+                                picker.addEventListener('input', () => input.value = picker.value);
+                                input.addEventListener('input', () => picker.value = input.value);
+                            }
+                        })();
+                    </script>
                     @else
-                    <input type="text" name="settings[{{ $setting->key }}]" id="setting_{{ $setting->key }}" value="{{ old('settings.' . $setting->key, $setting->value) }}" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <input type="text" name="settings[{{ $setting->key }}]" id="setting_{{ $setting->key }}" value="{{ old('settings.' . $setting->key, $setting->value) }}" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
                     @endif
                 </div>
                 @endforeach
@@ -38,7 +53,7 @@
         @endif
 
         <div class="flex gap-4">
-            <button type="submit" class="rounded-lg bg-indigo-600 px-6 py-2 text-sm font-medium text-white hover:bg-indigo-500 transition">Save Settings</button>
+            <button type="submit" class="rounded-lg bg-[#305CDE] px-6 py-2 text-sm font-medium text-white hover:bg-[#254bb5] transition">Save Settings</button>
         </div>
     </form>
 </div>
