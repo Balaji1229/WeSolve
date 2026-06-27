@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\Blog;
+use App\Models\Setting;
 
 class SeoHelper
 {
@@ -13,24 +14,36 @@ class SeoHelper
             '@type' => 'Organization',
             'name' => 'WeSolve Technologies',
             'url' => url('/'),
-            'logo' => asset('images/logo/weslovetechnologies.png'),
+            'logo' => asset('images/logo/wesolvetechnologies-dark.webp'),
             'description' => 'Affordable website development, web app development, SEO and maintenance services for small businesses.',
             'contactPoint' => [
                 [
                     '@type' => 'ContactPoint',
-                    'telephone' => '+1-555-123-4567',
+                    'telephone' => Setting::get('contact_phone', '+91 6369443005'),
                     'contactType' => 'customer service',
                     'availableLanguage' => ['English'],
                 ],
             ],
-            'sameAs' => [
-                'https://facebook.com/wesolvetechnologies',
-                'https://twitter.com/wesolvetechnologies',
-                'https://linkedin.com/company/wesolvetechnologies',
-            ],
+            'sameAs' => self::socialProfiles(),
         ];
 
         return '<script type="application/ld+json">' . json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</script>';
+    }
+
+    /**
+     * Configured social profile URLs (non-empty), used for schema sameAs.
+     *
+     * @return array<int, string>
+     */
+    private static function socialProfiles(): array
+    {
+        return array_values(array_filter([
+            Setting::get('social_instagram'),
+            Setting::get('social_twitter'),
+            Setting::get('social_facebook'),
+            Setting::get('social_threads'),
+            Setting::get('social_github'),
+        ]));
     }
 
     public static function schemaWebsite(): string
@@ -75,7 +88,7 @@ class SeoHelper
                 'name' => 'WeSolve Technologies',
                 'logo' => [
                     '@type' => 'ImageObject',
-                    'url' => asset('images/logo/weslovetechnologies.png'),
+                    'url' => asset('images/logo/wesolvetechnologies-dark.webp'),
                 ],
             ],
             'mainEntityOfPage' => [
@@ -83,6 +96,25 @@ class SeoHelper
                 '@id' => route('blog.show', $blog->slug),
             ],
         ];
+
+        // Keywords (primary + secondary) for richer Article markup.
+        $keywords = array_filter([
+            $blog->primary_keyword ?? null,
+            $blog->secondary_keywords ?? null,
+            $blog->meta_keywords ?? null,
+        ]);
+        if (! empty($keywords)) {
+            $data['keywords'] = implode(', ', $keywords);
+        }
+
+        if ($blog->primary_keyword) {
+            $data['articleSection'] = $blog->primary_keyword;
+        }
+
+        $wordCount = str_word_count(strip_tags((string) $blog->content));
+        if ($wordCount > 0) {
+            $data['wordCount'] = $wordCount;
+        }
 
         if ($blog->featured_image) {
             $data['image'] = asset('storage/' . $blog->featured_image);
@@ -110,6 +142,83 @@ class SeoHelper
             '@type' => 'BreadcrumbList',
             'itemListElement' => $listItems,
         ];
+
+        return '<script type="application/ld+json">' . json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</script>';
+    }
+
+    /**
+     * FAQPage JSON-LD from an array of ['question' => ..., 'answer' => ...] items.
+     */
+    public static function schemaFaq(array $faqs): string
+    {
+        $entities = [];
+
+        foreach ($faqs as $faq) {
+            $question = trim($faq['question'] ?? '');
+            $answer = trim($faq['answer'] ?? '');
+
+            if ($question === '' || $answer === '') {
+                continue;
+            }
+
+            $entities[] = [
+                '@type' => 'Question',
+                'name' => $question,
+                'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text' => $answer,
+                ],
+            ];
+        }
+
+        if (empty($entities)) {
+            return '';
+        }
+
+        $data = [
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => $entities,
+        ];
+
+        return '<script type="application/ld+json">' . json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</script>';
+    }
+
+    /**
+     * LocalBusiness JSON-LD built from editable Settings with sensible fallbacks.
+     */
+    public static function schemaLocalBusiness(): string
+    {
+        $data = [
+            '@context' => 'https://schema.org',
+            '@type' => 'LocalBusiness',
+            'name' => Setting::get('site_title', 'WeSolve Technologies'),
+            'description' => Setting::get('site_description', 'Affordable website development, web app development, SEO and maintenance services for small businesses.'),
+            'url' => url('/'),
+            'image' => asset('images/logo/wesolvetechnologies-dark.webp'),
+            'logo' => asset('images/logo/wesolvetechnologies-dark.webp'),
+            'priceRange' => '$$',
+        ];
+
+        if ($phone = Setting::get('contact_phone')) {
+            $data['telephone'] = $phone;
+        }
+
+        if ($email = Setting::get('contact_email')) {
+            $data['email'] = $email;
+        }
+
+        if ($address = Setting::get('contact_address')) {
+            $data['address'] = [
+                '@type' => 'PostalAddress',
+                'streetAddress' => $address,
+            ];
+        }
+
+        $sameAs = self::socialProfiles();
+        if (! empty($sameAs)) {
+            $data['sameAs'] = $sameAs;
+        }
 
         return '<script type="application/ld+json">' . json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</script>';
     }

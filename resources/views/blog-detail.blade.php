@@ -3,6 +3,9 @@
 @section('title', $blog->meta_title ?? $blog->title . ' - WeSolve Technologies Blog')
 @section('meta_description', $blog->meta_description ?? $blog->excerpt)
 @section('meta_keywords', $blog->meta_keywords ?? '')
+@if($blog->canonical_url)
+@section('canonical', $blog->canonical_url)
+@endif
 
 @section('meta_extra')
 <meta property="og:site_name" content="WeSolve Technologies">
@@ -29,6 +32,12 @@
 @overwrite
 
 @section('content')
+<x-breadcrumbs :items="[
+    'Home' => route('home'),
+    'Blog' => route('blog'),
+    $blog->title => route('blog.show', $blog->slug),
+]" />
+
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] -top-40 -right-40 animate-pulse-glow"></div>
     <div class="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
@@ -76,6 +85,10 @@
                 </div>
             </div>
         </article>
+
+        @if(!empty($blog->faqs))
+        <x-faq-section :faqs="$blog->faqs" />
+        @endif
 
         @if($relatedBlogs->count() > 0)
         <div class="mt-20">

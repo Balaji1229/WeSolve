@@ -5,6 +5,7 @@
 @section('meta_keywords', 'website development, custom website design, responsive websites, business website, SEO friendly website, affordable web design')
 
 @section('content')
+<x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Website Development' => route('service.website-development')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] -top-40 -right-40 animate-pulse-glow"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">

@@ -5,6 +5,11 @@
 @section('meta_keywords', $portfolio->meta_keywords ?? '')
 
 @section('content')
+<x-breadcrumbs :items="[
+    'Home' => route('home'),
+    'Portfolio' => route('portfolio'),
+    $portfolio->title => route('portfolio.show', $portfolio->slug),
+]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] -top-40 -right-40 animate-pulse-glow"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" data-aos="fade-up">
@@ -36,7 +41,7 @@
             <div data-aos="fade-right">
                 @if($portfolio->project_image)
                 <div class="rounded-2xl overflow-hidden">
-                    <img src="{{ asset('storage/' . $portfolio->project_image) }}" alt="{{ $portfolio->title }}" class="w-full h-80 object-cover" width="800" height="320" decoding="async">
+                    <img src="{{ asset('storage/' . $portfolio->project_image) }}" alt="{{ $portfolio->title }}" class="w-full h-80 object-cover" width="800" height="320" loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 @else
                 <div class="glass-card p-12 flex items-center justify-center min-h-[300px]">

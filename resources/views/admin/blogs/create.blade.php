@@ -40,8 +40,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label for="meta_title" class="block text-sm font-medium text-secondary mb-2">Meta Title</label>
+                    <label for="meta_title" class="block text-sm font-medium text-secondary mb-2">Meta Title <span class="text-xs text-muted">(50–60 chars)</span></label>
                     <input type="text" name="meta_title" id="meta_title" value="{{ old('meta_title') }}" class="w-full rounded-xl input-bg px-4 py-3 text-sm text-primary focus:outline-none focus:border-[#305CDE]/50 transition">
+                    <span class="mt-1 block text-xs text-muted" data-counter-for="meta_title" data-min="50" data-max="60"></span>
                 </div>
                 <div>
                     <label for="meta_keywords" class="block text-sm font-medium text-secondary mb-2">Meta Keywords</label>
@@ -50,9 +51,28 @@
             </div>
 
             <div>
-                <label for="meta_description" class="block text-sm font-medium text-secondary mb-2">Meta Description</label>
+                <label for="meta_description" class="block text-sm font-medium text-secondary mb-2">Meta Description <span class="text-xs text-muted">(150–160 chars)</span></label>
                 <textarea name="meta_description" id="meta_description" rows="2" class="w-full rounded-xl input-bg px-4 py-3 text-sm text-primary focus:outline-none focus:border-[#305CDE]/50 transition">{{ old('meta_description') }}</textarea>
+                <span class="mt-1 block text-xs text-muted" data-counter-for="meta_description" data-min="150" data-max="160"></span>
             </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="primary_keyword" class="block text-sm font-medium text-secondary mb-2">Primary Keyword</label>
+                    <input type="text" name="primary_keyword" id="primary_keyword" value="{{ old('primary_keyword') }}" placeholder="e.g. chennai web development" class="w-full rounded-xl input-bg px-4 py-3 text-sm text-primary focus:outline-none focus:border-[#305CDE]/50 transition">
+                </div>
+                <div>
+                    <label for="secondary_keywords" class="block text-sm font-medium text-secondary mb-2">Secondary Keywords <span class="text-xs text-muted">(comma separated)</span></label>
+                    <input type="text" name="secondary_keywords" id="secondary_keywords" value="{{ old('secondary_keywords') }}" class="w-full rounded-xl input-bg px-4 py-3 text-sm text-primary focus:outline-none focus:border-[#305CDE]/50 transition">
+                </div>
+            </div>
+
+            <div>
+                <label for="canonical_url" class="block text-sm font-medium text-secondary mb-2">Canonical URL <span class="text-xs text-muted">(optional — leave blank to use this page's URL)</span></label>
+                <input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url') }}" placeholder="https://..." class="w-full rounded-xl input-bg px-4 py-3 text-sm text-primary focus:outline-none focus:border-[#305CDE]/50 transition">
+            </div>
+
+            @include('admin.partials.faq-editor', ['faqs' => null])
 
             <div class="flex items-center gap-4">
                 <label class="flex items-center gap-2 cursor-pointer">
@@ -68,4 +88,5 @@
         </form>
     </div>
 </div>
+@include('admin.partials.meta-counters')
 @endsection

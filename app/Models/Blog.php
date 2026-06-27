@@ -20,6 +20,10 @@ class Blog extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
+        'primary_keyword',
+        'secondary_keywords',
+        'canonical_url',
+        'faqs',
         'og_image',
         'user_id',
         'is_published',
@@ -29,6 +33,7 @@ class Blog extends Model
     protected $casts = [
         'is_published' => 'boolean',
         'published_at' => 'datetime',
+        'faqs' => 'array',
     ];
 
     protected static function boot(): void

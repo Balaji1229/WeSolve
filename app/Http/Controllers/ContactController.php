@@ -19,10 +19,11 @@ class ContactController extends Controller
         ];
 
         $socialLinks = [
-            'facebook' => Setting::get('social_facebook', '#'),
-            'twitter' => Setting::get('social_twitter', '#'),
-            'instagram' => Setting::get('social_instagram', '#'),
-            'linkedin' => Setting::get('social_linkedin', '#'),
+            'instagram' => Setting::get('social_instagram'),
+            'twitter' => Setting::get('social_twitter'),
+            'facebook' => Setting::get('social_facebook'),
+            'threads' => Setting::get('social_threads'),
+            'github' => Setting::get('social_github'),
         ];
 
         return view('contact', compact('contactInfo', 'socialLinks'));

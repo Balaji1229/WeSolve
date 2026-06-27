@@ -2,7 +2,16 @@
 
 @section('title', 'Contact Us - WeSolve Technologies')
 
+@section('schema_extra')
+{!! \App\Helpers\SeoHelper::schemaLocalBusiness() !!}
+@endsection
+
 @section('content')
+<x-breadcrumbs :items="[
+    'Home' => route('home'),
+    'Contact' => route('contact'),
+]" />
+
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] -top-40 -right-40 animate-pulse-glow"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
@@ -50,7 +59,7 @@
 
                     <div>
                         <label for="phone" class="block text-sm font-medium text-secondary mb-2">Phone <span class="text-red-400">*</span></label>
-                        <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" required class="w-full input-bg rounded-xl px-4 py-3 text-sm transition" placeholder="+1 234 567 890">
+                        <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" required class="w-full input-bg rounded-xl px-4 py-3 text-sm transition" placeholder="+91 98765 43210">
                         @error('phone')
                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
@@ -138,6 +147,11 @@
                             Message Us
                         </span>
                     </a>
+                </div>
+
+                <div class="glass-card p-8">
+                    <h3 class="text-xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">Follow Us</h3>
+                    <x-social-links containerClass="flex flex-wrap gap-5" />
                 </div>
 
                 {{-- Supported Languages --}}

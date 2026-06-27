@@ -15,10 +15,12 @@ class PageSeo extends Model
         'meta_description',
         'meta_keywords',
         'og_image',
+        'faqs',
         'is_active',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'faqs' => 'array',
     ];
 }

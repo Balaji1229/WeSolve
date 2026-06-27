@@ -70,6 +70,25 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::post('/chatbot/message', [ChatbotController::class, 'message'])->name('chatbot.message');
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
+// Dynamic robots.txt (uses the configured APP_URL so the Sitemap line stays correct per environment)
+Route::get('/robots.txt', function () {
+    $sitemap = rtrim(config('app.url'), '/') . '/sitemap.xml';
+    $lines = [
+        'User-agent: *',
+        'Allow: /',
+        '',
+        'Disallow: /admin/',
+        'Disallow: /login',
+        'Disallow: /dashboard/',
+        '',
+        'Sitemap: ' . $sitemap,
+        '',
+    ];
+
+    return response(implode("\n", $lines), 200)
+        ->header('Content-Type', 'text/plain');
+})->name('robots');
+
 // Templates showcase
 Route::get('/templates', function () {
     $templates = \App\Models\Template::active()->ordered()->get();

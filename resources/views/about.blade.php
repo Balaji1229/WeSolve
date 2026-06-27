@@ -3,6 +3,7 @@
 @section('title', 'About Us - WeSolve Technologies')
 
 @section('content')
+<x-breadcrumbs :items="['Home' => route('home'), 'About' => route('about')]" />
 {{-- Hero --}}
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] -top-40 -right-40 animate-pulse-glow"></div>
@@ -39,7 +40,7 @@
             </div>
             <div class="relative" data-aos="fade-left">
                 <div class="glass-card p-2 overflow-hidden">
-                    <img src="{{ asset('images/about-us.jpg') }}" alt="WeSolve Technologies - Affordable Website and App Development Company India" class="w-full h-auto rounded-xl object-cover" loading="lazy" width="600" height="400">
+                    <img src="{{ asset('images/about-us.jpg') }}" alt="WeSolve Technologies - Affordable Website and App Development Company India" class="w-full h-auto rounded-xl object-cover" loading="eager" fetchpriority="high" width="600" height="400">
                 </div>
             </div>
         </div>

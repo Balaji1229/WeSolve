@@ -5,6 +5,7 @@
 @section('meta_keywords', 'website development, web application development, mobile app development, digital marketing, AI automation, UI UX design, cloud solutions, maintenance support')
 
 @section('content')
+<x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28" aria-labelledby="services-hero-heading">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] -top-40 -right-40 animate-pulse-glow"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">

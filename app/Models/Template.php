@@ -54,7 +54,7 @@ class Template extends Model
     public function imageUrl(): string
     {
         if (empty($this->image)) {
-            return asset('images/logo/weslovetechnologies.png');
+            return asset('images/logo/wesolvetechnologies-dark.webp');
         }
 
         if (str_starts_with($this->image, 'http://') || str_starts_with($this->image, 'https://')) {

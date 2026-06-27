@@ -27,6 +27,9 @@ class PageSeoController extends Controller
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string',
             'og_image' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+            'faqs' => 'nullable|array',
+            'faqs.*.question' => 'nullable|string|max:500',
+            'faqs.*.answer' => 'nullable|string|max:2000',
             'is_active' => 'boolean',
         ]);
 
@@ -38,9 +41,27 @@ class PageSeoController extends Controller
         }
 
         $validated['is_active'] = $request->boolean('is_active', true);
+        $validated['faqs'] = $this->cleanFaqs($request->input('faqs', []));
 
         $seo->update($validated);
 
         return redirect()->route('admin.seo.index')->with('success', 'SEO settings updated successfully.');
+    }
+
+    /**
+     * Normalise FAQ input rows, dropping any that are missing a question or answer.
+     */
+    private function cleanFaqs(array $faqs): ?array
+    {
+        $clean = collect($faqs)
+            ->map(fn ($f) => [
+                'question' => trim($f['question'] ?? ''),
+                'answer' => trim($f['answer'] ?? ''),
+            ])
+            ->filter(fn ($f) => $f['question'] !== '' && $f['answer'] !== '')
+            ->values()
+            ->all();
+
+        return empty($clean) ? null : $clean;
     }
 }

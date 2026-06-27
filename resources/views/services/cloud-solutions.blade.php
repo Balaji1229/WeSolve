@@ -5,6 +5,7 @@
 @section('meta_keywords', 'cloud solutions, cloud hosting, cloud infrastructure, AWS, server deployment, cloud migration, managed cloud services')
 
 @section('content')
+<x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Cloud Solutions' => route('service.cloud-solutions')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] -top-40 -right-40 animate-pulse-glow"></div>
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
