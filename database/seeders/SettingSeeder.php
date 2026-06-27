@@ -39,10 +39,11 @@ class SettingSeeder extends Seeder
             ['key' => 'contact_map', 'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555096471!2d-122.50764017948502!3d37.75780956920463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', 'type' => 'textarea', 'group' => 'contact', 'label' => 'Google Map Embed'],
 
             // Social
-            ['key' => 'social_facebook', 'value' => 'https://facebook.com/wesolvetechnologies', 'type' => 'text', 'group' => 'social', 'label' => 'Facebook URL'],
-            ['key' => 'social_twitter', 'value' => 'https://twitter.com/wesolvetechnologies', 'type' => 'text', 'group' => 'social', 'label' => 'Twitter URL'],
-            ['key' => 'social_instagram', 'value' => 'https://instagram.com/wesolvetechnologies', 'type' => 'text', 'group' => 'social', 'label' => 'Instagram URL'],
-            ['key' => 'social_linkedin', 'value' => 'https://linkedin.com/company/wesolvetechnologies', 'type' => 'text', 'group' => 'social', 'label' => 'LinkedIn URL'],
+            ['key' => 'social_instagram', 'value' => 'https://www.instagram.com/wesolve_technologies', 'type' => 'text', 'group' => 'social', 'label' => 'Instagram URL'],
+            ['key' => 'social_twitter', 'value' => 'https://x.com/WeSolve_Tech', 'type' => 'text', 'group' => 'social', 'label' => 'X (Twitter) URL'],
+            ['key' => 'social_facebook', 'value' => 'https://www.facebook.com/people/Wesolvetechnologies/61590615067666/', 'type' => 'text', 'group' => 'social', 'label' => 'Facebook URL'],
+            ['key' => 'social_threads', 'value' => 'https://www.threads.com/@wesolve_technologies', 'type' => 'text', 'group' => 'social', 'label' => 'Threads URL'],
+            ['key' => 'social_github', 'value' => 'https://github.com/WesolveTechnologies', 'type' => 'text', 'group' => 'social', 'label' => 'GitHub URL'],
         ];
 
         foreach ($settings as $setting) {

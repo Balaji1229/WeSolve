@@ -168,11 +168,6 @@
                     </a>
                 </div>
 
-                <div class="glass-card p-8">
-                    <h3 class="text-xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">Follow Us</h3>
-                    <x-social-links containerClass="flex flex-wrap gap-5" />
-                </div>
-
                 {{-- Supported Languages --}}
                 <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="150">
                     <h2 class="text-2xl font-bold text-primary mb-6" style="font-family: 'Space Grotesk', sans-serif;">Supported Languages</h2>
