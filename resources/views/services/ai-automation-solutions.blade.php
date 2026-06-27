@@ -90,6 +90,49 @@
     </div>
 </section>
 
+{{-- service-extra-sections --}}
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right">
+                <span class="tag mb-4">Less Busywork</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">Put the Repetitive Work on Autopilot</h2>
+                <p class="text-muted mb-4 leading-relaxed">Every business has tasks that quietly eat hours without adding value, like copying data between tools, answering the same questions, and chasing updates. We use practical AI and automation to take those off your team so they can spend time on work that actually moves things forward.</p>
+                <p class="text-muted mb-6 leading-relaxed">This is not AI for the sake of a buzzword. We start with a genuine bottleneck in your day, then build a focused solution around it, whether that is a chatbot, a smart workflow, or an assistant, that starts saving time almost immediately.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Chatbots that answer common customer questions around the clock</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Workflows that move data without manual copy and paste</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">AI assistants tuned to your own business knowledge</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Simple dashboards that surface the numbers worth watching</span></li>
+                </ul>
+            </div>
+            <div data-aos="fade-left">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="AI chatbot and automated workflow handling repetitive business tasks" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right" class="order-2 lg:order-1">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="AI assistant trained on a company's own services and FAQ content" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+            <div data-aos="fade-left" class="order-1 lg:order-2">
+                <span class="tag mb-4">Grounded AI</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">Tools That Know Your Business</h2>
+                <p class="text-muted mb-4 leading-relaxed">Generic AI gives generic answers. We ground our solutions in your own material, your services, your policies, and your FAQs, so the responses sound like your company and stay accurate instead of drifting into guesswork.</p>
+                <p class="text-muted leading-relaxed">We keep a person in control where it counts, with clear limits and easy oversight. You get the speed of automation without losing the judgement and care your customers rely on.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="section-divider"></div>
 
 <section class="py-24 lg:py-32 bg-body relative">

@@ -90,6 +90,49 @@
     </div>
 </section>
 
+{{-- service-extra-sections --}}
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right">
+                <span class="tag mb-4">Apps People Keep</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">An App Worth a Spot on the Home Screen</h2>
+                <p class="text-muted mb-4 leading-relaxed">Phone screens are crowded and most apps get deleted within a week. We design apps that earn their place by being genuinely useful, quick to open, and focused on the handful of things your users actually came to do.</p>
+                <p class="text-muted mb-6 leading-relaxed">Whether you need iOS, Android, or both, we build with efficient shared code so you reach everyone without paying for two separate apps. Every screen is checked on real devices, so taps feel right and nothing falls apart in the user's hand.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Smooth performance on everyday phones, not just new flagships</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Secure sign in and careful handling of personal data</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Push notifications that gently bring users back</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Help getting approved and live on the app stores</span></li>
+                </ul>
+            </div>
+            <div data-aos="fade-left">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="Mobile app running on iOS and Android smartphones" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right" class="order-2 lg:order-1">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="Mobile app being published to the Apple and Google app stores" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+            <div data-aos="fade-left" class="order-1 lg:order-2">
+                <span class="tag mb-4">End to End</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">From Idea to the App Store With You</h2>
+                <p class="text-muted mb-4 leading-relaxed">Launching an app involves far more than writing code. There are store guidelines, review queues, and updates to manage, and we handle that technical side while keeping you informed in plain language at every stage.</p>
+                <p class="text-muted leading-relaxed">Once it is live we stay close, fixing issues, shipping improvements, and adapting as you learn what your users love. Your app becomes a product that keeps getting better with each release rather than a one-off project.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="section-divider"></div>
 
 <section class="py-24 lg:py-32 bg-body relative">

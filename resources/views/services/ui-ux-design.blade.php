@@ -90,6 +90,49 @@
     </div>
 </section>
 
+{{-- service-extra-sections --}}
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right">
+                <span class="tag mb-4">Thoughtful Design</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">Design That Makes the Next Step Obvious</h2>
+                <p class="text-muted mb-4 leading-relaxed">Good design is not decoration, it is the quiet guide that helps someone understand your product and know what to do next. We study how your users think, then shape screens that feel effortless even on a first visit.</p>
+                <p class="text-muted mb-6 leading-relaxed">Before a single pixel is polished, we map the journey, sketch the flow, and test the rough idea with real people. Catching confusion early is what makes the finished product feel intuitive instead of clever but frustrating.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Research into who your users are and what they need</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Clickable wireframes and prototypes before we build</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Clean visual design that fits your brand naturally</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Accessibility so everyone can use it comfortably</span></li>
+                </ul>
+            </div>
+            <div data-aos="fade-left">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="UI and UX wireframes and prototype screens for a digital product" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right" class="order-2 lg:order-1">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="Accessible design system with consistent components and brand colours" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+            <div data-aos="fade-left" class="order-1 lg:order-2">
+                <span class="tag mb-4">Consistent Systems</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">A Design System, Not Loose Screens</h2>
+                <p class="text-muted mb-4 leading-relaxed">We hand developers a connected design system rather than a pile of one-off mockups, with shared colours, spacing, and components that keep everything consistent and noticeably speed up the build.</p>
+                <p class="text-muted leading-relaxed">Accessibility is treated as part of the craft. Readable contrast, sensible sizing, and keyboard friendly layouts mean your product works for real people in real conditions, including those who rely on assistive tools.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="section-divider"></div>
 
 <section class="py-24 lg:py-32 bg-body relative">

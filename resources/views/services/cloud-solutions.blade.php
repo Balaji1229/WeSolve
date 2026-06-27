@@ -90,6 +90,49 @@
     </div>
 </section>
 
+{{-- service-extra-sections --}}
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right">
+                <span class="tag mb-4">Always On</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">Infrastructure That Stays Up</h2>
+                <p class="text-muted mb-4 leading-relaxed">Downtime quietly costs you trust and sales. We set up cloud hosting built to stay online through traffic spikes and slow nights alike, with monitoring that catches small problems before your customers ever run into them.</p>
+                <p class="text-muted mb-6 leading-relaxed">Whether you are launching something new or moving off ageing servers, we size the setup around your real usage, so you pay for what you need today while keeping headroom for the growth you are working toward.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Reliable hosting sized to your actual traffic</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Automated backups you can restore in minutes</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Security hardening and regular updates</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Monitoring and alerts so issues are caught early</span></li>
+                </ul>
+            </div>
+            <div data-aos="fade-left">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="Reliable cloud hosting infrastructure with a monitoring dashboard" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right" class="order-2 lg:order-1">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="Staged cloud migration of websites and data with no downtime" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+            <div data-aos="fade-left" class="order-1 lg:order-2">
+                <span class="tag mb-4">Smooth Migration</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">Move to the Cloud Without the Headaches</h2>
+                <p class="text-muted mb-4 leading-relaxed">Migrations feel risky because rushed ones often are. We move your sites, apps, and data in careful stages, testing as we go, so nothing breaks and your team keeps working right through the switch.</p>
+                <p class="text-muted leading-relaxed">Once you are settled in we keep things tuned, trimming waste, tightening security, and scaling resources up or down as demand shifts. You get the benefits of the cloud without needing a cloud specialist on the payroll.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="section-divider"></div>
 
 <section class="py-24 lg:py-32 bg-body relative">

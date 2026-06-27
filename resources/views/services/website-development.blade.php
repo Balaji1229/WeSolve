@@ -90,6 +90,49 @@
     </div>
 </section>
 
+{{-- service-extra-sections --}}
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right">
+                <span class="tag mb-4">Why It Matters</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">A Website That Earns Its Keep</h2>
+                <p class="text-muted mb-4 leading-relaxed">Your website is often the first place a customer meets your business, and they decide within seconds whether to stay. We plan every page around the questions people actually ask, so visitors find what they need quickly and feel confident enough to get in touch.</p>
+                <p class="text-muted mb-6 leading-relaxed">Most small business sites quietly lose people because they load slowly or feel awkward on a phone. We solve that at the foundation, building lightweight pages that open fast and stay easy to read on any screen, from an old Android to a desktop monitor.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Clear navigation that points visitors toward an enquiry</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Layout and wording shaped around your specific services</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Contact forms, WhatsApp, and call buttons wired in from day one</span></li>
+                    <li class="flex items-start gap-3"><svg class="h-5 w-5 flex-shrink-0 text-[#00B6DA] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-muted">Room to add pages and features as your business grows</span></li>
+                </ul>
+            </div>
+            <div data-aos="fade-left">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="Responsive small business website shown on a laptop and mobile phone" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-aos="fade-right" class="order-2 lg:order-1">
+                <img src="{{ asset('images/placeholder.svg') }}" alt="Search engine results page listing a well optimised business website" class="w-full rounded-2xl shadow-lg border border-white/10" loading="lazy" width="1200" height="800" decoding="async">
+            </div>
+            <div data-aos="fade-left" class="order-1 lg:order-2">
+                <span class="tag mb-4">Found on Google</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">Built to Be Discovered</h2>
+                <p class="text-muted mb-4 leading-relaxed">A good-looking site means little if nobody can find it. We structure each page with proper headings, descriptive titles, and clean code that search engines can read without guessing, giving your business a fair chance to rank for the terms your customers search.</p>
+                <p class="text-muted leading-relaxed">From the first sketch we keep your real keywords and local searches in mind, so the site keeps pulling in visitors long after launch instead of sitting quietly in a corner of the internet.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="section-divider"></div>
 
 <section class="py-24 lg:py-32 bg-body relative">
