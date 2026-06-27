@@ -51,14 +51,14 @@ class ContactController extends Controller
 
         $contact = ContactMessage::create($validated);
 
-        // Queue the notification so a slow SMTP handshake never delays the user.
-        // Requires a queue worker (QUEUE_CONNECTION=database). Failures are logged.
+        // Send the notification straight away (normal synchronous mail). A mail
+        // failure must never block the user's submission, so it is logged only.
         $recipients = config('contact.recipients', []);
         if (! empty($recipients)) {
             try {
-                Mail::to($recipients)->queue(new ContactFormSubmitted($contact));
+                Mail::to($recipients)->send(new ContactFormSubmitted($contact));
             } catch (\Throwable $e) {
-                Log::error('Contact form notification email failed to queue: ' . $e->getMessage());
+                Log::error('Contact form notification email failed: ' . $e->getMessage());
             }
         }
 
