@@ -33,9 +33,9 @@ class SettingSeeder extends Seeder
 
             // Contact
             ['key' => 'contact_email', 'value' => 'info@wesolvetechnologies.com', 'type' => 'text', 'group' => 'contact', 'label' => 'Email Address'],
-            ['key' => 'contact_phone', 'value' => '+1 (555) 123-4567', 'type' => 'text', 'group' => 'contact', 'label' => 'Phone Number'],
-            ['key' => 'contact_whatsapp', 'value' => '+15551234567', 'type' => 'text', 'group' => 'contact', 'label' => 'WhatsApp Number'],
-            ['key' => 'contact_address', 'value' => '123 Tech Street, San Francisco, CA 94102', 'type' => 'text', 'group' => 'contact', 'label' => 'Address'],
+            ['key' => 'contact_phone', 'value' => '+91 6369443005', 'type' => 'text', 'group' => 'contact', 'label' => 'Phone Number'],
+            ['key' => 'contact_whatsapp', 'value' => '916369443005', 'type' => 'text', 'group' => 'contact', 'label' => 'WhatsApp Number'],
+            ['key' => 'contact_address', 'value' => 'Chennai, Tamil Nadu, India', 'type' => 'text', 'group' => 'contact', 'label' => 'Address'],
             ['key' => 'contact_map', 'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555096471!2d-122.50764017948502!3d37.75780956920463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', 'type' => 'textarea', 'group' => 'contact', 'label' => 'Google Map Embed'],
 
             // Social
