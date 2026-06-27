@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Mobile App Development Services - WeSolve Technologies')
-@section('meta_description', 'Native and cross-platform mobile app development for iOS and Android. We build apps that keep your customers connected to your business.')
-@section('meta_keywords', 'mobile app development, iOS app development, Android app development, cross platform apps, custom mobile apps')
+@section('title', 'Mobile App Development in Chennai | WeSolve Technologies')
+@section('meta_description', 'Mobile app development in Chennai for Android and iOS. We build fast, secure Flutter and cross-platform apps with great UX and app store launch support.')
+@section('meta_keywords', 'Mobile App Development in Chennai, Android App Development Company in Chennai, Flutter App Development Company in Chennai, Cross Platform App Development Services in Chennai')
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Mobile App Development' => route('service.mobile-app-development')]" />
@@ -11,7 +11,7 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
         <span class="tag mb-4">Mobile App Development</span>
         <h1 class="text-4xl lg:text-6xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">
-            Apps That Go <span class="gradient-text">Wherever Your Customers Go</span>
+            Mobile App Development <span class="gradient-text">in Chennai</span>
         </h1>
         <p class="mt-6 text-lg text-muted max-w-3xl mx-auto">
             Reach customers on the devices they use every day. We design and build mobile apps that are fast, intuitive, and built for real-world use.

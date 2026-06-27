@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Web Application Development Services - WeSolve Technologies')
-@section('meta_description', 'Custom web applications built for your business workflows. We create secure, scalable web apps with dashboards, automation, and powerful backends.')
-@section('meta_keywords', 'web application development, custom web apps, business dashboards, workflow automation, scalable web applications')
+@section('title', 'Web Application Development in Chennai | WeSolve')
+@section('meta_description', 'Custom web application development in Chennai for growing businesses. We build enterprise web apps, CRMs, and dashboards with secure, scalable architecture.')
+@section('meta_keywords', 'Web Application Development in Chennai, Custom Web App Development in Chennai, Enterprise Web Application Development in Chennai, CRM Development Services in Chennai')
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Web Application Development' => route('service.web-application-development')]" />
@@ -11,7 +11,7 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
         <span class="tag mb-4">Web Application Development</span>
         <h1 class="text-4xl lg:text-6xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">
-            Web Apps That <span class="gradient-text">Run Your Business</span>
+            Web Application Development <span class="gradient-text">in Chennai</span>
         </h1>
         <p class="mt-6 text-lg text-muted max-w-3xl mx-auto">
             Turn spreadsheets and manual tasks into smooth digital workflows. We build custom web applications that help your team work faster and make better decisions.
