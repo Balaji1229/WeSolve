@@ -1,5 +1,6 @@
 @php
 $defaultMessage = urlencode('Hello WeSolve Technologies, I am interested in your services. Can we discuss more?');
+$waNumber = preg_replace('/[^0-9]/', '', \App\Models\Setting::get('contact_whatsapp', '916369443005')) ?: '916369443005';
 @endphp
 
 <style>
@@ -53,7 +54,7 @@ $defaultMessage = urlencode('Hello WeSolve Technologies, I am interested in your
 </style>
 
 <a
-    href="https://wa.me/919025998573?text={{ $defaultMessage }}"
+    href="https://wa.me/{{ $waNumber }}?text={{ $defaultMessage }}"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Chat with us on WhatsApp"

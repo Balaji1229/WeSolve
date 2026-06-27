@@ -25,6 +25,22 @@
     width: auto;
 }
 
+/* Invalid contact form field highlight */
+[data-invalid] {
+    border-color: #f87171 !important;
+}
+
+/* Theme-aware logo: show the dark logo on light theme, light logo on dark theme. */
+.logo-on-dark {
+    display: none;
+}
+.dark .logo-on-light {
+    display: none;
+}
+.dark .logo-on-dark {
+    display: inline-block;
+}
+
 @media (min-width: 768px) {
     .logo-responsive {
         height: 64px;
@@ -33,7 +49,7 @@
 
 @media (min-width: 1024px) {
     .logo-responsive {
-        height: var(--logo-desktop-height, 100px);
+        height: var(--logo-desktop-height, 80px);
         max-height: 120px;
     }
 }

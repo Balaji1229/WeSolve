@@ -29,6 +29,13 @@ class ChatbotController extends Controller
 
         $documents = $this->retrieveRelevantDocuments($userMessage);
 
+        // Keyword retrieval is English-only, so non-English queries (e.g. Tamil)
+        // match nothing. Fall back to the core high-value pages and let Gemini
+        // judge relevance — it still returns OUT_OF_SCOPE for unrelated questions.
+        if ($documents->isEmpty()) {
+            $documents = $this->fallbackCoreDocuments();
+        }
+
         if ($documents->isEmpty()) {
             return $this->outOfScopeResponse();
         }
@@ -76,6 +83,21 @@ class ChatbotController extends Controller
             ->values();
     }
 
+    /**
+     * Core high-value documents used when keyword retrieval finds nothing
+     * (e.g. non-English queries). Highest-weight content first.
+     */
+    private function fallbackCoreDocuments()
+    {
+        return ChatbotDocument::whereIn('source', [
+                'page:services', 'page:service', 'page:home', 'page:about',
+                'page:contact', 'faq:page', 'faq:blog', 'page:escalation',
+            ])
+            ->orderByDesc('weight')
+            ->take(6)
+            ->get();
+    }
+
     private function extractKeywords(string $message): array
     {
         $stopWords = [
@@ -95,11 +117,11 @@ class ChatbotController extends Controller
             'could', 'may', 'might', 'must', 'shall',
         ];
 
-        $cleaned = preg_replace('/[^a-z0-9\s]/', '', strtolower($message));
+        $cleaned = preg_replace('/[^\p{L}\p{N}\s]/u', '', mb_strtolower($message));
         $words = preg_split('/\s+/', trim($cleaned));
 
         return collect($words)
-            ->filter(fn ($word) => strlen($word) > 2 && !in_array($word, $stopWords))
+            ->filter(fn ($word) => mb_strlen($word) > 2 && !in_array($word, $stopWords))
             ->unique()
             ->values()
             ->toArray();
@@ -107,9 +129,11 @@ class ChatbotController extends Controller
 
     private function buildContext($documents): string
     {
-        $chunks = $documents->map(function ($doc, $index) {
+        $chunks = $documents->take(4)->map(function ($doc, $index) {
             $title = $doc->title ? "Title: {$doc->title}" : "Source: {$doc->source}";
-            return "[Document " . ($index + 1) . "]\n{$title}\nURL: " . ($doc->url ?: 'N/A') . "\nContent:\n{$doc->content}";
+            // Cap each document so the prompt stays lean and fast.
+            $content = \Illuminate\Support\Str::limit(trim($doc->content), 1000);
+            return "[Document " . ($index + 1) . "]\n{$title}\nURL: " . ($doc->url ?: 'N/A') . "\nContent:\n{$content}";
         });
 
         return $chunks->implode("\n\n---\n\n");
@@ -131,30 +155,58 @@ class ChatbotController extends Controller
         $maxTokens = (int) config('services.gemini.max_tokens', 1024);
         $temperature = (float) config('services.gemini.temperature', 0.2);
 
+        $waNumber = $this->whatsappNumber();
+        $waDisplay = $this->whatsappDisplayNumber() ?: 'our WhatsApp';
+        $waLink = $waNumber ? "https://wa.me/{$waNumber}" : '';
+
         $systemPrompt = <<<PROMPT
-You are "WeSolve" — the warm, friendly, and enthusiastic AI assistant for WeSolve Technologies, a digital agency that builds websites, web apps, mobile apps, and provides AI, marketing, cloud, and design services.
+You are "WeSolve Assistant" — the warm, professional AI assistant for WeSolve Technologies, a digital agency that builds websites, web apps, mobile apps, and provides AI, marketing, cloud, and design services.
 
-YOUR PERSONALITY:
-- Greet users with genuine enthusiasm and make them feel valued.
-- Be conversational, supportive, and never robotic.
-- Show real interest in their business, ideas, and goals.
-- Build trust and guide them toward choosing WeSolve as their digital partner.
+YOUR MAIN GOAL:
+- Your #1 goal is to turn this visitor into a customer for WeSolve.
+- Be helpful and consultative, build trust, and guide the conversation toward starting a project with us.
 
-HOW TO RESPOND:
-- Base every answer on the WEBSITE CONTENT provided below. Do not make up prices, timelines, team details, or services that are not in the content.
-- When a user shares a business need or goal, appreciate their vision and naturally recommend the most suitable WeSolve service.
-  Examples:
-  - "I want to sell products online" → praise their idea and confidently pitch e-commerce website development, mentioning custom storefronts, secure payments, and mobile-first design.
-  - "I need a mobile app" → recommend mobile app development with iOS/Android support, secure login, and backend integration.
-  - "I want to grow my business" → suggest digital marketing, SEO, and a professional website.
-  - "I need something custom" → recommend web application development with dashboards, automation, and scalable architecture.
-- Keep replies concise (3-5 sentences), friendly, and helpful.
-- Mention relevant page links from the content when it helps the user.
-- IMPORTANT: Do NOT use markdown link syntax like [text](url). Instead, write URLs as plain text on their own line or sentence. Example: "You can read more here: http://localhost/services" not "[read more](http://localhost/services)".
+YOUR JOB:
+- First understand the WEBSITE CONTENT provided below, then answer the user using ONLY that content.
+- Prioritise these topics, in this order: Services, Solutions, Company information, FAQs, and Contact details.
+- Never invent prices, timelines, team details, services, or facts that are not in the WEBSITE CONTENT.
+
+LEAD QUALIFICATION (do this naturally):
+- After a greeting or a vague message, ask 1-2 short, friendly questions to understand their business and goal (e.g. type of business, what they want to build, timeline or budget range).
+- Once you understand their need, recommend the most relevant WeSolve service and explain in 1-2 lines how it helps their business grow.
+- Then invite them to take the next step by chatting with our developer on WhatsApp.
+
+DEVELOPER WHATSAPP (share this to convert the user — use this EXACT format):
+- Number: {$waDisplay}
+- Link: {$waLink}
+- When you invite the user to connect, write it like this on their own lines:
+  📱 WhatsApp our developer: {$waDisplay}
+  {$waLink}
+- Share this whenever the user shows interest, asks to get started, asks about price/timeline, or when you cannot fully answer from the website content.
+
+LANGUAGE:
+- Reply in clear, professional English.
+- If a user needs help in Tamil, let them know our developer can assist them directly in English or Tamil on WhatsApp.
+
+GREETINGS & SMALL TALK:
+- If the user greets you or makes small talk (e.g. "hi", "how are you", "thanks"), reply warmly and briefly, then ask what they would like to build so you can help. Do NOT treat greetings as out of scope.
+
+RESPONSE FORMAT (very important — keep it clean and easy to read):
+- Start with one short friendly sentence.
+- When listing services, features, or steps, use bullet points with "- " at the start of each line.
+- Use short bold section headings with **Heading** when it improves clarity.
+- Keep paragraphs short (1-2 sentences) with blank lines between sections.
+- Keep the whole reply concise and scannable. Avoid walls of text.
+- Do NOT use markdown link syntax like [text](url). Write any URL as plain text, e.g. http://localhost/services
+
+WHEN YOU CAN HELP:
+- Appreciate the user's goal, then recommend the most relevant WeSolve service from the content.
+- Mention a relevant page URL from the content when it helps.
 
 BOUNDARIES:
-- If the user's question is completely unrelated to WeSolve, our services, or the website content (e.g., weather, jokes, general trivia, coding help), reply with exactly: OUT_OF_SCOPE
-- If you truly cannot answer from the website content, reply with exactly: OUT_OF_SCOPE
+- Only if the question is clearly unrelated to WeSolve / its services / the website content (e.g. weather, jokes, general trivia, coding help, other companies, spam), reply with exactly: OUT_OF_SCOPE
+- If a specific answer is genuinely not in the WEBSITE CONTENT, reply with exactly: OUT_OF_SCOPE
+- Never reply OUT_OF_SCOPE to a greeting or a normal question about WeSolve.
 
 --- WEBSITE CONTENT ---
 
@@ -180,15 +232,35 @@ PROMPT;
             'generationConfig' => [
                 'maxOutputTokens' => $maxTokens,
                 'temperature' => $temperature,
+                // Disable "thinking" on Gemini 2.5 Flash models: it is much faster
+                // and prevents the token budget being consumed by reasoning tokens
+                // (which caused empty replies / timeouts on large prompts).
+                'thinkingConfig' => [
+                    'thinkingBudget' => 0,
+                ],
             ],
         ];
 
         try {
-            $response = Http::timeout(60)
-                ->withHeaders([
-                    'Content-Type' => 'application/json',
-                ])
-                ->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}", $payload);
+            $endpoint = "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}";
+
+            // Retry transient Gemini failures (429 rate limit, 500/503 overloaded).
+            $attempts = 0;
+            do {
+                $response = Http::timeout(45)
+                    ->withHeaders(['Content-Type' => 'application/json'])
+                    ->post($endpoint, $payload);
+
+                $attempts++;
+                $transient = in_array($response->status(), [429, 500, 503], true);
+
+                if ($transient && $attempts < 3) {
+                    usleep(700000); // 0.7s backoff before retrying
+                    continue;
+                }
+
+                break;
+            } while (true);
 
             if ($response->failed()) {
                 Log::error('Gemini API error', [
@@ -238,20 +310,29 @@ PROMPT;
 
     private function isGreeting(string $message): bool
     {
-        $greetings = [
-            'hi', 'hello', 'hey', 'good morning', 'good afternoon', 'good evening',
-            'howdy', 'hola', 'namaste', 'vanakkam', 'greetings', 'yo', 'hi there',
-            'hello there', 'hey there', 'good day', 'what\'s up', 'sup',
-        ];
-
         $cleaned = strtolower(trim(preg_replace('/[^a-z0-9\s]/i', '', $message)));
 
-        return in_array($cleaned, $greetings);
+        if ($cleaned === '') {
+            return false;
+        }
+
+        // Treat the message as a greeting only when EVERY word is a pleasantry,
+        // so "hi how are you" is a greeting but "hi I need a website" is not.
+        $pleasantryWords = [
+            'hi', 'hello', 'hey', 'good', 'morning', 'afternoon', 'evening', 'day',
+            'night', 'howdy', 'hola', 'namaste', 'vanakkam', 'greetings', 'yo', 'sup',
+            'whats', 'what', 'up', 'how', 'are', 'you', 'doing', 'hows', 'is', 'it',
+            'going', 'there', 'welcome', 'thanks', 'thank', 'u',
+        ];
+
+        $words = array_filter(explode(' ', $cleaned));
+
+        return ! empty($words) && collect($words)->every(fn ($w) => in_array($w, $pleasantryWords, true));
     }
 
     private function greetingReply(): string
     {
-        return "Hey there! Welcome to WeSolve Technologies — I\'m so glad you stopped by. 😊\n\nI\'d love to learn about your business and help you grow online. Are you looking to build a website, launch an app, boost your marketing, or explore AI solutions? Tell me a bit about what you have in mind!";
+        return "Hi 👋 Welcome to WeSolve Technologies! I'm your AI assistant, here to help you grow your business online.\n\nTo point you in the right direction — what kind of business do you run, and what are you looking to build? For example:\n- A new website for your business\n- A web or mobile app\n- SEO / digital marketing to get more customers\n\nTell me a little about your goal and I'll suggest the best way forward. 😊";
     }
 
     private function buildFallbackReply($documents, string $reason): string
@@ -288,12 +369,15 @@ PROMPT;
     private function whatsappFallbackMessage(): string
     {
         $number = $this->whatsappNumber();
+        $display = $this->whatsappDisplayNumber();
 
-        if (empty($number)) {
-            return 'Sorry, I can only answer questions based on our website content. For other questions, please connect with our developer on WhatsApp.';
+        $base = "I'm sorry, I can only help with questions about WeSolve Technologies and our services. 😊\n\nFor this, please contact our developer directly — they'll be happy to help you in English or Tamil:";
+
+        if (! empty($number)) {
+            $base .= "\n\n📱 WhatsApp: {$display}\nhttps://wa.me/{$number}";
         }
 
-        return "Sorry, I can only answer questions based on our website content. For this question, please connect with our developer on WhatsApp: https://wa.me/{$number}";
+        return $base;
     }
 
     private function whatsappNumber(): ?string
@@ -305,5 +389,24 @@ PROMPT;
         }
 
         return preg_replace('/[^0-9]/', '', $number);
+    }
+
+    /**
+     * Human-readable WhatsApp number, e.g. "+91 6369443005".
+     */
+    private function whatsappDisplayNumber(): ?string
+    {
+        $digits = $this->whatsappNumber();
+
+        if (empty($digits)) {
+            return null;
+        }
+
+        // Indian numbers: country code 91 + a single space + the 10-digit number.
+        if (str_starts_with($digits, '91') && strlen($digits) > 2) {
+            return '+91 ' . substr($digits, 2);
+        }
+
+        return '+' . $digits;
     }
 }

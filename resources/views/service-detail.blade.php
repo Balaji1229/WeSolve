@@ -32,7 +32,7 @@
             <div data-aos="fade-right">
                 @if($service->image)
                 <div class="rounded-2xl overflow-hidden">
-                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" class="w-full h-80 object-cover" width="800" height="320" decoding="async">
+                    <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" class="w-full h-80 object-cover" width="800" height="320" loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 @else
                 <div class="glass-card p-12 flex items-center justify-center min-h-[300px]">

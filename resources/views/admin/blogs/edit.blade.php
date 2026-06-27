@@ -46,8 +46,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label for="meta_title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Meta Title</label>
+                    <label for="meta_title" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Meta Title <span class="text-xs text-gray-400">(50–60 chars)</span></label>
                     <input type="text" name="meta_title" id="meta_title" value="{{ old('meta_title', $blog->meta_title) }}" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
+                    <span class="mt-1 block text-xs text-gray-400" data-counter-for="meta_title" data-min="50" data-max="60"></span>
                 </div>
                 <div>
                     <label for="meta_keywords" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Meta Keywords</label>
@@ -56,9 +57,28 @@
             </div>
 
             <div>
-                <label for="meta_description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Meta Description</label>
+                <label for="meta_description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Meta Description <span class="text-xs text-gray-400">(150–160 chars)</span></label>
                 <textarea name="meta_description" id="meta_description" rows="2" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">{{ old('meta_description', $blog->meta_description) }}</textarea>
+                <span class="mt-1 block text-xs text-gray-400" data-counter-for="meta_description" data-min="150" data-max="160"></span>
             </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="primary_keyword" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Primary Keyword</label>
+                    <input type="text" name="primary_keyword" id="primary_keyword" value="{{ old('primary_keyword', $blog->primary_keyword) }}" placeholder="e.g. chennai web development" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
+                </div>
+                <div>
+                    <label for="secondary_keywords" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Secondary Keywords <span class="text-xs text-gray-400">(comma separated)</span></label>
+                    <input type="text" name="secondary_keywords" id="secondary_keywords" value="{{ old('secondary_keywords', $blog->secondary_keywords) }}" class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
+                </div>
+            </div>
+
+            <div>
+                <label for="canonical_url" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Canonical URL <span class="text-xs text-gray-400">(optional)</span></label>
+                <input type="url" name="canonical_url" id="canonical_url" value="{{ old('canonical_url', $blog->canonical_url) }}" placeholder="https://..." class="mt-1 block w-full rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 px-4 py-2 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#305CDE]">
+            </div>
+
+            @include('admin.partials.faq-editor', ['faqs' => $blog->faqs])
 
             <div class="flex items-center gap-4">
                 <label class="flex items-center">
@@ -74,4 +94,5 @@
         </form>
     </div>
 </div>
+@include('admin.partials.meta-counters')
 @endsection

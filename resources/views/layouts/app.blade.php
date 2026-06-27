@@ -20,7 +20,7 @@
         $metaTitle = $pageSeo?->meta_title ?? \App\Models\Setting::get('site_title', 'WeSolve Technologies - Affordable Website & App Development');
         $metaDescription = $pageSeo?->meta_description ?? \App\Models\Setting::get('site_description', 'Professional website development, web apps, SEO and maintenance services at affordable prices.');
         $metaKeywords = $pageSeo?->meta_keywords ?? \App\Models\Setting::get('site_keywords', 'website development, web app development, SEO, maintenance, affordable');
-        $ogImage = $pageSeo?->og_image ? asset('storage/' . $pageSeo->og_image) : asset('images/logo/weslovetechnologies.png');
+        $ogImage = $pageSeo?->og_image ? asset('storage/' . $pageSeo->og_image) : asset('images/logo/wesolvetechnologies-dark.webp');
     @endphp
 
     <title>@yield('title', $metaTitle)</title>
@@ -28,9 +28,7 @@
     <meta name="keywords" content="@yield('meta_keywords', $metaKeywords)">
 
     {{-- Canonical URL --}}
-    <link rel="canonical" href="{{ url()->current() }}">
-
-    @hasSection('meta_extra')
+    <link rel="canonical" href="@hasSection('canonical')@yield('canonical')@else{{ url()->current() }}@endif">    @hasSection('meta_extra')
         @yield('meta_extra')
     @else
         {{-- Open Graph --}}
@@ -93,6 +91,11 @@
 
     <main id="main-content" class="bg-body transition-colors duration-300">
         @yield('content')
+
+        {{-- Auto-render page-level FAQs entered via /admin/seo (FAQ section + FAQPage schema) --}}
+        @if(!empty($pageSeo?->faqs))
+            <x-faq-section :faqs="$pageSeo->faqs" />
+        @endif
     </main>
 
     @include('components.footer')

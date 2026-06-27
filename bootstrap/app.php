@@ -11,7 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Minify HTML on outgoing web responses (production only; see middleware).
+        $middleware->appendToGroup('web', \App\Http\Middleware\MinifyHtml::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

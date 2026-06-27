@@ -14,10 +14,10 @@ $developers = [
         'skills'    => ['PHP', 'Laravel', 'CodeIgniter', 'Node.js', 'MySQL', 'React', 'REST APIs', 'Magento', 'SEO'],
         'summary'   => 'Experienced backend developer with a strong track record building inventory systems, e-commerce platforms, and SEO-optimized web applications.',
         'highlights'=> [
-            'Backend Developer — Built Node.js backend for Packworkx inventory system (React/MySQL)',
-            'Handled backend logic, inventory updates, and vendor management for Packworkx',
+            'Backend Developer — Built Node.js backend for an inventory management system (React/MySQL)',
+            'Handled backend logic, inventory updates, and vendor management modules',
             'PHP Developer (Magento) — Built and maintained web apps using Core PHP, Laravel, and CodeIgniter',
-            'Created SEO-optimized websites (e.g., Dextra Technologies), boosting organic traffic by 25%',
+            'Created SEO-optimized websites for clients, boosting organic traffic by 25%',
             'Experienced in creating APIs and implementing admin dashboard functionality using Laravel',
         ],
     ],

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormSubmitted;
 use App\Models\ContactMessage;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -19,10 +22,11 @@ class ContactController extends Controller
         ];
 
         $socialLinks = [
-            'facebook' => Setting::get('social_facebook', '#'),
-            'twitter' => Setting::get('social_twitter', '#'),
-            'instagram' => Setting::get('social_instagram', '#'),
-            'linkedin' => Setting::get('social_linkedin', '#'),
+            'instagram' => Setting::get('social_instagram'),
+            'twitter' => Setting::get('social_twitter'),
+            'facebook' => Setting::get('social_facebook'),
+            'threads' => Setting::get('social_threads'),
+            'github' => Setting::get('social_github'),
         ];
 
         return view('contact', compact('contactInfo', 'socialLinks'));
@@ -35,12 +39,38 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:20',
             'service' => 'nullable|string|max:255',
+            'service_other' => 'nullable|string|max:255|required_if:service,Others',
             'message' => 'required|string|max:5000',
         ]);
 
-        ContactMessage::create($validated);
+        // If "Others" was chosen, store the custom requirement as the service.
+        if (($validated['service'] ?? null) === 'Others' && ! empty($validated['service_other'])) {
+            $validated['service'] = $validated['service_other'];
+        }
+        unset($validated['service_other']);
 
-        return redirect()->route('contact')
-            ->with('success', 'Thank you for your message. We will get back to you soon!');
+        $contact = ContactMessage::create($validated);
+
+        // Queue the notification so a slow SMTP handshake never delays the user.
+        // Requires a queue worker (QUEUE_CONNECTION=database). Failures are logged.
+        $recipients = config('contact.recipients', []);
+        if (! empty($recipients)) {
+            try {
+                Mail::to($recipients)->queue(new ContactFormSubmitted($contact));
+            } catch (\Throwable $e) {
+                Log::error('Contact form notification email failed to queue: ' . $e->getMessage());
+            }
+        }
+
+        $successMessage = 'Thank you for your message. We will get back to you soon!';
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => $successMessage,
+            ]);
+        }
+
+        return redirect()->route('contact')->with('success', $successMessage);
     }
 }

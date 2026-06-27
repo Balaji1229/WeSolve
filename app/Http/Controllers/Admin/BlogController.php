@@ -42,12 +42,19 @@ class BlogController extends Controller
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'meta_keywords' => 'nullable|string|max:255',
+            'primary_keyword' => 'nullable|string|max:255',
+            'secondary_keywords' => 'nullable|string|max:255',
+            'canonical_url' => 'nullable|url|max:255',
+            'faqs' => 'nullable|array',
+            'faqs.*.question' => 'nullable|string|max:500',
+            'faqs.*.answer' => 'nullable|string|max:2000',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
         ]);
 
         $validated['user_id'] = auth()->id();
         $validated['is_published'] = $request->boolean('is_published', false);
+        $validated['faqs'] = $this->cleanFaqs($request->input('faqs', []));
 
         if ($validated['is_published'] && empty($validated['published_at'])) {
             $validated['published_at'] = now();
@@ -80,11 +87,18 @@ class BlogController extends Controller
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'meta_keywords' => 'nullable|string|max:255',
+            'primary_keyword' => 'nullable|string|max:255',
+            'secondary_keywords' => 'nullable|string|max:255',
+            'canonical_url' => 'nullable|url|max:255',
+            'faqs' => 'nullable|array',
+            'faqs.*.question' => 'nullable|string|max:500',
+            'faqs.*.answer' => 'nullable|string|max:2000',
             'is_published' => 'boolean',
             'published_at' => 'nullable|date',
         ]);
 
         $validated['is_published'] = $request->boolean('is_published', false);
+        $validated['faqs'] = $this->cleanFaqs($request->input('faqs', []));
 
         if ($validated['is_published'] && empty($validated['published_at'])) {
             $validated['published_at'] = now();
@@ -113,5 +127,22 @@ class BlogController extends Controller
 
         return redirect()->route('admin.blogs.index')
             ->with('success', 'Blog deleted successfully.');
+    }
+
+    /**
+     * Normalise FAQ input rows, dropping any that are missing a question or answer.
+     */
+    private function cleanFaqs(array $faqs): ?array
+    {
+        $clean = collect($faqs)
+            ->map(fn ($f) => [
+                'question' => trim($f['question'] ?? ''),
+                'answer' => trim($f['answer'] ?? ''),
+            ])
+            ->filter(fn ($f) => $f['question'] !== '' && $f['answer'] !== '')
+            ->values()
+            ->all();
+
+        return empty($clean) ? null : $clean;
     }
 }

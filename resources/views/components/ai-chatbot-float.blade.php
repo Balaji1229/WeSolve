@@ -23,8 +23,8 @@
             aria-expanded="false"
             aria-controls="chatbot-panel"
         >
-            <svg id="chatbot-icon-open" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 012 2v2h-4V4a2 2 0 012-2zm-6 6h12a2 2 0 012 2v6a2 2 0 01-2 2h-2v2a2 2 0 01-2 2H10a2 2 0 01-2-2v-2H6a2 2 0 01-2-2V10a2 2 0 012-2zm3 8a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"/>
+            <svg id="chatbot-icon-open" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/>
             </svg>
             <svg id="chatbot-icon-close" class="hidden h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -52,8 +52,8 @@
         <div class="flex items-center justify-between border-b border-white/10 bg-gradient-to-r from-[#305CDE] to-[#00B6DA] px-4 py-3">
             <div class="flex items-center gap-3">
                 <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/20">
-                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 012 2v2h-4V4a2 2 0 012-2zm-6 6h12a2 2 0 012 2v6a2 2 0 01-2 2h-2v2a2 2 0 01-2 2H10a2 2 0 01-2-2v-2H6a2 2 0 01-2-2V10a2 2 0 012-2zm3 8a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"/>
+                    <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/>
                     </svg>
                 </div>
                 <div>
@@ -77,12 +77,12 @@
         <div id="chatbot-messages" class="flex-1 overflow-y-auto bg-body/50 p-4" style="max-height: 380px; min-height: 300px;">
             <div class="chatbot-message assistant flex gap-3">
                 <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA]">
-                    <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 012 2v2h-4V4a2 2 0 012-2zm-6 6h12a2 2 0 012 2v6a2 2 0 01-2 2h-2v2a2 2 0 01-2 2H10a2 2 0 01-2-2v-2H6a2 2 0 01-2-2V10a2 2 0 012-2zm3 8a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"/>
+                    <svg class="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/>
                     </svg>
                 </div>
                 <div class="max-w-[80%] rounded-2xl rounded-tl-none bg-card px-4 py-2.5 text-sm text-muted shadow-sm">
-                    Hi there! I am the WeSolve AI Assistant, powered by Gemini. I answer questions based on our website content. For anything else, I will share our developer WhatsApp link.
+                    Hi 👋 Welcome to WeSolve Technologies! I'm your AI assistant. Tell me about your business and what you'd like to build — a website, an app, or digital marketing — and I'll guide you to the right solution. 😊
                 </div>
             </div>
         </div>

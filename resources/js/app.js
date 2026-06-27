@@ -408,6 +408,34 @@ function initChatbotWidget() {
         });
     }
 
+    // Render assistant replies with light formatting: **bold**, bullet lists, and
+    // spaced paragraphs. Input is escaped first, so output is safe.
+    function formatAssistant(text) {
+        const escaped = escapeHtml(text);
+        const inline = (s) => linkify(s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'));
+        const lines = escaped.split('\n');
+        let html = '';
+        let inList = false;
+
+        lines.forEach((raw) => {
+            const line = raw.trim();
+            const bullet = line.match(/^[-*•]\s+(.*)$/);
+
+            if (bullet) {
+                if (!inList) { html += '<ul class="list-disc pl-5 space-y-1 my-1.5">'; inList = true; }
+                html += `<li>${inline(bullet[1])}</li>`;
+            } else {
+                if (inList) { html += '</ul>'; inList = false; }
+                if (line !== '') {
+                    html += `<p class="my-1.5 first:mt-0 last:mb-0 leading-relaxed">${inline(line)}</p>`;
+                }
+            }
+        });
+
+        if (inList) html += '</ul>';
+        return html;
+    }
+
     function appendMessage(role, text, isFallback = false) {
         const wrapper = document.createElement('div');
         wrapper.className = `chatbot-message ${role} flex gap-3 mb-3`;
@@ -416,19 +444,12 @@ function initChatbotWidget() {
         const avatar = document.createElement('div');
         avatar.className = `flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full ${isAssistant ? 'bg-gradient-to-r from-[#305CDE] to-[#00B6DA]' : 'bg-gray-200 dark:bg-gray-700'}`;
         avatar.innerHTML = isAssistant
-            ? '<svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a2 2 0 012 2v2h-4V4a2 2 0 012-2zm-6 6h12a2 2 0 012 2v6a2 2 0 01-2 2h-2v2a2 2 0 01-2 2H10a2 2 0 01-2-2v-2H6a2 2 0 01-2-2V10a2 2 0 012-2zm3 8a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z"/></svg>'
+            ? '<svg class="h-4 w-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z"/></svg>'
             : '<svg class="h-4 w-4 text-gray-600 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>';
 
         const bubble = document.createElement('div');
-        bubble.className = `max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm whitespace-pre-wrap ${isAssistant ? 'rounded-tl-none bg-card text-muted' : 'rounded-tr-none bg-gradient-to-r from-[#305CDE] to-[#00B6DA] text-white'}`;
-        bubble.innerHTML = isAssistant ? linkify(escapeHtml(text)) : escapeHtml(text);
-
-        if (isAssistant && isFallback) {
-            const label = document.createElement('div');
-            label.className = 'mb-1 text-xs font-medium text-[#305CDE]';
-            label.textContent = 'AI assistant is offline. Showing matching website content:';
-            bubble.prepend(label);
-        }
+        bubble.className = `max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm ${isAssistant ? 'rounded-tl-none bg-card text-muted' : 'rounded-tr-none bg-gradient-to-r from-[#305CDE] to-[#00B6DA] text-white whitespace-pre-wrap'}`;
+        bubble.innerHTML = isAssistant ? formatAssistant(text) : escapeHtml(text);
 
         if (isAssistant) {
             wrapper.appendChild(avatar);
@@ -519,6 +540,108 @@ function initChatbotWidget() {
     });
 }
 
+// Contact form: "Others" service toggle + fast AJAX submit
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const serviceSelect = document.getElementById('service');
+    const otherWrap = document.getElementById('service-other-wrap');
+    const otherInput = document.getElementById('service_other');
+    const status = document.getElementById('contact-status');
+    const submitBtn = document.getElementById('contact-submit');
+    const spinner = document.getElementById('contact-spinner');
+    const submitText = document.getElementById('contact-submit-text');
+
+    // Toggle the custom requirement field when "Others" is chosen.
+    function toggleOther() {
+        if (!serviceSelect || !otherWrap) return;
+        const isOther = serviceSelect.value === 'Others';
+        otherWrap.classList.toggle('hidden', !isOther);
+        if (otherInput) otherInput.required = isOther;
+        if (!isOther && otherInput) otherInput.value = '';
+    }
+    if (serviceSelect) {
+        serviceSelect.addEventListener('change', toggleOther);
+        toggleOther();
+    }
+
+    function showStatus(message, ok) {
+        if (!status) return;
+        status.textContent = message;
+        status.className = 'mb-6 rounded-xl px-4 py-3 text-sm border ' + (ok
+            ? 'bg-green-500/10 border-green-500/20 text-green-400'
+            : 'bg-red-500/10 border-red-500/20 text-red-400');
+        status.classList.remove('hidden');
+    }
+
+    function clearFieldErrors() {
+        form.querySelectorAll('.field-error').forEach((el) => el.remove());
+        form.querySelectorAll('[data-invalid]').forEach((el) => el.removeAttribute('data-invalid'));
+    }
+
+    function showFieldError(field, message) {
+        const input = form.querySelector(`[name="${field}"]`);
+        if (!input) return;
+        input.setAttribute('data-invalid', 'true');
+        const p = document.createElement('p');
+        p.className = 'field-error mt-1 text-sm text-red-400';
+        p.textContent = message;
+        input.parentNode.appendChild(p);
+    }
+
+    function setLoading(isLoading) {
+        submitBtn.disabled = isLoading;
+        submitBtn.classList.toggle('opacity-70', isLoading);
+        submitBtn.classList.toggle('cursor-not-allowed', isLoading);
+        if (spinner) spinner.classList.toggle('hidden', !isLoading);
+        if (submitText) submitText.textContent = isLoading ? 'Sending...' : 'Send Message';
+    }
+
+    let submitting = false;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (submitting) return; // prevent duplicate submissions
+        submitting = true;
+        setLoading(true);
+        clearFieldErrors();
+        if (status) status.classList.add('hidden');
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRF-TOKEN': form.querySelector('[name="_token"]').value,
+                },
+                body: new FormData(form),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                showStatus(data.message || 'Thank you for your message!', true);
+                form.reset();
+                toggleOther();
+            } else if (response.status === 422) {
+                const data = await response.json();
+                const errors = data.errors || {};
+                Object.keys(errors).forEach((field) => showFieldError(field, errors[field][0]));
+                showStatus('Please check the highlighted fields and try again.', false);
+            } else {
+                throw new Error('Unexpected response ' + response.status);
+            }
+        } catch (err) {
+            console.error('Contact form error:', err);
+            showStatus('Something went wrong. Please try again or reach us on WhatsApp.', false);
+        } finally {
+            submitting = false;
+            setLoading(false);
+        }
+    });
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
@@ -528,4 +651,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectCarousel();
     initTestimonialSlider();
     initChatbotWidget();
+    initContactForm();
 });
