@@ -39,7 +39,7 @@
                 </div>
                 @endif
 
-                {{-- AJAX status messages (success / error) --}}
+                {{-- AJAX status message (success / error) --}}
                 <div id="contact-status" class="hidden mb-6 rounded-xl px-4 py-3 text-sm"></div>
 
                 <form id="contact-form" action="{{ route('contact.store') }}" method="POST" class="space-y-5">
@@ -166,11 +166,6 @@
                             Message Us
                         </span>
                     </a>
-                </div>
-
-                <div class="glass-card p-8">
-                    <h3 class="text-xl font-bold text-primary mb-4" style="font-family: 'Space Grotesk', sans-serif;">Follow Us</h3>
-                    <x-social-links containerClass="flex flex-wrap gap-5" />
                 </div>
 
                 {{-- Supported Languages --}}

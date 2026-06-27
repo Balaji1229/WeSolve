@@ -573,6 +573,7 @@ function initContactForm() {
             ? 'bg-green-500/10 border-green-500/20 text-green-400'
             : 'bg-red-500/10 border-red-500/20 text-red-400');
         status.classList.remove('hidden');
+        status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     function clearFieldErrors() {
@@ -594,8 +595,9 @@ function initContactForm() {
         submitBtn.disabled = isLoading;
         submitBtn.classList.toggle('opacity-70', isLoading);
         submitBtn.classList.toggle('cursor-not-allowed', isLoading);
+        // Hide the label while submitting so the spinner sits centered in the button.
         if (spinner) spinner.classList.toggle('hidden', !isLoading);
-        if (submitText) submitText.textContent = isLoading ? 'Sending...' : 'Send Message';
+        if (submitText) submitText.classList.toggle('hidden', isLoading);
     }
 
     let submitting = false;
@@ -621,9 +623,9 @@ function initContactForm() {
 
             if (response.ok) {
                 const data = await response.json();
-                showStatus(data.message || 'Thank you for your message!', true);
                 form.reset();
                 toggleOther();
+                showStatus(data.message || 'Thank you! Your message has been sent.', true);
             } else if (response.status === 422) {
                 const data = await response.json();
                 const errors = data.errors || {};
