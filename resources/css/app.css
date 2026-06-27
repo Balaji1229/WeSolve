@@ -25,6 +25,11 @@
     width: auto;
 }
 
+/* Invalid contact form field highlight */
+[data-invalid] {
+    border-color: #f87171 !important;
+}
+
 /* Theme-aware logo: show the dark logo on light theme, light logo on dark theme. */
 .logo-on-dark {
     display: none;

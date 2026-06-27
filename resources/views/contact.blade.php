@@ -39,7 +39,10 @@
                 </div>
                 @endif
 
-                <form action="{{ route('contact.store') }}" method="POST" class="space-y-5">
+                {{-- AJAX status messages (success / error) --}}
+                <div id="contact-status" class="hidden mb-6 rounded-xl px-4 py-3 text-sm"></div>
+
+                <form id="contact-form" action="{{ route('contact.store') }}" method="POST" class="space-y-5">
                     @csrf
                     <div>
                         <label for="name" class="block text-sm font-medium text-secondary mb-2">Name <span class="text-red-400">*</span></label>
@@ -75,8 +78,18 @@
                             <option value="Website Maintenance" {{ old('service') == 'Website Maintenance' ? 'selected' : '' }} style="background-color: white; color: #111827;" class="dark:!bg-gray-900 dark:!text-white">Website Maintenance</option>
                             <option value="Landing Page" {{ old('service') == 'Landing Page' ? 'selected' : '' }} style="background-color: white; color: #111827;" class="dark:!bg-gray-900 dark:!text-white">Landing Page Creation</option>
                             <option value="Business Website" {{ old('service') == 'Business Website' ? 'selected' : '' }} style="background-color: white; color: #111827;" class="dark:!bg-gray-900 dark:!text-white">Business Website Setup</option>
+                            <option value="Others" {{ old('service') == 'Others' ? 'selected' : '' }} style="background-color: white; color: #111827;" class="dark:!bg-gray-900 dark:!text-white">Others</option>
                         </select>
                         @error('service')
+                        <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    {{-- Shown only when "Others" is selected --}}
+                    <div id="service-other-wrap" class="{{ old('service') == 'Others' ? '' : 'hidden' }}">
+                        <label for="service_other" class="block text-sm font-medium text-secondary mb-2">Tell us what you need <span class="text-red-400">*</span></label>
+                        <input type="text" name="service_other" id="service_other" value="{{ old('service_other') }}" class="w-full input-bg rounded-xl px-4 py-3 text-sm transition" placeholder="Describe the service you're looking for">
+                        @error('service_other')
                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
@@ -89,7 +102,13 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="w-full btn-gradient">Send Message</button>
+                    <button type="submit" id="contact-submit" class="w-full btn-gradient flex items-center justify-center gap-2">
+                        <svg id="contact-spinner" class="hidden h-5 w-5 animate-spin text-white" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                        <span id="contact-submit-text">Send Message</span>
+                    </button>
                 </form>
             </div>
 

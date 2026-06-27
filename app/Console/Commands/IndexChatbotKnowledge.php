@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Blog;
 use App\Models\ChatbotDocument;
+use App\Models\PageSeo;
 use App\Models\Portfolio;
 use App\Models\Setting;
 use App\Models\Template;
@@ -22,6 +23,7 @@ class IndexChatbotKnowledge extends Command
         ChatbotDocument::query()->delete();
 
         $this->indexStaticPages();
+        $this->indexFaqs();
         $this->indexBlogs();
         $this->indexPortfolios();
         $this->indexTemplates();
@@ -127,6 +129,49 @@ class IndexChatbotKnowledge extends Command
             $this->url('templates'),
             2
         );
+    }
+
+    private function indexFaqs(): void
+    {
+        // Page-level FAQs (managed under /admin/seo).
+        PageSeo::whereNotNull('faqs')->get()->each(function ($page) {
+            $faqs = collect($page->faqs ?? [])
+                ->filter(fn ($f) => filled($f['question'] ?? null) && filled($f['answer'] ?? null));
+
+            if ($faqs->isEmpty()) {
+                return;
+            }
+
+            $content = $faqs->map(fn ($f) => "Q: {$f['question']}\nA: {$f['answer']}")->implode("\n\n");
+
+            $this->addDocument(
+                'FAQ - ' . ucfirst(str_replace(['.', '_', '-'], ' ', $page->page)),
+                $content,
+                'faq:page',
+                $this->url($page->page),
+                4
+            );
+        });
+
+        // Per-blog FAQs.
+        Blog::published()->whereNotNull('faqs')->get()->each(function ($blog) {
+            $faqs = collect($blog->faqs ?? [])
+                ->filter(fn ($f) => filled($f['question'] ?? null) && filled($f['answer'] ?? null));
+
+            if ($faqs->isEmpty()) {
+                return;
+            }
+
+            $content = $faqs->map(fn ($f) => "Q: {$f['question']}\nA: {$f['answer']}")->implode("\n\n");
+
+            $this->addDocument(
+                'FAQ - ' . $blog->title,
+                $content,
+                'faq:blog',
+                $this->url('blog.show', $blog->slug),
+                4
+            );
+        });
     }
 
     private function indexBlogs(): void
