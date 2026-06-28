@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Maintenance & Support Services - WeSolve Technologies')
-@section('meta_description', 'Website and app maintenance, security updates, bug fixes, and ongoing support for small businesses. Keep your digital presence secure and up to date.')
-@section('meta_keywords', 'website maintenance, app support, bug fixes, security updates, technical support, website support, ongoing maintenance')
+@section('title', 'Website Maintenance Services in Chennai | WeSolve')
+@section('meta_description', 'Reliable website maintenance services in Chennai. We offer website AMC, security, updates, backups, and support to keep your site fast, safe, and online.')
+@section('meta_keywords', 'Website Maintenance Services in Chennai, Website AMC Services in Chennai, Website Security Services in Chennai, Website Support Services in Chennai')
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Maintenance & Support' => route('service.maintenance-support')]" />
@@ -11,7 +11,7 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
         <span class="tag mb-4">Maintenance & Support</span>
         <h1 class="text-4xl lg:text-6xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">
-            Keep Your Website <span class="gradient-text">Running Smoothly</span>
+            Website Maintenance Services <span class="gradient-text">in Chennai</span>
         </h1>
         <p class="mt-6 text-lg text-muted max-w-3xl mx-auto">
             Websites and apps need regular care to stay secure, fast, and reliable. We handle updates, fixes, and monitoring so you can focus on running your business.

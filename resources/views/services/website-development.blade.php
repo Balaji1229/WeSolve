@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Website Development Services - WeSolve Technologies')
-@section('meta_description', 'Get a custom, responsive website built for your business. We design fast, SEO-friendly sites that help you attract customers and build credibility online.')
-@section('meta_keywords', 'website development, custom website design, responsive websites, business website, SEO friendly website, affordable web design')
+@section('title', 'Website Development in Chennai | WeSolve Technologies')
+@section('meta_description', 'Looking for website development in Chennai? We build custom, responsive, SEO-friendly business websites that load fast and turn visitors into customers.')
+@section('meta_keywords', 'Website Development in Chennai, Custom Website Development in Chennai, Responsive Website Development Services in Chennai, Business Website Development in Chennai')
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Website Development' => route('service.website-development')]" />
@@ -11,7 +11,7 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
         <span class="tag mb-4">Website Development</span>
         <h1 class="text-4xl lg:text-6xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">
-            Websites That <span class="gradient-text">Work for You</span>
+            Website Development <span class="gradient-text">in Chennai</span>
         </h1>
         <p class="mt-6 text-lg text-muted max-w-3xl mx-auto">
             Your website is often the first place customers meet your business. We build clean, fast, and mobile-friendly websites that make a strong first impression and guide visitors toward action.

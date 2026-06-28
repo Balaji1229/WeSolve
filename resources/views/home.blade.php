@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'WeSolve Technologies - Affordable Website & App Development')
+@section('title', 'Digital Marketing Company in Chennai | WeSolve Technologies')
+@section('meta_description', 'WeSolve Technologies is a trusted digital marketing company in Chennai offering SEO, social media marketing, and affordable web & app development services.')
+@section('meta_keywords', 'Digital Marketing Company in Chennai, Digital Marketing Services in Chennai, SEO Company in Chennai, Social Media Marketing Company in Chennai')
 
 @section('content')
 {{-- Hero Section --}}
@@ -20,13 +22,12 @@
             </div>
 
             <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
-                <span class="text-primary">We Build</span><br class="hidden sm:block">
-                <span class="gradient-text">Digital Experiences</span><br class="hidden sm:block">
-                <span class="text-primary">That Matter</span>
+                <span class="text-primary">Digital Marketing</span><br class="hidden sm:block">
+                <span class="gradient-text">Company in Chennai</span>
             </h1>
 
             <p class="mt-6 text-lg leading-8 text-secondary max-w-2xl mx-auto">
-                We craft stunning websites, powerful web apps, and result-driven marketing strategies that help your business grow in the digital world.
+                WeSolve Technologies is a results-driven digital marketing company in Chennai. We build stunning websites, powerful web apps, and SEO &amp; social media strategies that help your business grow online.
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

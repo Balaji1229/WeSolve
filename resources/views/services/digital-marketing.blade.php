@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Digital Marketing Services - WeSolve Technologies')
-@section('meta_description', 'Grow your business online with SEO, content marketing, and paid advertising. We help small businesses get found by the right customers.')
-@section('meta_keywords', 'digital marketing, SEO services, content marketing, paid advertising, social media marketing, online marketing')
+@section('title', 'Digital Marketing Services in Chennai | WeSolve')
+@section('meta_description', 'Grow your business with our digital marketing services in Chennai. We offer SEO, local SEO, Google Ads management, and social media marketing for real results.')
+@section('meta_keywords', 'Digital Marketing Services in Chennai, SEO Services in Chennai, Local SEO Services in Chennai, Google Ads Management Services in Chennai')
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Digital Marketing' => route('service.digital-marketing')]" />
@@ -11,7 +11,7 @@
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
         <span class="tag mb-4">Digital Marketing</span>
         <h1 class="text-4xl lg:text-6xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">
-            Marketing That <span class="gradient-text">Gets You Found</span>
+            Digital Marketing Services <span class="gradient-text">in Chennai</span>
         </h1>
         <p class="mt-6 text-lg text-muted max-w-3xl mx-auto">
             A great product deserves an audience. We help small businesses show up in search results, engage the right people, and turn interest into action.

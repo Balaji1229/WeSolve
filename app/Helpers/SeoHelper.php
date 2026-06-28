@@ -16,6 +16,10 @@ class SeoHelper
             'url' => url('/'),
             'logo' => asset('images/logo/wesolvetechnologies-dark.webp'),
             'description' => 'Affordable website development, web app development, SEO and maintenance services for small businesses.',
+            'areaServed' => [
+                '@type' => 'City',
+                'name' => 'Chennai',
+            ],
             'contactPoint' => [
                 [
                     '@type' => 'ContactPoint',
@@ -198,6 +202,10 @@ class SeoHelper
             'image' => asset('images/logo/wesolvetechnologies-dark.webp'),
             'logo' => asset('images/logo/wesolvetechnologies-dark.webp'),
             'priceRange' => '$$',
+            'areaServed' => [
+                '@type' => 'City',
+                'name' => 'Chennai',
+            ],
         ];
 
         if ($phone = Setting::get('contact_phone')) {
@@ -212,6 +220,9 @@ class SeoHelper
             $data['address'] = [
                 '@type' => 'PostalAddress',
                 'streetAddress' => $address,
+                'addressLocality' => 'Chennai',
+                'addressRegion' => 'Tamil Nadu',
+                'addressCountry' => 'IN',
             ];
         }
 
