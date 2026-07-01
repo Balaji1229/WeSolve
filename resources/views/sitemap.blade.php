@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>{{ route('home') }}</loc>
         <lastmod>{{ now()->toDateString() }}</lastmod>
@@ -86,12 +87,37 @@
         <priority>0.6</priority>
     </url>
 
+    <url>
+        <loc>{{ route('templates') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>{{ route('developers') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>{{ route('terms') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
     @foreach($portfolios as $portfolio)
     <url>
         <loc>{{ route('portfolio.show', $portfolio->slug) }}</loc>
         <lastmod>{{ $portfolio->updated_at->toDateString() }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
+        @if($portfolio->project_image)
+        <image:image>
+            <image:loc>{{ asset('storage/' . $portfolio->project_image) }}</image:loc>
+            <image:title>{{ $portfolio->title }}</image:title>
+        </image:image>
+        @endif
     </url>
     @endforeach
 
@@ -101,6 +127,12 @@
         <lastmod>{{ $blog->updated_at->toDateString() }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+        @if($blog->featured_image)
+        <image:image>
+            <image:loc>{{ asset('storage/' . $blog->featured_image) }}</image:loc>
+            <image:title>{{ $blog->title }}</image:title>
+        </image:image>
+        @endif
     </url>
     @endforeach
 </urlset>

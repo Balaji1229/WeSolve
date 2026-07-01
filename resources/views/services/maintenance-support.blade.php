@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Website Maintenance Services in Chennai | WeSolve')
-@section('meta_description', 'Reliable website maintenance services in Chennai. We offer website AMC, security, updates, backups, and support to keep your site fast, safe, and online.')
-@section('meta_keywords', 'Website Maintenance Services in Chennai, Website AMC Services in Chennai, Website Security Services in Chennai, Website Support Services in Chennai')
+@section('title', 'Website Maintenance Services in Chennai | WeSolve Technologies')
+@section('meta_description', 'Keep your website secure with Website Maintenance Services in Chennai, including updates, backups, monitoring, and support.')
+@section('meta_keywords', 'Website Maintenance Services in Chennai, Website AMC Services in Chennai, Website Support Services in Chennai')
+
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('Website Maintenance Services in Chennai', 'Website AMC, security, updates, backups and support to keep your site fast and online.', route('service.maintenance-support'), 'Website Maintenance') !!}
+@endsection
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Maintenance & Support' => route('service.maintenance-support')]" />

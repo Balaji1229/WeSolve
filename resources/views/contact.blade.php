@@ -3,7 +3,8 @@
 @section('title', 'Contact Us - WeSolve Technologies')
 
 @section('schema_extra')
-{!! \App\Helpers\SeoHelper::schemaLocalBusiness() !!}
+{{-- LocalBusiness without ratings: this page shows NAP/map, not the reviews. --}}
+{!! \App\Helpers\SeoHelper::schemaLocalBusiness(includeRatings: false) !!}
 @endsection
 
 @section('content')
@@ -53,7 +54,7 @@
                     </div>
 
                     <div>
-                        <label for="email" class="block text-sm font-medium text-secondary mb-2">Email</label>
+                        <label for="email" class="block text-sm font-medium text-secondary mb-2">Email <span class="text-red-400">*</span></label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}" required class="w-full input-bg rounded-xl px-4 py-3 text-sm transition" placeholder="your@email.com">
                         @error('email')
                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -95,7 +96,7 @@
                     </div>
 
                     <div>
-                        <label for="message" class="block text-sm font-medium text-secondary mb-2">Message</label>
+                        <label for="message" class="block text-sm font-medium text-secondary mb-2">Message <span class="text-red-400">*</span></label>
                         <textarea name="message" id="message" rows="4" required class="w-full input-bg rounded-xl px-4 py-3 text-sm transition" placeholder="Tell us about your project...">{{ old('message') }}</textarea>
                         @error('message')
                         <p class="mt-1 text-sm text-red-400">{{ $message }}</p>
@@ -152,6 +153,17 @@
                             </div>
                         </div>
                         @endif
+                    </div>
+
+                    @if(!empty($contactInfo['map_iframe']))
+                    <div class="mt-6 overflow-hidden rounded-xl border border-[#305CDE]/20">
+                        {!! $contactInfo['map_iframe'] !!}
+                    </div>
+                    @endif
+
+                    <div class="mt-6 pt-6 border-t border-[#305CDE]/10">
+                        <h3 class="text-primary font-medium text-sm mb-4">Follow Us</h3>
+                        <x-social-links />
                     </div>
                 </div>
 

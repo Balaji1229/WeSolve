@@ -4,6 +4,10 @@
 @section('meta_description', 'Reliable cloud hosting, deployment, and infrastructure services for small businesses. We help you move to the cloud and keep your systems running smoothly.')
 @section('meta_keywords', 'cloud solutions, cloud hosting, cloud infrastructure, AWS, server deployment, cloud migration, managed cloud services')
 
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('Cloud Solutions', 'Cloud hosting, deployment, migration and managed infrastructure services for small businesses.', route('service.cloud-solutions'), 'Cloud Computing') !!}
+@endsection
+
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Cloud Solutions' => route('service.cloud-solutions')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">

@@ -73,6 +73,13 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap')
 // Dynamic robots.txt (uses the configured APP_URL so the Sitemap line stays correct per environment)
 Route::get('/robots.txt', function () {
     $sitemap = rtrim(config('app.url'), '/') . '/sitemap.xml';
+
+    // Staging / pre-launch safety: when the site is not indexable, block everything.
+    if (! config('seo.indexable', true)) {
+        return response("User-agent: *\nDisallow: /\n", 200)
+            ->header('Content-Type', 'text/plain');
+    }
+
     $lines = [
         'User-agent: *',
         'Allow: /',
@@ -81,9 +88,17 @@ Route::get('/robots.txt', function () {
         'Disallow: /login',
         'Disallow: /dashboard/',
         '',
-        'Sitemap: ' . $sitemap,
-        '',
     ];
+
+    // Explicitly welcome AI crawlers so the site can be cited in AI answers.
+    foreach (config('seo.ai_crawlers', []) as $bot) {
+        $lines[] = 'User-agent: ' . $bot;
+        $lines[] = 'Allow: /';
+        $lines[] = '';
+    }
+
+    $lines[] = 'Sitemap: ' . $sitemap;
+    $lines[] = '';
 
     return response(implode("\n", $lines), 200)
         ->header('Content-Type', 'text/plain');

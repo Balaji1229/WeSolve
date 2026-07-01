@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Web Application Development in Chennai | WeSolve')
-@section('meta_description', 'Custom web application development in Chennai for growing businesses. We build enterprise web apps, CRMs, and dashboards with secure, scalable architecture.')
-@section('meta_keywords', 'Web Application Development in Chennai, Custom Web App Development in Chennai, Enterprise Web Application Development in Chennai, CRM Development Services in Chennai')
+@section('title', 'Web Application Development Services in Chennai | WeSolve Technologies')
+@section('meta_description', 'Build secure Web Application Development Services in Chennai with custom and enterprise web applications for business growth. We also build custom ERP and business software.')
+@section('meta_keywords', 'Web Application Development Services in Chennai, Custom Web Application Development in Chennai, Enterprise Web Application Development in Chennai, Software Development Company in Chennai, Custom Software Development Company in Chennai, ERP Software Development Company in Chennai')
+
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('Web Application Development Services in Chennai', 'Custom and enterprise web applications, CRMs and dashboards built with secure, scalable architecture.', route('service.web-application-development'), 'Web Application Development') !!}
+@endsection
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Web Application Development' => route('service.web-application-development')]" />

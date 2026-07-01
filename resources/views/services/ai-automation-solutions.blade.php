@@ -4,6 +4,10 @@
 @section('meta_description', 'AI chatbots, automation workflows, and AI assistants for small businesses. Save time and improve customer experiences with practical AI solutions.')
 @section('meta_keywords', 'AI automation, AI chatbots, business automation, AI assistants, generative AI, AI integration, workflow automation')
 
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('AI & Automation Solutions', 'AI chatbots, automation workflows and AI assistants that save time for small businesses.', route('service.ai-automation-solutions'), 'AI Automation') !!}
+@endsection
+
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'AI Automation Solutions' => route('service.ai-automation-solutions')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">

@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Mobile App Development in Chennai | WeSolve Technologies')
-@section('meta_description', 'Mobile app development in Chennai for Android and iOS. We build fast, secure Flutter and cross-platform apps with great UX and app store launch support.')
-@section('meta_keywords', 'Mobile App Development in Chennai, Android App Development Company in Chennai, Flutter App Development Company in Chennai, Cross Platform App Development Services in Chennai')
+@section('title', 'Mobile App Development Services in Chennai | WeSolve Technologies')
+@section('meta_description', 'Build Android and Flutter apps with Mobile App Development Services in Chennai for scalable, secure, and user-friendly solutions.')
+@section('meta_keywords', 'Mobile App Development Services in Chennai, Android App Development Company in Chennai, Flutter App Development Company in Chennai')
+
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('Mobile App Development Services in Chennai', 'Android and Flutter mobile app development for scalable, secure and user-friendly apps.', route('service.mobile-app-development'), 'Mobile App Development') !!}
+@endsection
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Mobile App Development' => route('service.mobile-app-development')]" />

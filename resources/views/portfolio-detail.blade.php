@@ -4,6 +4,10 @@
 @section('meta_description', $portfolio->meta_description ?? Str::limit($portfolio->description, 160))
 @section('meta_keywords', $portfolio->meta_keywords ?? '')
 
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaCreativeWork($portfolio) !!}
+@endsection
+
 @section('content')
 <x-breadcrumbs :items="[
     'Home' => route('home'),

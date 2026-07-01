@@ -37,7 +37,7 @@ class ContactController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:20',
+            'phone' => 'required|string|max:20',
             'service' => 'nullable|string|max:255',
             'service_other' => 'nullable|string|max:255|required_if:service,Others',
             'message' => 'required|string|max:5000',
