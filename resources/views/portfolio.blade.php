@@ -89,7 +89,7 @@
             <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-project="crackers">
                 <div class="project-scroll-wrap relative">
                     <img src="{{ asset('images/crackers-app.png') }}" alt="Crackers App" class="project-img active" loading="lazy" width="800" height="600" decoding="async">
-                    <img src="{{ asset('images/crackers-shoppng') }}" alt="Crackers Shop" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
+                    <img src="{{ asset('images/crackers-shop.png') }}" alt="Crackers Shop" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
 
                     <button type="button" class="project-carousel-btn prev" aria-label="Previous image" data-action="prev">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
