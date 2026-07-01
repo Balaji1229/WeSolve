@@ -1,5 +1,0 @@
-# Crawling is disabled while the site's SEO is being finalised.
-# To allow indexing later, replace the rule below with your normal
-# directives (e.g. "Allow: /" plus a Sitemap line).
-User-agent: *
-Disallow: /

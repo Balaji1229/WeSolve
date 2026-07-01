@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="@yield('robots', config('seo.indexable', true) ? 'index, follow' : 'noindex, nofollow')">
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
     <meta name="csrf-token" content="{{ csrf_token() }}">
