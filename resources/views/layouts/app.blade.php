@@ -9,6 +9,18 @@
     <meta name="theme-color" content="#f8f9fa" media="(prefers-color-scheme: light)">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- Geo meta tags for local SEO (values editable in /admin/settings) --}}
+    @php
+        $geoRegion = \App\Models\Setting::get('geo_region');
+        $geoPlace = \App\Models\Setting::get('geo_placename');
+        $geoLat = \App\Models\Setting::get('contact_lat');
+        $geoLng = \App\Models\Setting::get('contact_lng');
+    @endphp
+    @if($geoRegion)<meta name="geo.region" content="{{ $geoRegion }}">@endif
+    @if($geoPlace)<meta name="geo.placename" content="{{ $geoPlace }}">@endif
+    @if($geoLat && $geoLng)<meta name="geo.position" content="{{ $geoLat }};{{ $geoLng }}">
+    <meta name="ICBM" content="{{ $geoLat }}, {{ $geoLng }}">@endif
+
     {{-- Favicon --}}
     <link rel="icon" type="image/png" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/logo/wesolvetechnologies-favicon.png') }}">

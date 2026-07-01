@@ -36,7 +36,17 @@ class SettingSeeder extends Seeder
             ['key' => 'contact_phone', 'value' => '+91 6369443005', 'type' => 'text', 'group' => 'contact', 'label' => 'Phone Number'],
             ['key' => 'contact_whatsapp', 'value' => '916369443005', 'type' => 'text', 'group' => 'contact', 'label' => 'WhatsApp Number'],
             ['key' => 'contact_address', 'value' => 'Chennai, Tamil Nadu, India', 'type' => 'text', 'group' => 'contact', 'label' => 'Address'],
-            ['key' => 'contact_map', 'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555096471!2d-122.50764017948502!3d37.75780956920463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1699900000000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', 'type' => 'textarea', 'group' => 'contact', 'label' => 'Google Map Embed'],
+            ['key' => 'contact_map', 'value' => '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15551.87!2d80.2707!3d13.0827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d3361%3A0x6e61a70b6863d433!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1699900000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', 'type' => 'textarea', 'group' => 'contact', 'label' => 'Google Map Embed'],
+
+            // Local SEO — fill these with your real Google Business Profile data.
+            ['key' => 'contact_map_url', 'value' => 'https://www.google.com/maps?q=Chennai,Tamil+Nadu,India', 'type' => 'text', 'group' => 'contact', 'label' => 'Google Maps URL (for schema hasMap)'],
+            ['key' => 'contact_lat', 'value' => '13.0827', 'type' => 'text', 'group' => 'contact', 'label' => 'Latitude (geo)'],
+            ['key' => 'contact_lng', 'value' => '80.2707', 'type' => 'text', 'group' => 'contact', 'label' => 'Longitude (geo)'],
+            ['key' => 'geo_region', 'value' => 'IN-TN', 'type' => 'text', 'group' => 'contact', 'label' => 'Geo Region Code'],
+            ['key' => 'geo_placename', 'value' => 'Chennai', 'type' => 'text', 'group' => 'contact', 'label' => 'Geo Place Name'],
+            ['key' => 'opening_days', 'value' => 'Monday,Tuesday,Wednesday,Thursday,Friday,Saturday', 'type' => 'text', 'group' => 'contact', 'label' => 'Opening Days (comma separated)'],
+            ['key' => 'opening_time', 'value' => '09:00', 'type' => 'text', 'group' => 'contact', 'label' => 'Opening Time (HH:MM)'],
+            ['key' => 'closing_time', 'value' => '18:00', 'type' => 'text', 'group' => 'contact', 'label' => 'Closing Time (HH:MM)'],
 
             // Social
             ['key' => 'social_instagram', 'value' => 'https://www.instagram.com/wesolve_technologies', 'type' => 'text', 'group' => 'social', 'label' => 'Instagram URL'],
