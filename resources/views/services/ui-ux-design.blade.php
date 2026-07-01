@@ -4,6 +4,10 @@
 @section('meta_description', 'Choose Website Design Services in Chennai for responsive, modern websites from a leading Website Design Company in Chennai. We craft intuitive, accessible UI/UX for websites and apps.')
 @section('meta_keywords', 'Website Design Services in Chennai, Website Design Company in Chennai, Responsive Website Design in Chennai, UI UX Design Services in Chennai, User Interface Design, User Experience Design')
 
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('Website Design & UI/UX Services in Chennai', 'Responsive website design and intuitive, accessible UI/UX for websites and apps.', route('service.ui-ux-design'), 'UI/UX Design') !!}
+@endsection
+
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'UI/UX Design' => route('service.ui-ux-design')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">

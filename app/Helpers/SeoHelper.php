@@ -3,7 +3,9 @@
 namespace App\Helpers;
 
 use App\Models\Blog;
+use App\Models\Portfolio;
 use App\Models\Setting;
+use App\Models\Testimonial;
 
 class SeoHelper
 {
@@ -48,6 +50,177 @@ class SeoHelper
             Setting::get('social_threads'),
             Setting::get('social_github'),
         ]));
+    }
+
+    /**
+     * The agency's service catalogue, used for Service schema and makesOffer.
+     *
+     * @return array<int, array{name: string, route: string, type: string}>
+     */
+    public static function serviceCatalogue(): array
+    {
+        return [
+            ['name' => 'Website Development', 'route' => 'service.website-development', 'type' => 'Web Development'],
+            ['name' => 'Web Application Development', 'route' => 'service.web-application-development', 'type' => 'Web Application Development'],
+            ['name' => 'Mobile App Development', 'route' => 'service.mobile-app-development', 'type' => 'Mobile App Development'],
+            ['name' => 'Digital Marketing', 'route' => 'service.digital-marketing', 'type' => 'Digital Marketing'],
+            ['name' => 'AI & Automation Solutions', 'route' => 'service.ai-automation-solutions', 'type' => 'AI Automation'],
+            ['name' => 'Website Design & UI/UX', 'route' => 'service.ui-ux-design', 'type' => 'UI/UX Design'],
+            ['name' => 'Cloud Solutions', 'route' => 'service.cloud-solutions', 'type' => 'Cloud Computing'],
+            ['name' => 'Website Maintenance', 'route' => 'service.maintenance-support', 'type' => 'Website Maintenance'],
+        ];
+    }
+
+    /**
+     * GeoCoordinates from Settings, or null when not configured.
+     *
+     * @return array<string, mixed>|null
+     */
+    private static function geoCoordinates(): ?array
+    {
+        $lat = Setting::get('contact_lat');
+        $lng = Setting::get('contact_lng');
+
+        if ($lat === null || $lng === null || $lat === '' || $lng === '') {
+            return null;
+        }
+
+        return [
+            '@type' => 'GeoCoordinates',
+            'latitude' => (string) $lat,
+            'longitude' => (string) $lng,
+        ];
+    }
+
+    /**
+     * openingHoursSpecification built from editable Settings.
+     *
+     * @return array<int, array<string, mixed>>|null
+     */
+    private static function openingHours(): ?array
+    {
+        $days = array_filter(array_map('trim', explode(',', (string) Setting::get('opening_days', 'Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'))));
+        $opens = Setting::get('opening_time', '09:00');
+        $closes = Setting::get('closing_time', '18:00');
+
+        if (empty($days) || ! $opens || ! $closes) {
+            return null;
+        }
+
+        return [[
+            '@type' => 'OpeningHoursSpecification',
+            'dayOfWeek' => array_values($days),
+            'opens' => $opens,
+            'closes' => $closes,
+        ]];
+    }
+
+    /**
+     * AggregateRating + individual Review nodes from active testimonials.
+     * Only real, displayed testimonials are used (no fabricated ratings).
+     *
+     * @return array{aggregate: array<string, mixed>, reviews: array<int, array<string, mixed>>}|null
+     */
+    private static function testimonialRatings(): ?array
+    {
+        $testimonials = Testimonial::active()
+            ->ordered()
+            ->whereNotNull('rating')
+            ->where('rating', '>', 0)
+            ->get();
+
+        if ($testimonials->isEmpty()) {
+            return null;
+        }
+
+        $avg = round($testimonials->avg('rating'), 1);
+
+        $reviews = $testimonials->map(function (Testimonial $t) {
+            return [
+                '@type' => 'Review',
+                'author' => [
+                    '@type' => 'Person',
+                    'name' => $t->client_name,
+                ],
+                'reviewRating' => [
+                    '@type' => 'Rating',
+                    'ratingValue' => (string) $t->rating,
+                    'bestRating' => '5',
+                    'worstRating' => '1',
+                ],
+                'reviewBody' => $t->content,
+            ];
+        })->all();
+
+        return [
+            'aggregate' => [
+                '@type' => 'AggregateRating',
+                'ratingValue' => (string) $avg,
+                'reviewCount' => (string) $testimonials->count(),
+                'bestRating' => '5',
+                'worstRating' => '1',
+            ],
+            'reviews' => $reviews,
+        ];
+    }
+
+    /**
+     * Service JSON-LD for an individual service page.
+     */
+    public static function schemaService(string $name, string $description, string $url, string $serviceType): string
+    {
+        $data = [
+            '@context' => 'https://schema.org',
+            '@type' => 'Service',
+            'name' => $name,
+            'description' => $description,
+            'serviceType' => $serviceType,
+            'url' => $url,
+            'provider' => [
+                '@type' => 'Organization',
+                'name' => 'WeSolve Technologies',
+                'url' => url('/'),
+            ],
+            'areaServed' => [
+                '@type' => 'City',
+                'name' => 'Chennai',
+            ],
+        ];
+
+        return '<script type="application/ld+json">' . json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</script>';
+    }
+
+    /**
+     * CreativeWork JSON-LD for a portfolio project.
+     */
+    public static function schemaCreativeWork(Portfolio $portfolio): string
+    {
+        $data = [
+            '@context' => 'https://schema.org',
+            '@type' => 'CreativeWork',
+            'name' => $portfolio->title,
+            'description' => $portfolio->meta_description ?: strip_tags((string) $portfolio->description),
+            'url' => route('portfolio.show', $portfolio->slug),
+            'creator' => [
+                '@type' => 'Organization',
+                'name' => 'WeSolve Technologies',
+                'url' => url('/'),
+            ],
+        ];
+
+        if ($portfolio->project_image) {
+            $data['image'] = asset('storage/' . $portfolio->project_image);
+        }
+
+        if ($portfolio->completion_date) {
+            $data['dateCreated'] = $portfolio->completion_date->toDateString();
+        }
+
+        if ($portfolio->project_url) {
+            $data['sameAs'] = $portfolio->project_url;
+        }
+
+        return '<script type="application/ld+json">' . json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</script>';
     }
 
     public static function schemaWebsite(): string
@@ -189,13 +362,16 @@ class SeoHelper
     }
 
     /**
-     * LocalBusiness JSON-LD built from editable Settings with sensible fallbacks.
+     * LocalBusiness (ProfessionalService) JSON-LD built from editable Settings
+     * with sensible fallbacks. Includes geo, opening hours, map, the service
+     * catalogue (makesOffer) and — only when $includeRatings is true and the
+     * page actually shows the reviews — real testimonial ratings.
      */
-    public static function schemaLocalBusiness(): string
+    public static function schemaLocalBusiness(bool $includeRatings = true): string
     {
         $data = [
             '@context' => 'https://schema.org',
-            '@type' => 'LocalBusiness',
+            '@type' => 'ProfessionalService',
             'name' => Setting::get('site_title', 'WeSolve Technologies'),
             'description' => Setting::get('site_description', 'Affordable website development, web app development, SEO and maintenance services for small businesses.'),
             'url' => url('/'),
@@ -220,10 +396,42 @@ class SeoHelper
             $data['address'] = [
                 '@type' => 'PostalAddress',
                 'streetAddress' => $address,
-                'addressLocality' => 'Chennai',
+                'addressLocality' => Setting::get('geo_placename', 'Chennai'),
                 'addressRegion' => 'Tamil Nadu',
                 'addressCountry' => 'IN',
             ];
+        }
+
+        if ($geo = self::geoCoordinates()) {
+            $data['geo'] = $geo;
+        }
+
+        if ($hours = self::openingHours()) {
+            $data['openingHoursSpecification'] = $hours;
+        }
+
+        if ($mapUrl = Setting::get('contact_map_url')) {
+            $data['hasMap'] = $mapUrl;
+        }
+
+        // makesOffer: the full service catalogue.
+        $data['makesOffer'] = array_map(function (array $service) {
+            return [
+                '@type' => 'Offer',
+                'itemOffered' => [
+                    '@type' => 'Service',
+                    'name' => $service['name'],
+                    'serviceType' => $service['type'],
+                    'url' => route($service['route']),
+                ],
+            ];
+        }, self::serviceCatalogue());
+
+        // Real testimonial ratings (aggregate + individual reviews) — only on a
+        // page that actually displays them, to avoid Google "schema drift".
+        if ($includeRatings && ($ratings = self::testimonialRatings())) {
+            $data['aggregateRating'] = $ratings['aggregate'];
+            $data['review'] = $ratings['reviews'];
         }
 
         $sameAs = self::socialProfiles();

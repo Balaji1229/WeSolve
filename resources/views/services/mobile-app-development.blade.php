@@ -4,6 +4,10 @@
 @section('meta_description', 'Build Android and Flutter apps with Mobile App Development Services in Chennai for scalable, secure, and user-friendly solutions.')
 @section('meta_keywords', 'Mobile App Development Services in Chennai, Android App Development Company in Chennai, Flutter App Development Company in Chennai')
 
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('Mobile App Development Services in Chennai', 'Android and Flutter mobile app development for scalable, secure and user-friendly apps.', route('service.mobile-app-development'), 'Mobile App Development') !!}
+@endsection
+
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Mobile App Development' => route('service.mobile-app-development')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">

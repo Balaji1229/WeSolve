@@ -4,6 +4,10 @@
 @section('meta_description', 'Get Website Development Services in Chennai from a trusted Website Development Company in Chennai for fast, secure websites. We also offer ecommerce and WordPress development.')
 @section('meta_keywords', 'Website Development Services in Chennai, Website Development Company in Chennai, Custom Website Development in Chennai, Web Development Company in Chennai, PHP Web Development Company in Chennai, Website Design Services in Chennai, Ecommerce Website Development Services in Chennai, WordPress Development Services in Chennai')
 
+@section('schema_extra')
+    {!! \App\Helpers\SeoHelper::schemaService('Website Development Services in Chennai', 'Custom, responsive, SEO-friendly website development for businesses in Chennai.', route('service.website-development'), 'Web Development') !!}
+@endsection
+
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Website Development' => route('service.website-development')]" />
 <section class="relative overflow-hidden bg-body pt-16 pb-20 lg:pt-24 lg:pb-28">

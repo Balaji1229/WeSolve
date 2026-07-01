@@ -3,7 +3,8 @@
 @section('title', 'Contact Us - WeSolve Technologies')
 
 @section('schema_extra')
-{!! \App\Helpers\SeoHelper::schemaLocalBusiness() !!}
+{{-- LocalBusiness without ratings: this page shows NAP/map, not the reviews. --}}
+{!! \App\Helpers\SeoHelper::schemaLocalBusiness(includeRatings: false) !!}
 @endsection
 
 @section('content')
