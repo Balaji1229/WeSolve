@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Website Development in Chennai | WeSolve Technologies')
-@section('meta_description', 'Looking for website development in Chennai? We build custom, responsive, SEO-friendly business websites that load fast and turn visitors into customers.')
-@section('meta_keywords', 'Website Development in Chennai, Custom Website Development in Chennai, Responsive Website Development Services in Chennai, Business Website Development in Chennai')
+@section('title', 'Website Development Services in Chennai | WeSolve Technologies')
+@section('meta_description', 'Get Website Development Services in Chennai from a trusted Website Development Company in Chennai for fast, secure websites. We also offer ecommerce and WordPress development.')
+@section('meta_keywords', 'Website Development Services in Chennai, Website Development Company in Chennai, Custom Website Development in Chennai, Web Development Company in Chennai, PHP Web Development Company in Chennai, Website Design Services in Chennai, Ecommerce Website Development Services in Chennai, WordPress Development Services in Chennai')
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Website Development' => route('service.website-development')]" />

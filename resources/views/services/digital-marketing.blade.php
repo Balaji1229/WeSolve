@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Digital Marketing Services in Chennai | WeSolve')
-@section('meta_description', 'Grow your business with our digital marketing services in Chennai. We offer SEO, local SEO, Google Ads management, and social media marketing for real results.')
-@section('meta_keywords', 'Digital Marketing Services in Chennai, SEO Services in Chennai, Local SEO Services in Chennai, Google Ads Management Services in Chennai')
+@section('title', 'Digital Marketing Services in Chennai | WeSolve Technologies')
+@section('meta_description', 'Grow online with expert Digital Marketing Services in Chennai, including SEO Services in Chennai and Google Ads for better leads.')
+@section('meta_keywords', 'Digital Marketing Services in Chennai, SEO Services in Chennai, Google Ads Services in Chennai')
 
 @section('content')
 <x-breadcrumbs :items="['Home' => route('home'), 'Services' => route('services'), 'Digital Marketing' => route('service.digital-marketing')]" />

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Digital Marketing Company in Chennai | WeSolve Technologies')
-@section('meta_description', 'WeSolve Technologies is a trusted digital marketing company in Chennai offering SEO, social media marketing, and affordable web & app development services.')
-@section('meta_keywords', 'Digital Marketing Company in Chennai, Digital Marketing Services in Chennai, SEO Company in Chennai, Social Media Marketing Company in Chennai')
+@section('meta_description', 'Grow your business with a trusted Digital Marketing Company in Chennai offering SEO, web development, web application development, mobile apps, Google Ads, and digital marketing solutions.')
+@section('meta_keywords', 'Digital Marketing Company in Chennai, Digital Marketing Agency in Chennai, Best Digital Marketing Company in Chennai, SEO Services in Chennai, Website Development Company in Chennai, Web Development Company in Chennai, Web Application Development Services in Chennai, Mobile App Development Services in Chennai, Software Development Company in Chennai')
 
 @section('content')
 {{-- Hero Section --}}
