@@ -54,6 +54,7 @@ class SettingSeeder extends Seeder
             ['key' => 'social_facebook', 'value' => 'https://www.facebook.com/people/Wesolvetechnologies/61590615067666/', 'type' => 'text', 'group' => 'social', 'label' => 'Facebook URL'],
             ['key' => 'social_threads', 'value' => 'https://www.threads.com/@wesolve_technologies', 'type' => 'text', 'group' => 'social', 'label' => 'Threads URL'],
             ['key' => 'social_github', 'value' => 'https://github.com/WesolveTechnologies', 'type' => 'text', 'group' => 'social', 'label' => 'GitHub URL'],
+            ['key' => 'twitter_handle', 'value' => '@WeSolve_Tech', 'type' => 'text', 'group' => 'social', 'label' => 'X (Twitter) Handle (for Twitter cards)'],
         ];
 
         foreach ($settings as $setting) {

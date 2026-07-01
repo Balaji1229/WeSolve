@@ -28,11 +28,20 @@
 
     @php
         $routeName = Route::currentRouteName() ?? 'home';
-        $pageSeo = \App\Models\PageSeo::where('page', $routeName)->first();
+        $pageSeo = \App\Models\PageSeo::where('page', $routeName)->where('is_active', true)->first();
         $metaTitle = $pageSeo?->meta_title ?? \App\Models\Setting::get('site_title', 'WeSolve Technologies - Affordable Website & App Development');
         $metaDescription = $pageSeo?->meta_description ?? \App\Models\Setting::get('site_description', 'Professional website development, web apps, SEO and maintenance services at affordable prices.');
         $metaKeywords = $pageSeo?->meta_keywords ?? \App\Models\Setting::get('site_keywords', 'website development, web app development, SEO, maintenance, affordable');
-        $ogImage = $pageSeo?->og_image ? asset('storage/' . $pageSeo->og_image) : asset('images/logo/wesolvetechnologies-dark.webp');
+
+        // OG/Twitter share image. Prefers a per-page PageSeo image, then a
+        // dedicated 1200x630 og-image.jpg, then the logo. Width/height hints are
+        // only emitted for a real share image (not the logo) to avoid mis-crops.
+        $ogDefaultPath = public_path('images/og-image.jpg');
+        $hasShareImage = (bool) $pageSeo?->og_image || file_exists($ogDefaultPath);
+        $ogImage = $pageSeo?->og_image
+            ? asset('storage/' . $pageSeo->og_image)
+            : (file_exists($ogDefaultPath) ? asset('images/og-image.jpg') : asset('images/logo/wesolvetechnologies-dark.webp'));
+        $ogImageType = str_ends_with($ogImage, '.png') ? 'image/png' : (str_ends_with($ogImage, '.webp') ? 'image/webp' : 'image/jpeg');
     @endphp
 
     <title>@yield('title', $metaTitle)</title>
@@ -47,13 +56,23 @@
         <meta property="og:site_name" content="WeSolve Technologies">
         <meta property="og:title" content="@yield('title', $metaTitle)">
         <meta property="og:description" content="@yield('meta_description', $metaDescription)">
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="@yield('og_type', 'website')">
         <meta property="og:url" content="{{ url()->current() }}">
         <meta property="og:image" content="{{ $ogImage }}">
+        <meta property="og:image:alt" content="@yield('title', $metaTitle)">
+        <meta property="og:image:type" content="{{ $ogImageType }}">
+        @if($hasShareImage)
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        @endif
         <meta property="og:locale" content="en_US">
 
         {{-- Twitter Card --}}
         <meta name="twitter:card" content="summary_large_image">
+        @if($handle = \App\Models\Setting::get('twitter_handle'))
+        <meta name="twitter:site" content="{{ $handle }}">
+        <meta name="twitter:creator" content="{{ $handle }}">
+        @endif
         <meta name="twitter:title" content="@yield('title', $metaTitle)">
         <meta name="twitter:description" content="@yield('meta_description', $metaDescription)">
         <meta name="twitter:image" content="{{ $ogImage }}">
