@@ -124,8 +124,8 @@
             {{-- Project 1: BookAcross --}}
             <div class="project-card" data-aos="fade-up" data-project="bookacross">
                 <div class="project-scroll-wrap relative">
-                    <img src="{{ asset('images/bookacross.png') }}" alt="BookAcross travel booking application" class="project-img active" loading="lazy" width="800" height="600" decoding="async">
-                    <img src="{{ asset('images/bookacross-dashboard.png') }}" alt="BookAcross admin dashboard" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
+                    <img src="{{ asset('images/bookacross.webp') }}" alt="BookAcross travel booking application" class="project-img active" loading="lazy" width="800" height="600" decoding="async">
+                    <img src="{{ asset('images/bookacross-dashboard.webp') }}" alt="BookAcross admin dashboard" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
 
                     {{-- Navigation arrows --}}
                     <button type="button" class="project-carousel-btn prev" aria-label="Previous image" data-action="prev">
@@ -166,8 +166,8 @@
             {{-- Project 2: Crackers --}}
             <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-project="crackers">
                 <div class="project-scroll-wrap relative">
-                    <img src="{{ asset('images/crackers-app.png') }}" alt="Crackers Shop e-commerce app" class="project-img active" loading="lazy" width="800" height="600" decoding="async">
-                    <img src="{{ asset('images/crackers-shop.png') }}" alt="Crackers Shop online store" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
+                    <img src="{{ asset('images/crackers-app.webp') }}" alt="Crackers Shop e-commerce app" class="project-img active" loading="lazy" width="800" height="600" decoding="async">
+                    <img src="{{ asset('images/crackers-shop.webp') }}" alt="Crackers Shop online store" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
 
                     <button type="button" class="project-carousel-btn prev" aria-label="Previous image" data-action="prev">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
@@ -206,8 +206,8 @@
             {{-- Project 3: Kesha Sri Collections --}}
             <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-project="keshasri">
                 <div class="project-scroll-wrap relative">
-                    <img src="{{ asset('images/keshasricollections.png') }}" alt="Kesha Sri Collections learning platform" class="project-img active" loading="lazy" width="800" height="600" decoding="async">
-                    <img src="{{ asset('images/keshasricollection-app.png') }}" alt="Kesha Sri Collections mobile app" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
+                    <img src="{{ asset('images/keshasricollections.webp') }}" alt="Kesha Sri Collections learning platform" class="project-img active" loading="lazy" width="800" height="600" decoding="async">
+                    <img src="{{ asset('images/keshasricollection-app.webp') }}" alt="Kesha Sri Collections mobile app" class="project-img hidden" loading="lazy" width="800" height="600" decoding="async">
 
                     <button type="button" class="project-carousel-btn prev" aria-label="Previous image" data-action="prev">
                         <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
