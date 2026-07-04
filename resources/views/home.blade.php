@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Digital Marketing & Web Development Company in Chennai | WeSolve Technologies')
+@section('title', 'Web Development & Digital Marketing Services in Chennai | WeSolve Technologies')
 @section('meta_description', 'WeSolve Technologies helps businesses in Chennai grow online with SEO, web development, mobile apps, Google Ads, and digital marketing. Book a free consultation today.')
 @section('meta_keywords', 'digital marketing company in Chennai, web development company in Chennai, SEO services Chennai, mobile app development Chennai, Google Ads management, website development services')
 

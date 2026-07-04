@@ -12,7 +12,7 @@ class PageSeoSeeder extends Seeder
         $pages = [
             [
                 'page' => 'home',
-                'meta_title' => 'Digital Marketing & Web Development Company in Chennai | WeSolve Technologies',
+                'meta_title' => 'Web Development & Digital Marketing Services in Chennai | WeSolve Technologies',
                 'meta_description' => 'WeSolve Technologies helps businesses in Chennai grow online with SEO, web development, mobile apps, Google Ads, and digital marketing. Book a free consultation today.',
                 'meta_keywords' => 'digital marketing company in Chennai, web development company in Chennai, SEO services Chennai, mobile app development Chennai, Google Ads management, website development services',
                 'faqs' => [
