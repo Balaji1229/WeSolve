@@ -98,7 +98,7 @@
                 </div>
                 <h3 class="text-lg font-semibold text-primary mb-3" style="font-family: 'Space Grotesk', sans-serif;">{{ $service['title'] }}</h3>
                 <p class="text-sm text-muted leading-relaxed mb-4">{{ $service['desc'] }}</p>
-                <a href="{{ route($service['route']) }}" class="text-sm text-muted hover:text-[#305CDE] transition inline-flex items-center gap-1">
+                <a href="{{ route($service['route']) }}" class="text-sm font-medium text-[#305CDE] hover:text-[#00B6DA] transition inline-flex items-center gap-1">
                     Learn More <span>→</span>
                 </a>
             </div>
