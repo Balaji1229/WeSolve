@@ -13,7 +13,7 @@
             About <span class="gradient-text">WeSolve Technologies</span>
         </h1>
         <p class="mt-6 text-lg text-muted max-w-2xl mx-auto">
-            Your trusted partner for affordable digital solutions
+            Your trusted partner for freelance IT solutions and affordable digital services
         </p>
     </div>
 </section>
@@ -31,10 +31,10 @@
                     Who We Are
                 </h2>
                 <p class="text-muted leading-relaxed mb-4">
-                    <strong class="text-primary">WeSolve Technologies</strong> is a leading digital agency based in India, specializing in <strong class="text-primary">affordable website development</strong>, <strong class="text-primary">custom mobile app development</strong>, and result-driven <strong class="text-primary">SEO services</strong>. We help startups, small businesses, and enterprises build a powerful digital presence without breaking the bank.
+                    <strong class="text-primary">WeSolve Technologies</strong> is a freelance IT solutions provider based in India, specializing in <strong class="text-primary">affordable website development</strong>, <strong class="text-primary">custom mobile app development</strong>, and result-driven <strong class="text-primary">SEO services</strong>. As experienced freelance project developers, we help startups, small businesses, and enterprises build a powerful digital presence without breaking the bank.
                 </p>
                 <p class="text-muted leading-relaxed mb-6">
-                    Our team of expert developers, designers, and SEO specialists brings together years of hands-on experience in Laravel, React, Flutter, and modern web technologies. From e-commerce platforms and booking systems to corporate websites and cross-platform mobile apps — we deliver high-quality, scalable solutions tailored to your business goals.
+                    Our team of expert freelance developers, designers, and SEO specialists brings together years of hands-on experience in Laravel, React, Flutter, and modern web technologies. From e-commerce platforms and booking systems to corporate websites and cross-platform mobile apps — we deliver high-quality, scalable solutions tailored to your business goals.
                 </p>
 
             </div>
