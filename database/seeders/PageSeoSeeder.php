@@ -12,9 +12,27 @@ class PageSeoSeeder extends Seeder
         $pages = [
             [
                 'page' => 'home',
-                'meta_title' => 'WeSolve Technologies - Affordable Website & App Development',
-                'meta_description' => 'Professional website development, web apps, SEO and maintenance services at affordable prices.',
-                'meta_keywords' => 'website development, web app development, SEO, maintenance, affordable',
+                'meta_title' => 'Digital Marketing & Web Development Company in Chennai | WeSolve Technologies',
+                'meta_description' => 'WeSolve Technologies helps businesses in Chennai grow online with SEO, web development, mobile apps, Google Ads, and digital marketing. Book a free consultation today.',
+                'meta_keywords' => 'digital marketing company in Chennai, web development company in Chennai, SEO services Chennai, mobile app development Chennai, Google Ads management, website development services',
+                'faqs' => [
+                    [
+                        'question' => 'Why choose WeSolve Technologies for digital marketing in Chennai?',
+                        'answer' => 'We provide customized strategies focused on measurable business growth, quality leads, and long-term success. Our team combines local market knowledge with data-driven execution to deliver real results.',
+                    ],
+                    [
+                        'question' => 'How long does SEO take to show results?',
+                        'answer' => 'SEO results usually start becoming visible within 3–6 months depending on competition, industry, and the current state of your website. We focus on sustainable growth rather than short-term tricks.',
+                    ],
+                    [
+                        'question' => 'Do you develop custom websites and applications?',
+                        'answer' => 'Yes, we build custom websites, web applications, and mobile applications based on your business requirements. Every solution is tailored to your goals, audience, and budget.',
+                    ],
+                    [
+                        'question' => 'Do you provide ongoing support?',
+                        'answer' => 'Yes, we provide maintenance, updates, and continuous support for all projects. Our team is available to help you keep your digital assets secure, fast, and up to date.',
+                    ],
+                ],
             ],
             [
                 'page' => 'about',
@@ -61,7 +79,7 @@ class PageSeoSeeder extends Seeder
         ];
 
         foreach ($pages as $page) {
-            PageSeo::firstOrCreate(['page' => $page['page']], $page);
+            PageSeo::updateOrCreate(['page' => $page['page']], $page);
         }
     }
 }
