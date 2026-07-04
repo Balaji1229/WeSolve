@@ -40,7 +40,7 @@
             </div>
             <div class="relative" data-aos="fade-left">
                 <div class="glass-card p-2 overflow-hidden">
-                    <img src="{{ asset('images/about-us.jpg') }}" alt="WeSolve Technologies - Affordable Website and App Development Company India" class="w-full h-auto rounded-xl object-cover" loading="eager" fetchpriority="high" width="600" height="400">
+                    <img src="{{ asset('images/about-us.webp') }}" alt="WeSolve Technologies - Affordable Website and App Development Company India" class="w-full h-auto rounded-xl object-cover" loading="eager" fetchpriority="high" width="600" height="400">
                 </div>
             </div>
         </div>
@@ -93,14 +93,14 @@
 {{-- Meet Our Team --}}
 @php
 $teamMembers = [
-    ['name' => 'Selva',      'role' => 'Full Stack Developer',   'exp' => '6+ Years Experience', 'image' => 'images/developers/selva.jpg'],
-    ['name' => 'Nanthini',   'role' => 'Full Stack Developer',   'exp' => '5+ Years Experience', 'image' => 'images/developers/nanthini.jpg'],
-    ['name' => 'Balaji',     'role' => 'Full Stack Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/balaji.png'],
-    ['name' => 'Kanishka',   'role' => 'Mobile App Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/kanishka.jpg'],
-    ['name' => 'Sanjay',     'role' => 'SEO Specialist',         'exp' => '1+ Years Experience', 'image' => 'images/developers/sanjay.png'],
-    ['name' => 'Prasanth',   'role' => 'Full Stack Developer',   'exp' => '3+ Years Experience', 'image' => 'images/developers/prasanth.jpg'],
-    ['name' => 'Arthy',      'role' => 'Backend Developer',      'exp' => '3+ Years Experience', 'image' => 'images/developers/arthy.jpg'],
-    ['name' => 'Ramkumar',   'role' => 'App Developer',          'exp' => '2+ Years Experience', 'image' => 'images/developers/ram.png'],
+    ['name' => 'Selva',      'role' => 'Full Stack Developer',   'exp' => '6+ Years Experience', 'image' => 'images/developers/selva.webp'],
+    ['name' => 'Nanthini',   'role' => 'Full Stack Developer',   'exp' => '5+ Years Experience', 'image' => 'images/developers/nanthini.webp'],
+    ['name' => 'Balaji',     'role' => 'Full Stack Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/balaji.webp'],
+    ['name' => 'Kanishka',   'role' => 'Mobile App Developer',   'exp' => '4+ Years Experience', 'image' => 'images/developers/kanishka.webp'],
+    ['name' => 'Sanjay',     'role' => 'SEO Specialist',         'exp' => '1+ Years Experience', 'image' => 'images/developers/sanjay.webp'],
+    ['name' => 'Prasanth',   'role' => 'Full Stack Developer',   'exp' => '3+ Years Experience', 'image' => 'images/developers/prasanth.webp'],
+    ['name' => 'Arthy',      'role' => 'Backend Developer',      'exp' => '3+ Years Experience', 'image' => 'images/developers/arthy.webp'],
+    ['name' => 'Ramkumar',   'role' => 'App Developer',          'exp' => '2+ Years Experience', 'image' => 'images/developers/ram.webp'],
 ];
 @endphp
 
