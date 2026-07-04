@@ -49,7 +49,7 @@
                 &copy; {{ date('Y') }} WeSolve Technologies. All rights reserved.
             </p>
             <p class="text-sm text-muted-light">
-                Crafted with care for small businesses worldwide.
+                ❤️ Crafted with care for small businesses worldwide.
             </p>
         </div>
     </div>
