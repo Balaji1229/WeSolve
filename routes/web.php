@@ -61,6 +61,11 @@ Route::get('/services/cloud-solutions', function () {
 Route::get('/services/maintenance-support', function () {
     return view('services.maintenance-support');
 })->name('service.maintenance-support');
+
+Route::get('/services/freelance-web-development', function () {
+    return view('services.freelance-web-development');
+})->name('service.freelance-web-development');
+
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
 Route::get('/portfolio/{slug}', [PortfolioController::class, 'show'])->name('portfolio.show');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');

@@ -86,6 +86,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>{{ route('service.freelance-web-development') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
 
     <url>
         <loc>{{ route('templates') }}</loc>
