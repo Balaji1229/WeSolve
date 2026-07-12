@@ -311,7 +311,7 @@
                 <div class="space-y-4">
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
                             <h4 class="text-primary font-medium">Experienced developers</h4>
@@ -319,7 +319,7 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
                             <h4 class="text-primary font-medium">Custom-built solutions for your goals</h4>
@@ -327,7 +327,7 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
                             <h4 class="text-primary font-medium">SEO-friendly development</h4>
@@ -335,7 +335,7 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
                             <h4 class="text-primary font-medium">Responsive and thoroughly tested</h4>
@@ -343,7 +343,7 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
                             <h4 class="text-primary font-medium">Transparent communication at every stage</h4>
@@ -351,7 +351,7 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
                             <h4 class="text-primary font-medium">Reliable ongoing support</h4>
@@ -359,7 +359,7 @@
                     </div>
                     <div class="flex items-start gap-4">
                         <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                            <svg class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
                             <h4 class="text-primary font-medium">Long-term partnerships, not one-off invoices</h4>
