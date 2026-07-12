@@ -154,17 +154,6 @@
                         </div>
                         @endif
                     </div>
-
-                    @if(!empty($contactInfo['map_iframe']))
-                    <div class="mt-6 overflow-hidden rounded-xl border border-[#305CDE]/20">
-                        {!! $contactInfo['map_iframe'] !!}
-                    </div>
-                    @endif
-
-                    <div class="mt-6 pt-6 border-t border-[#305CDE]/10">
-                        <h3 class="text-primary font-medium text-sm mb-4">Follow Us</h3>
-                        <x-social-links />
-                    </div>
                 </div>
 
                 <div class="rounded-2xl p-8 bg-gradient-to-br from-[#305CDE]/20 to-[#00B6DA]/20 border border-[#305CDE]/20 text-center">
@@ -217,4 +206,20 @@
         </div>
     </div>
 </section>
+
+@if(!empty($contactInfo['map_iframe']))
+<section class="py-16 lg:py-24 bg-body relative">
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10" data-aos="fade-up">
+            <span class="tag mb-4">Visit Us</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">Find Us on the Map</h2>
+            <p class="mt-4 text-muted">Visit our office or get directions to WeSolve Technologies.</p>
+        </div>
+        <div class="overflow-hidden rounded-2xl border border-[#305CDE]/20 shadow-lg" data-aos="zoom-in">
+            {!! $contactInfo['map_iframe'] !!}
+        </div>
+    </div>
+</section>
+@endif
+
 @endsection
