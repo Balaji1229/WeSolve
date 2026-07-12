@@ -26,6 +26,7 @@
                         <a href="{{ route('service.ui-ux-design') }}" class="dropdown-item" role="menuitem">UI/UX Design</a>
                         <a href="{{ route('service.cloud-solutions') }}" class="dropdown-item" role="menuitem">Cloud Solutions</a>
                         <a href="{{ route('service.maintenance-support') }}" class="dropdown-item" role="menuitem">Maintenance &amp; Support</a>
+                        <a href="{{ route('service.freelance-web-development') }}" class="dropdown-item" role="menuitem">Freelance Web Development</a>
                         <div class="border-t border-theme my-1"></div>
                         <a href="{{ route('services') }}" class="dropdown-item font-medium text-[#305CDE]" role="menuitem">
                             View All Services →
@@ -70,6 +71,7 @@
             <a href="{{ route('home') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('home') ? 'aria-current=page' : '' }}>Home</a>
             <a href="{{ route('about') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('about') ? 'aria-current=page' : '' }}>About Us</a>
             <a href="{{ route('services') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('services*') ? 'aria-current=page' : '' }}>Services</a>
+            <a href="{{ route('service.freelance-web-development') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center pl-8 transition" {{ request()->routeIs('service.freelance-web-development') ? 'aria-current=page' : '' }}>Freelance Web Development</a>
             <a href="{{ route('portfolio') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('portfolio*') ? 'aria-current=page' : '' }}>Portfolio</a>
             <a href="{{ route('templates') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('templates') ? 'aria-current=page' : '' }}>Templates</a>
             <a href="{{ route('contact') }}" class="nav-link block rounded-lg px-3 py-3 text-base min-h-[44px] flex items-center transition" {{ request()->routeIs('contact') ? 'aria-current=page' : '' }}>Contact</a>

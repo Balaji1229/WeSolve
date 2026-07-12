@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Web Development & Digital Marketing Services in Chennai | WeSolve Technologies')
-@section('meta_description', 'WeSolve Technologies helps businesses in Chennai grow online with SEO, web development, mobile apps, Google Ads, and digital marketing. Book a free consultation today.')
-@section('meta_keywords', 'digital marketing company in Chennai, web development company in Chennai, SEO services Chennai, mobile app development Chennai, Google Ads management, website development services')
+@section('title', 'Web Development Company in Chennai | WeSolve Technologies')
+@section('meta_description', 'WeSolve Technologies is a trusted Web Development Company in Chennai delivering fast, secure, and SEO-friendly websites, web applications, and ecommerce platforms tailored to your business goals. Book a free consultation today.')
+@section('meta_keywords', 'Web Development Company in Chennai, Website Development Company in Chennai, Website Development Services in Chennai, web development Chennai, SEO-friendly websites Chennai, custom web development Chennai, ecommerce website development Chennai, Laravel developers Chennai')
 
 {{-- ProfessionalService schema: NAP, geo, hours, service catalogue (makesOffer),
      and real testimonial ratings visible on this page (AggregateRating + reviews). --}}
@@ -23,21 +23,21 @@
             <div class="inline-flex mb-6">
                 <span class="tag">
                     <svg class="w-3 h-3 mr-2 text-[#305CDE]" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    Trusted Digital Agency in Chennai
+                    Web Development Company in Chennai
                 </span>
             </div>
 
             <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
-                <span class="text-primary">Web Development</span><br class="hidden sm:block">
-                <span class="gradient-text">& Digital Marketing Services in Chennai</span>
+                <span class="text-primary">Build a Website That</span><br class="hidden sm:block">
+                <span class="gradient-text">Grows Your Business</span>
             </h1>
 
             <p class="mt-6 text-lg leading-8 text-secondary max-w-2xl mx-auto">
-                WeSolve Technologies is a trusted web development and digital marketing company in Chennai helping startups, small businesses, and enterprises grow online. We specialize in SEO services, Google Ads management, social media marketing, custom website development, and mobile app development — delivering measurable traffic, qualified leads, and long-term revenue growth.
+                Your website should do more than look professional — it should help your business attract customers, build trust, and drive real growth. At WeSolve Technologies, we're a trusted Web Development Company in Chennai delivering fast, secure, and SEO-friendly websites tailored to your business goals. We build responsive digital solutions that bring together performance, functionality, and a genuinely good user experience.
             </p>
 
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="{{ route('contact') }}" class="btn-gradient">Get Free Consultation</a>
+                <a href="{{ route('contact') }}" class="btn-gradient">Get a Free Consultation →</a>
                 <a href="{{ route('portfolio') }}" class="btn-outline">View Our Work</a>
             </div>
         </div>
@@ -64,6 +64,49 @@
     </div>
 </section>
 
+{{-- About WeSolve Technologies --}}
+<section class="py-16 lg:py-24 bg-body relative">
+    <div class="bg-orb bg-orb-blue w-[400px] h-[400px] top-1/2 -right-40 animate-pulse-glow" style="animation-delay: 1.5s;"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <span class="tag mb-4">About Us</span>
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">About WeSolve Technologies</h2>
+                <p class="text-muted leading-relaxed mb-6">
+                    WeSolve Technologies helps startups, SMEs, and enterprises build reliable digital solutions that support long-term growth. We develop custom websites, web applications, and eCommerce platforms using modern technologies like Laravel, React, Next.js, and WordPress.
+                </p>
+                <p class="text-muted leading-relaxed">
+                    Our development process focuses on quality, security, and scalability, so every project is built to perform well, rank well, and hold up as your business grows. As a leading Website Development Company in Chennai, businesses trust us because we combine technical expertise with transparent communication and support that continues well after launch — that's what keeps clients coming back for their next Website Development Services in Chennai project too.
+                </p>
+            </div>
+            <div class="relative" data-aos="fade-left">
+                <div class="glass-card p-8 relative z-10">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-card p-4 text-center">
+                            <div class="text-3xl font-bold gradient-text" style="font-family: 'Space Grotesk', sans-serif;">Custom</div>
+                            <div class="text-xs text-muted mt-1">Solutions</div>
+                        </div>
+                        <div class="glass-card p-4 text-center">
+                            <div class="text-3xl font-bold gradient-text" style="font-family: 'Space Grotesk', sans-serif;">SEO</div>
+                            <div class="text-xs text-muted mt-1">Friendly Code</div>
+                        </div>
+                        <div class="glass-card p-4 text-center">
+                            <div class="text-3xl font-bold gradient-text" style="font-family: 'Space Grotesk', sans-serif;">Secure</div>
+                            <div class="text-xs text-muted mt-1">Development</div>
+                        </div>
+                        <div class="glass-card p-4 text-center">
+                            <div class="text-3xl font-bold gradient-text" style="font-family: 'Space Grotesk', sans-serif;">Scalable</div>
+                            <div class="text-xs text-muted mt-1">Architecture</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -bottom-4 -right-4 w-full h-full glass-card -z-0"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="section-divider"></div>
 
 {{-- Services Section --}}
@@ -80,14 +123,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @php
                 $homeServices = [
-                    ['title' => 'Website Development', 'route' => 'service.website-development', 'desc' => 'Fast, responsive websites tailored to your brand. We build business sites, portfolios, e-commerce stores, and custom platforms that turn visitors into customers.'],
-                    ['title' => 'Web Application Development', 'route' => 'service.web-application-development', 'desc' => 'Scalable web apps with clean architecture, secure backends, and intuitive dashboards that streamline your operations.'],
-                    ['title' => 'Mobile App Development', 'route' => 'service.mobile-app-development', 'desc' => 'Native and cross-platform Android and iOS apps built for performance, engagement, and real-world business results.'],
-                    ['title' => 'SEO & Digital Marketing', 'route' => 'service.digital-marketing', 'desc' => 'Integrated SEO, Google Ads, social media, and content strategies that increase visibility and bring qualified traffic to your business.'],
-                    ['title' => 'AI & Automation Solutions', 'route' => 'service.ai-automation-solutions', 'desc' => 'Smart chatbots, workflow automation, and AI-powered tools that reduce manual work and improve customer experiences.'],
-                    ['title' => 'UI/UX Design', 'route' => 'service.ui-ux-design', 'desc' => 'User-centered interfaces and smooth experiences that make your product easy to navigate and enjoyable to use.'],
-                    ['title' => 'Cloud Solutions', 'route' => 'service.cloud-solutions', 'desc' => 'Reliable cloud hosting, deployment, and infrastructure that scales with your business without unnecessary complexity.'],
-                    ['title' => 'Maintenance & Support', 'route' => 'service.maintenance-support', 'desc' => 'Ongoing updates, security monitoring, and technical support to keep your digital assets running at their best.'],
+                    ['title' => 'Website Development', 'route' => 'service.website-development', 'desc' => 'Fast, SEO-friendly websites built around your business goals, not generic templates.'],
+                    ['title' => 'Web Application Development', 'route' => 'service.web-application-development', 'desc' => 'Secure dashboards, portals, and internal tools built to scale with you.'],
+                    ['title' => 'Mobile App Development', 'route' => 'service.mobile-app-development', 'desc' => 'Native and cross-platform iOS/Android apps built with Flutter and React Native.'],
+                    ['title' => 'Digital Marketing', 'route' => 'service.digital-marketing', 'desc' => 'On-page SEO and paid strategies that bring the right traffic to your business.'],
+                    ['title' => 'AI & Automation Solutions', 'route' => 'service.ai-automation-solutions', 'desc' => 'Chatbots and workflow automation that save your team hours every week.'],
+                    ['title' => 'UI/UX Design', 'route' => 'service.ui-ux-design', 'desc' => 'Clean, mobile-first interfaces that build trust and guide visitors to act.'],
+                    ['title' => 'Cloud Solutions', 'route' => 'service.cloud-solutions', 'desc' => 'Reliable, scalable hosting and infrastructure on AWS.'],
+                    ['title' => 'Maintenance & Support', 'route' => 'service.maintenance-support', 'desc' => 'Ongoing updates, security monitoring, and performance checks post-launch.'],
                 ];
             @endphp
 
@@ -262,7 +305,7 @@
                 <span class="tag mb-4">Why Us</span>
                 <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4 mb-6" style="font-family: 'Space Grotesk', sans-serif;">Why Choose WeSolve Technologies?</h2>
                 <p class="text-muted leading-relaxed mb-8">
-                    We combine technical expertise with a clear focus on business outcomes. Every project starts with understanding your goals and ends with a solution that performs.
+                    As a Website Development Company in Chennai, we combine experienced developers, custom-built solutions, and SEO-friendly code with transparent communication at every stage. Every project is built responsive, tested thoroughly, and backed by reliable support — because we're building for long-term partnerships, not one-off invoices.
                 </p>
 
                 <div class="space-y-4">
@@ -271,7 +314,7 @@
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
-                            <h4 class="text-primary font-medium">Experienced digital experts</h4>
+                            <h4 class="text-primary font-medium">Experienced developers</h4>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -279,7 +322,7 @@
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
-                            <h4 class="text-primary font-medium">Customized solutions for your goals</h4>
+                            <h4 class="text-primary font-medium">Custom-built solutions for your goals</h4>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -295,7 +338,7 @@
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
-                            <h4 class="text-primary font-medium">Responsive and modern design</h4>
+                            <h4 class="text-primary font-medium">Responsive and thoroughly tested</h4>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -303,7 +346,7 @@
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
-                            <h4 class="text-primary font-medium">Fast delivery without compromising quality</h4>
+                            <h4 class="text-primary font-medium">Transparent communication at every stage</h4>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
@@ -319,15 +362,7 @@
                             <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
                         </div>
                         <div>
-                            <h4 class="text-primary font-medium">Transparent communication</h4>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="flex-shrink-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#305CDE] to-[#00B6DA] flex items-center justify-center mt-0.5">
-                            <svg class="h-3 w-3 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <div>
-                            <h4 class="text-primary font-medium">Long-term growth strategies</h4>
+                            <h4 class="text-primary font-medium">Long-term partnerships, not one-off invoices</h4>
                         </div>
                     </div>
                 </div>
@@ -378,12 +413,12 @@
 
         @php
             $processSteps = [
-                ['title' => 'Requirement Analysis', 'desc' => 'Understand business goals, target audience, and project requirements.', 'color' => '#305CDE', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>'],
-                ['title' => 'Strategy Planning', 'desc' => 'Create a clear roadmap and identify the best digital approach.', 'color' => '#00B6DA', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>'],
-                ['title' => 'Design & Development', 'desc' => 'Design intuitive interfaces and build scalable, high-performance solutions.', 'color' => '#7C3AED', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>'],
-                ['title' => 'Testing & QA', 'desc' => 'Ensure performance, security, usability, and quality standards.', 'color' => '#10B981', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>'],
-                ['title' => 'Deployment & Launch', 'desc' => 'Deploy your solution smoothly and ensure a successful launch.', 'color' => '#F59E0B', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>'],
-                ['title' => 'Support & Optimization', 'desc' => 'Provide continuous support and optimization for long-term success.', 'color' => '#EC4899', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>'],
+                ['title' => 'Discovery & Analysis', 'desc' => 'Understanding your business and goals first, then turning them into a clear technical scope.', 'color' => '#305CDE', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>'],
+                ['title' => 'UI/UX Design', 'desc' => 'Interfaces built around real user behavior.', 'color' => '#00B6DA', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>'],
+                ['title' => 'Development', 'desc' => 'Clean, maintainable code on the right stack.', 'color' => '#7C3AED', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>'],
+                ['title' => 'Testing & QA', 'desc' => 'Checked across devices before launch.', 'color' => '#10B981', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>'],
+                ['title' => 'Deployment', 'desc' => 'Smooth go-live with zero disruption.', 'color' => '#F59E0B', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>'],
+                ['title' => 'Continuous Support', 'desc' => 'Ongoing updates as your business grows.', 'color' => '#EC4899', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>'],
             ];
         @endphp
 
@@ -446,6 +481,30 @@
                 </div>
                 @endforeach
             </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+{{-- Technologies We Use --}}
+<section class="py-16 lg:py-24 bg-body relative">
+    <div class="bg-orb bg-orb-purple w-[400px] h-[400px] bottom-0 right-0 animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <span class="tag mb-4">Our Stack</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">Technologies We Use</h2>
+            <p class="mt-4 text-muted max-w-2xl mx-auto">Modern, proven technologies selected to match your project's goals and scale.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="100">
+            @php
+                $technologies = ['Laravel', 'PHP', 'React', 'Next.js', 'Vue.js', 'Node.js', 'Java', 'Python', 'Django', 'WordPress', 'Shopify', 'Flutter', 'React Native', 'HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'jQuery', 'Bootstrap', 'Tailwind CSS', 'MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'AWS', 'Google Cloud', 'Firebase', 'Docker', 'Git', 'REST APIs'];
+            @endphp
+            @foreach($technologies as $tech)
+            <span class="glass-card px-5 py-3 text-primary font-medium text-sm">{{ $tech }}</span>
+            @endforeach
         </div>
     </div>
 </section>
@@ -718,18 +777,84 @@
 
 <div class="section-divider"></div>
 
+{{-- Industries We Serve --}}
+<section class="py-16 lg:py-24 bg-body relative overflow-hidden">
+    <div class="bg-orb bg-orb-blue w-[400px] h-[400px] top-0 -left-40 animate-pulse-glow" style="animation-delay: 1s;"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <span class="tag mb-4">Who We Help</span>
+            <h2 class="text-3xl lg:text-4xl font-bold text-primary mt-4" style="font-family: 'Space Grotesk', sans-serif;">Industries We Serve</h2>
+            <p class="mt-4 text-muted max-w-2xl mx-auto">We build digital solutions for businesses across a wide range of industries.</p>
+        </div>
+    </div>
+
+    @php
+        $industries = ['Healthcare', 'Education', 'Retail & Ecommerce', 'Manufacturing', 'Real Estate', 'Finance', 'Logistics', 'Hospitality', 'Construction', 'Startups', 'Professional Services'];
+    @endphp
+
+    {{-- Marquee Row 1 (left) --}}
+    <div class="relative mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-body to-transparent z-10"></div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-body to-transparent z-10"></div>
+
+        <div class="flex gap-4 animate-marquee-left hover:[animation-play-state:paused]">
+            @foreach(array_merge($industries, $industries) as $industry)
+            <div class="glass-card-hover flex-shrink-0 w-44 sm:w-48 px-4 py-4 text-center flex items-center justify-center">
+                <span class="text-primary font-medium text-sm">{{ $industry }}</span>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    {{-- Marquee Row 2 (right) --}}
+    <div class="relative" data-aos="fade-up" data-aos-delay="200">
+        <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-body to-transparent z-10"></div>
+        <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-body to-transparent z-10"></div>
+
+        <div class="flex gap-4 animate-marquee-right hover:[animation-play-state:paused]">
+            @foreach(array_merge($industries, $industries) as $industry)
+            <div class="glass-card-hover flex-shrink-0 w-44 sm:w-48 px-4 py-4 text-center flex items-center justify-center">
+                <span class="text-primary font-medium text-sm">{{ $industry }}</span>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    <style>
+        @keyframes marquee-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-marquee-left {
+            animation: marquee-left 35s linear infinite;
+            width: max-content;
+        }
+        .animate-marquee-right {
+            animation: marquee-right 35s linear infinite;
+            width: max-content;
+        }
+    </style>
+</section>
+
+<div class="section-divider"></div>
+
 {{-- Final CTA Section --}}
 <section class="py-16 lg:py-24 bg-body relative">
     <div class="bg-orb bg-orb-purple w-[500px] h-[500px] top-0 -right-40 animate-pulse-glow" style="animation-delay: 1s;"></div>
     <div class="bg-orb bg-orb-blue w-[400px] h-[400px] bottom-0 -left-20 animate-pulse-glow" style="animation-delay: 2s;"></div>
 
     <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center" data-aos="fade-up">
-        <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6" style="font-family: 'Space Grotesk', sans-serif;">Ready to Grow Your Business?</h2>
+        <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6" style="font-family: 'Space Grotesk', sans-serif;">Ready to Build a Website That Works as Hard as You Do?</h2>
         <p class="text-lg text-muted mb-10 max-w-2xl mx-auto">
-            Let's discuss how WeSolve Technologies can help you attract more customers and build a digital presence that lasts.
+            Whether you need a new site, a redesign, an ecommerce store, or a mobile app, our team is ready to understand your goals before recommending anything. Get in touch for a free consultation and see what a website built specifically around your business could do for your growth.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ route('contact') }}" class="btn-gradient">Request Free Quote</a>
+            <a href="{{ route('contact') }}" class="btn-gradient">Get Your Free Consultation →</a>
             <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', \App\Models\Setting::get('contact_phone', '+1234567890')) }}" target="_blank" rel="noopener noreferrer" class="btn-outline">Chat on WhatsApp</a>
         </div>
     </div>
